@@ -57,7 +57,7 @@ export function renderSiteFooter(base = '') {
 
 /* ---------- hero ---------- */
 export function renderHero({ eyebrow, title, lede, badge, actions = [] }) {
-  return el('section', { class: 'site-hero' },
+  return el('section', { class: 'site-hero site-reveal' },
     el('div', { class: 'site-wrap' },
       badge ? el('span', { class: 'ml-badge site-hero__badge' }, badge) : null,
       eyebrow ? el('span', { class: 'eyebrow site-hero__eyebrow' }, eyebrow) : null,
@@ -81,10 +81,12 @@ export function renderWorkflow(steps, { title, compact = false } = {}) {
         el('span', { class: 'wf__label' }, s)))));
 }
 
-/* ---------- agent card (reuses .ml-card) ---------- */
-export function renderAgentCard(a) {
+/* ---------- agent card (reuses .ml-card) ----------
+   detailBase: '' -> #agent-<id> on the same page;
+               'ai-agents.html' -> deep-links from the homepage */
+export function renderAgentCard(a, { detailBase = '' } = {}) {
   return el('article', {
-    class: 'ml-card site-card',
+    class: 'ml-card site-card site-reveal',
     style: { '--card-accent': `var(${a.accent})` },
   },
     el('div', { class: 'ml-card__top' },
@@ -96,12 +98,12 @@ export function renderAgentCard(a) {
     el('p', { class: 'site-card__flow' }, a.workflow.join('  →  ')),
     el('div', { class: 'ml-card__foot' },
       el('a', { class: 'btn btn-solid', href: a.demoHref }, 'Try demo →'),
-      el('a', { class: 'btn btn-outline', href: `#agent-${a.id}` }, 'Explore agent')));
+      el('a', { class: 'btn btn-outline', href: `${detailBase}#agent-${a.id}` }, 'Explore agent')));
 }
 
 /* ---------- agent detail block ---------- */
 export function renderAgentDetail(a) {
-  return el('section', { class: 'agent-detail', id: `agent-${a.id}`, style: { '--card-accent': `var(${a.accent})` } },
+  return el('section', { class: 'agent-detail site-reveal', id: `agent-${a.id}`, style: { '--card-accent': `var(${a.accent})` } },
     el('div', { class: 'site-wrap agent-detail__grid' },
       el('div', { class: 'agent-detail__body' },
         el('span', { class: 'eyebrow' }, `Agent ${a.no}`),
@@ -117,7 +119,7 @@ export function renderAgentDetail(a) {
 /* ---------- campaign card (reuses .ml-card) ---------- */
 export function renderCampaignCard(c, base = '') {
   return el('article', {
-    class: 'ml-card site-card',
+    class: 'ml-card site-card site-reveal',
     style: { '--card-accent': `var(${c.accent})` },
   },
     el('div', { class: 'ml-card__top' },
@@ -146,7 +148,7 @@ export function renderEcosystem(levels) {
 
 /* ---------- recurring CTA block ---------- */
 export function renderProductCTA({ title, text, href, label }) {
-  return el('section', { class: 'pcta' },
+  return el('section', { class: 'pcta site-reveal' },
     el('div', { class: 'site-wrap' },
       el('h2', {}, title),
       text ? el('p', {}, text) : null,
@@ -155,7 +157,7 @@ export function renderProductCTA({ title, text, href, label }) {
 
 /* ---------- section wrapper ---------- */
 export function section(cls, ...kids) {
-  return el('section', { class: `site-section ${cls || ''}` }, el('div', { class: 'site-wrap' }, ...kids));
+  return el('section', { class: `site-section site-reveal ${cls || ''}` }, el('div', { class: 'site-wrap' }, ...kids));
 }
 
 export { el };

@@ -7,6 +7,7 @@ import {
   renderSiteHeader, renderSiteFooter, renderHero, renderAgentCard,
   renderAgentDetail, renderEcosystem, renderProductCTA, section, el,
 } from './components.js';
+import { initReveal } from './reveal.js';
 
 const root = document.getElementById('siteRoot');
 root.append(renderSiteHeader(NAV('', 'ai-agents')));
@@ -52,3 +53,4 @@ main.append(renderProductCTA({
 
 root.append(main);
 root.append(renderSiteFooter(''));
+initReveal(root);

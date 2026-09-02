@@ -1,0 +1,228 @@
+/* ===========================================================
+   MusfirahLoom — Website
+   site/theme-dark.css  ·  the "Luxury AI" dark variation
+
+   Applied via <html class="theme-dark"> on the AI product pages
+   (ai-agents, ai-sales-funnel, campaigns + detail pages, the
+   agent hub). Same brand — deep wine + charcoal + warm ivory +
+   champagne gold — never generic purple/blue, never neon.
+   Loaded AFTER style.css / agents-core.css / site.css so these
+   rules win.
+=========================================================== */
+
+/* ---------- token overrides ---------- */
+html.theme-dark{
+  --bg:#160F13;
+  --bg-2:#1E151B;
+  --panel:#241922;
+  --panel-2:#2C202A;
+  --panel-line:rgba(216,184,121,0.16);
+  --ink:#F4ECE2;
+  --ink-soft:#BEAFA6;
+  --white:#241922;              /* keep components that fill --white on-theme */
+  --wine:#C25C70;              /* brightened for dark ground — CTAs / accents */
+  --wine-deep:#9A4152;
+  --gold:#D8B879;
+  --ml-radius-lg:20px;
+
+  color-scheme:dark;
+  background:var(--bg);
+}
+html.theme-dark body{background:var(--bg); color:var(--ink);}
+
+/* subtle technology atmosphere — a faint champagne grid + a soft
+   wine glow near the top. Fixed + very low contrast, GPU-cheap. */
+html.theme-dark body::before{
+  content:''; position:fixed; inset:0; z-index:-2; pointer-events:none;
+  background:
+    radial-gradient(60rem 40rem at 50% -12rem, rgba(194,92,112,0.16), transparent 70%),
+    radial-gradient(48rem 40rem at 92% 8%, rgba(216,184,121,0.08), transparent 70%);
+}
+html.theme-dark body::after{
+  content:''; position:fixed; inset:0; z-index:-2; pointer-events:none; opacity:.5;
+  background-image:
+    linear-gradient(rgba(216,184,121,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(216,184,121,0.05) 1px, transparent 1px);
+  background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(100% 60% at 50% 0%, #000, transparent 75%);
+          mask-image:radial-gradient(100% 60% at 50% 0%, #000, transparent 75%);
+}
+
+/* ---------- buttons ---------- */
+html.theme-dark .btn{border-color:rgba(244,236,226,0.28); color:var(--ink);}
+html.theme-dark .btn-solid{
+  background:var(--wine); border-color:var(--wine); color:#160F13; font-weight:700;
+}
+html.theme-dark .btn-solid:hover{background:#D06E80; border-color:#D06E80;}
+html.theme-dark .btn-outline{background:transparent; color:var(--ink);}
+html.theme-dark .btn-outline:hover{background:var(--ink); color:#160F13;}
+
+/* ---------- badges / eyebrows ---------- */
+html.theme-dark .ml-badge{
+  color:var(--gold); background:rgba(216,184,121,0.10); border-color:rgba(216,184,121,0.28);
+}
+html.theme-dark .ml-badge::before{background:var(--gold); box-shadow:0 0 0 3px rgba(216,184,121,0.22);}
+html.theme-dark .eyebrow,
+html.theme-dark .site-hero__eyebrow,
+html.theme-dark .cp-eyebrow{color:var(--gold);}
+
+/* ---------- shared site header ---------- */
+html.theme-dark .site-topbar,
+html.theme-dark .ml-topbar,
+html.theme-dark .cp-topbar{
+  background:rgba(22,15,19,0.82); backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--panel-line);
+}
+html.theme-dark .site-topbar__brand span,
+html.theme-dark .ml-wordmark span{color:var(--wine);}
+html.theme-dark .site-topbar__link,
+html.theme-dark .ml-topbar__link,
+html.theme-dark .cp-topbar__link{color:var(--ink-soft);}
+html.theme-dark .site-topbar__link:hover,
+html.theme-dark .site-topbar__link.is-active,
+html.theme-dark .ml-topbar__link:hover,
+html.theme-dark .cp-topbar__link:hover{color:var(--gold);}
+html.theme-dark .site-topbar__link.is-active{text-decoration-color:var(--wine);}
+@media(max-width:900px){
+  html.theme-dark .site-topbar__nav{background:var(--bg-2); border-bottom-color:var(--panel-line);}
+}
+
+/* ---------- hero ---------- */
+html.theme-dark .site-hero__title,
+html.theme-dark .ml-hero h1,
+html.theme-dark .cp-hero h1{color:var(--ink);}
+html.theme-dark .site-hero__title em,
+html.theme-dark .ml-hero h1 em{color:var(--gold);}
+html.theme-dark .site-hero__lede,
+html.theme-dark .ml-hero__lede,
+html.theme-dark .cp-lede{color:var(--ink-soft);}
+
+/* ---------- section headings + rules ---------- */
+html.theme-dark .site-section > .site-wrap > h2,
+html.theme-dark .ml-grid-section__head h2,
+html.theme-dark .cp-sec h2{color:var(--ink);}
+html.theme-dark .site-section > .site-wrap > p.site-lede{color:var(--ink-soft);}
+html.theme-dark .site-rule,
+html.theme-dark .ml-hero__rule{background:var(--panel-line);}
+html.theme-dark .agent-detail{border-top-color:var(--panel-line);}
+
+/* ---------- cards (.ml-card / .site-card / .cp-card) ---------- */
+html.theme-dark .ml-card,
+html.theme-dark .cp-card{
+  background:linear-gradient(180deg, var(--panel) 0%, var(--bg-2) 100%);
+  border-color:var(--panel-line);
+  box-shadow:0 1px 0 rgba(255,255,255,0.03) inset;
+}
+html.theme-dark .ml-card::before{
+  background:linear-gradient(90deg, var(--card-accent, var(--wine)), transparent);
+}
+html.theme-dark .ml-card__name,
+html.theme-dark .cp-card h3{color:var(--ink);}
+html.theme-dark .ml-card__benefit,
+html.theme-dark .cp-card__blurb{color:var(--ink-soft);}
+html.theme-dark .ml-card__cat,
+html.theme-dark .cp-card__niche{color:var(--ink-soft);}
+html.theme-dark .ml-card__caps li,
+html.theme-dark .cdt__chip,
+html.theme-dark .cp-card__caps li{
+  color:var(--gold); background:rgba(216,184,121,0.08); border-color:rgba(216,184,121,0.22);
+}
+html.theme-dark .site-card__flow{color:var(--ink-soft);}
+html.theme-dark .site-card:hover,
+html.theme-dark .cp-card:hover{
+  border-color:var(--card-accent, var(--wine));
+  box-shadow:0 22px 50px rgba(0,0,0,0.5),
+             0 0 0 1px var(--card-accent, var(--wine)),
+             0 0 40px -12px var(--card-accent, var(--wine));
+}
+
+/* ---------- workflow diagram + animated connector ---------- */
+html.theme-dark .agent-detail__flow,
+html.theme-dark .stage{
+  background:var(--bg-2); border-color:var(--panel-line);
+}
+html.theme-dark .wf__list::before{
+  background:linear-gradient(var(--card-accent, var(--wine)) 0%, transparent 100%);
+  opacity:.55;
+}
+@media(prefers-reduced-motion:no-preference){
+  html.theme-dark .wf__list::after{
+    content:''; position:absolute; left:14px; top:0; width:4px; height:40px;
+    border-radius:4px; background:var(--gold); filter:blur(3px); opacity:.55;
+    animation:wfPulse 3.4s ease-in-out infinite;
+  }
+  @keyframes wfPulse{
+    0%{transform:translateY(4px); opacity:0;}
+    12%{opacity:.6;}
+    88%{opacity:.6;}
+    100%{transform:translateY(calc(100% - 40px)); opacity:0;}
+  }
+}
+html.theme-dark .wf__label,
+html.theme-dark .stage p{color:var(--ink-soft);}
+html.theme-dark .stage h4{color:var(--gold);}
+
+/* ---------- ecosystem ---------- */
+html.theme-dark .eco__level{background:var(--panel); border-color:var(--panel-line);}
+html.theme-dark .eco__level--2{background:linear-gradient(180deg, rgba(47,93,98,0.22), var(--panel));}
+html.theme-dark .eco__label{color:var(--ink);}
+html.theme-dark .eco__note{color:var(--ink-soft);}
+html.theme-dark .eco__arrow{color:var(--gold);}
+
+/* ---------- campaign detail ---------- */
+html.theme-dark .cdt__two h3{color:var(--ink);}
+html.theme-dark .cdt__two p{color:var(--ink-soft);}
+html.theme-dark .cdt__agents li{background:var(--bg-2); border-color:var(--panel-line);}
+html.theme-dark .cdt__agents strong{color:var(--ink);}
+html.theme-dark .cdt__agents span{color:var(--ink-soft);}
+html.theme-dark .site-back{color:var(--ink-soft);}
+html.theme-dark .site-back:hover{color:var(--gold);}
+
+/* ---------- recurring CTA ---------- */
+html.theme-dark .pcta{
+  background:linear-gradient(180deg, var(--bg-2), var(--bg));
+  border-top:1px solid var(--panel-line);
+}
+html.theme-dark .pcta h2{color:var(--ink);}
+html.theme-dark .pcta p{color:var(--ink-soft);}
+
+/* ---------- footer ---------- */
+html.theme-dark .site-foot,
+html.theme-dark .ml-foot,
+html.theme-dark .cp-foot{border-top-color:var(--panel-line);}
+html.theme-dark .site-foot__inner,
+html.theme-dark .ml-foot__inner{color:var(--ink-soft);}
+html.theme-dark .site-foot__inner strong{color:var(--ink);}
+html.theme-dark .site-foot__links a{color:var(--ink-soft);}
+html.theme-dark .site-foot__links a:hover{color:var(--gold);}
+html.theme-dark .site-foot__copy{border-top-color:var(--panel-line);}
+
+/* ---------- agent hub (agents.html) ---------- */
+html.theme-dark .ml-grid-section__head p{color:var(--ink-soft);}
+html.theme-dark .ml-card__chip{color:var(--gold); border-color:var(--gold);}
+html.theme-dark .ml-card__icon{color:#160F13;}
+
+/* ---------- campaigns hub (campaigns.html · .cp-*) ---------- */
+html.theme-dark .cp-sec{color:var(--ink);}
+html.theme-dark .cp-mapcol{background:var(--panel); border-color:var(--panel-line);}
+html.theme-dark .cp-mapcol--shared{background:linear-gradient(180deg, rgba(47,93,98,0.20), var(--panel));}
+html.theme-dark .cp-mapcol h4{color:var(--ink);}
+html.theme-dark .cp-mapcol li{color:var(--ink-soft);}
+html.theme-dark .cp-maparrow{color:var(--gold);}
+html.theme-dark .cp-case{background:var(--bg-2);}
+html.theme-dark .cp-case h3{color:var(--ink);}
+html.theme-dark .cp-case p{color:var(--ink-soft);}
+html.theme-dark .cp-journey li{color:var(--ink-soft);}
+html.theme-dark .cp-chip{color:var(--gold); background:rgba(216,184,121,0.08); border-color:rgba(216,184,121,0.22);}
+html.theme-dark .cp-impact{background:var(--panel); border-color:var(--panel-line);}
+html.theme-dark .cp-impact__tile{background:var(--bg-2); border-color:var(--panel-line);}
+html.theme-dark .cp-impact__val{color:var(--gold);}
+html.theme-dark .cp-impact__k,
+html.theme-dark .cp-impact__label,
+html.theme-dark .cp-note{color:var(--ink-soft);}
+html.theme-dark .cp-perf{background:var(--panel); border-color:var(--panel-line);}
+html.theme-dark .cp-perf__head strong{color:var(--ink);}
+html.theme-dark .cp-perf__bar{background:var(--card-accent, var(--wine)); color:#160F13;}
+html.theme-dark .cp-card__link{color:var(--gold);}
+html.theme-dark .cp-card__ic{color:#160F13;}
+

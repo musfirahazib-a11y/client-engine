@@ -8,6 +8,7 @@ import {
   renderSiteHeader, renderSiteFooter, renderHero, renderWorkflow,
   renderProductCTA, section, el,
 } from './components.js';
+import { initReveal } from './reveal.js';
 
 const base = '../'; // detail pages live in campaigns/
 const root = document.getElementById('siteRoot');
@@ -73,4 +74,5 @@ if (!c) {
 
   root.append(main);
   root.append(renderSiteFooter(base));
+  initReveal(root);
 }

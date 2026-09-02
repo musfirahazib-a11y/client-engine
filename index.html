@@ -5,28 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MusfirahLoom — AI Automation &amp; Intelligent Business Systems</title>
 <meta name="description" content="MusfirahLoom builds AI agents, automated sales funnels and AI-powered campaign systems that help businesses capture leads, convert customers, automate support and recover lost opportunities.">
+<meta property="og:title" content="MusfirahLoom — AI Automation &amp; Intelligent Business Systems">
+<meta property="og:description" content="AI agents, an AI sales funnel and industry campaign systems that turn business processes into scalable growth.">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<!-- Phase 2 (information architecture) — transitional tweaks only; the full
-     visual pass happens in Phase 4. Kept here so style.css stays untouched. -->
-<style id="ml-ia-tweaks">
-  .sticky-nav nav{gap:1.15rem;}
-  .sticky-nav nav a{font-size:0.78rem;}
-  @media(max-width:1180px){ .sticky-nav nav{gap:0.9rem;} }
-  .hero-nav-row{flex-wrap:wrap;}
-  .mobile-nav .sticky-cta{margin-top:0.4rem; text-align:center;}
-  /* Founder / About */
-  .about{padding:var(--sp-8) 6vw var(--sp-6); max-width:760px; margin:0 auto; text-align:center;}
-  .about__photo{width:clamp(180px,22vw,240px); margin:0 auto var(--sp-4); border-radius:12px;
-    filter:drop-shadow(0 24px 34px rgba(42,22,32,0.22));}
-  .about h2{font-size:clamp(2rem,4.4vw,2.8rem); font-style:italic; margin-bottom:var(--sp-3);}
-  .about p{font-size:1.02rem; line-height:1.7; color:var(--ink-soft);}
-  .about .contact-row{margin-top:var(--sp-4);}
-  /* AI systems cards reuse .s-card; give the whole card a link affordance */
-  .s-card a.s-link{display:inline-block; margin-top:var(--sp-2);}
-</style>
+<link rel="stylesheet" href="agents/css/agents-theme.css">
+<link rel="stylesheet" href="agents/css/agents-core.css">
+<link rel="stylesheet" href="site/site.css">
+<link rel="stylesheet" href="site/home.css">
 </head>
 <body>
 
@@ -50,8 +39,8 @@
 <nav class="mobile-nav" id="mobileNav">
   <a href="#home">Home</a>
   <a href="#services">Services</a>
-  <a href="agents.html">AI Agents</a>
-  <a href="funnel.html">AI Sales Funnel</a>
+  <a href="ai-agents.html">AI Agents</a>
+  <a href="ai-sales-funnel.html">AI Sales Funnel</a>
   <a href="campaigns.html">AI Campaigns</a>
   <a href="#work">Portfolio</a>
   <a href="#about">About</a>
@@ -132,35 +121,22 @@
     </div>
   </section>
 
-  <!-- ================= PORTFOLIO / AI SYSTEMS ================= -->
-  <section class="work-intro" id="work">
-    <span class="eyebrow reveal">What We Build</span>
-    <h2 class="reveal">The MusfirahLoom<br>AI ecosystem.</h2>
-    <p class="reveal">Four specialist AI agents, one flagship AI Sales Funnel that connects them, and three ready-to-deploy industry campaign systems. Individual agents solve tasks — connected systems automate entire business journeys.</p>
-  </section>
-
-  <section class="services" aria-label="AI systems">
-    <div class="service-grid">
-      <div class="s-card reveal">
-        <div class="s-icon">◆</div>
-        <h3>4 AI Agents</h3>
-        <p>Sales, Customer Support, Cart Recovery and Lead + Booking — each agent owns one revenue or service job and runs it end to end.</p>
-        <a href="ai-agents.html" class="s-link">Explore agents →</a>
-      </div>
-      <div class="s-card reveal" style="transition-delay:0.08s">
-        <div class="s-icon">⟠</div>
-        <h3>AI Sales Funnel System</h3>
-        <p>The flagship. Landing page → lead capture → AI sales assistant → qualification → score → recommendation → offer → booking / checkout → follow-up → recovery, as one connected system.</p>
-        <a href="ai-sales-funnel.html" class="s-link">Explore the funnel →</a>
-      </div>
-      <div class="s-card reveal" style="transition-delay:0.16s">
-        <div class="s-icon">◈</div>
-        <h3>3 Industry Campaign Systems</h3>
-        <p>Salon &amp; Spa, Real Estate and E-commerce — the agents and funnel packaged and configured for a specific industry, with a live interactive demo for each.</p>
-        <a href="campaigns.html" class="s-link">Explore campaigns →</a>
-      </div>
-    </div>
-  </section>
+  <!-- ============ AI ECOSYSTEM (Portfolio) — bands built by site/js/home.entry.js ============ -->
+  <div id="work">
+    <div id="homeAgents"></div>
+    <div id="homeFunnel"></div>
+    <div id="homeEco"></div>
+    <div id="homeCampaigns"></div>
+    <noscript>
+      <section class="work-intro">
+        <span class="eyebrow">The MusfirahLoom AI ecosystem</span>
+        <h2>Four AI agents. One funnel. Three industry systems.</h2>
+        <p>Explore the <a href="ai-agents.html">AI Agents</a>, the
+        <a href="ai-sales-funnel.html">AI Sales Funnel</a>, and the three
+        <a href="campaigns.html">industry campaign systems</a>.</p>
+      </section>
+    </noscript>
+  </div>
 
   <!-- ================= SERVICES ================= -->
   <section class="services" id="services">
@@ -227,5 +203,6 @@
 </footer>
 
 <script src="script.js"></script>
+<script type="module" src="site/js/home.entry.js"></script>
 </body>
 </html>

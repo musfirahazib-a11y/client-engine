@@ -210,6 +210,16 @@
 .site-foot__links a:hover{color:var(--wine);}
 .site-foot__copy{width:100%; padding-top:var(--sp-3); border-top:1px solid var(--panel-line); margin-top:var(--sp-3);}
 
+/* ---------- cinematic reveal (used by site/js/reveal.js) ---------- */
+.site-reveal{opacity:1;}
+@media(prefers-reduced-motion:no-preference){
+  .site-reveal{
+    opacity:0; transform:translateY(22px);
+    transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);
+  }
+  .site-reveal.in{opacity:1; transform:none;}
+}
+
 /* ---------- misc ---------- */
 .site-back{
   display:inline-block; font-size:.8rem; font-weight:600; color:var(--ink-soft);

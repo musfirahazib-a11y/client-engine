@@ -1,0 +1,78 @@
+/* ===========================================================
+   MusfirahLoom — Website
+   site/home.css  ·  homepage-only polish (Phase 4)
+
+   The homepage keeps the warm ivory / wine / gold editorial
+   identity and the founder photo. This file adds a restrained
+   layer of technology atmosphere and styles the AI ecosystem
+   bands rendered by site/js/home.entry.js. style.css stays
+   untouched.
+=========================================================== */
+
+/* nav fit (was the Phase 2 transitional <style> block) */
+.sticky-nav nav{gap:1.15rem;}
+.sticky-nav nav a{font-size:0.78rem;}
+@media(max-width:1180px){ .sticky-nav nav{gap:0.9rem;} }
+.hero-nav-row{flex-wrap:wrap;}
+.mobile-nav .sticky-cta{margin-top:0.4rem; text-align:center;}
+
+/* subtle technology atmosphere behind the hero — warm, low contrast */
+.hero{position:relative; isolation:isolate;}
+.hero::before{
+  content:''; position:absolute; inset:-12% -20% 30% -20%; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(48rem 30rem at 50% -4rem, rgba(110,44,59,0.10), transparent 70%),
+    radial-gradient(38rem 28rem at 88% 6%, rgba(201,166,107,0.10), transparent 72%);
+}
+.hero::after{
+  content:''; position:absolute; inset:0; z-index:-1; pointer-events:none; opacity:.4;
+  background-image:
+    linear-gradient(rgba(59,31,43,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59,31,43,0.05) 1px, transparent 1px);
+  background-size:60px 60px;
+  -webkit-mask-image:radial-gradient(120% 70% at 50% 0%, #000, transparent 70%);
+          mask-image:radial-gradient(120% 70% at 50% 0%, #000, transparent 70%);
+}
+@media(prefers-reduced-motion:no-preference){
+  .giant-name{ text-shadow:0 0 70px rgba(110,44,59,0.14); }
+}
+
+/* ---------- AI ecosystem bands (rendered into #work) ---------- */
+.home-band{ padding:var(--sp-7) 6vw; max-width:1120px; margin:0 auto; }
+.home-band .eyebrow{ color:var(--wine-deep); }
+.home-band h2{
+  font-family:'Fraunces',serif; font-style:italic;
+  font-size:clamp(1.8rem,4vw,2.6rem); line-height:1.1; margin-bottom:var(--sp-2);
+}
+.home-lede{ font-size:1rem; line-height:1.7; color:var(--ink-soft); max-width:60ch; margin-bottom:var(--sp-5); }
+.home-more{ margin-top:var(--sp-5); }
+
+.home-funnel{
+  background:var(--panel);
+  border-top:1px solid var(--panel-line); border-bottom:1px solid var(--panel-line);
+  max-width:none;
+}
+.home-funnel > .site-wrap{ max-width:1120px; margin:0 auto; padding:0; }
+.home-funnel .ml-badge{ margin-bottom:var(--sp-3); }
+.home-funnel .wf{ max-width:520px; margin-top:var(--sp-4); }
+
+.home-eco .eco{ margin-top:var(--sp-4); }
+
+/* premium hover on the reused site cards */
+.home-band .site-card{ transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.home-band .site-card:hover{
+  transform:translateY(-4px); border-color:var(--card-accent,var(--wine));
+  box-shadow:0 18px 40px rgba(42,22,32,0.12);
+}
+@media(min-width:640px){ .home-band .ml-agent-grid{ grid-template-columns:repeat(2,1fr); } }
+
+/* ---------- About / Founder (moved from the Phase 2 <style> block) ---------- */
+.about{padding:var(--sp-8) 6vw var(--sp-6); max-width:760px; margin:0 auto; text-align:center;}
+.about__photo{
+  width:clamp(180px,22vw,240px); margin:0 auto var(--sp-4); border-radius:12px;
+  filter:drop-shadow(0 24px 34px rgba(42,22,32,0.22));
+}
+.about h2{font-size:clamp(2rem,4.4vw,2.8rem); font-style:italic; margin-bottom:var(--sp-3);}
+.about p{font-size:1.02rem; line-height:1.7; color:var(--ink-soft);}
+.about .contact-row{margin-top:var(--sp-4);}
+.s-card a.s-link{display:inline-block; margin-top:var(--sp-2);}

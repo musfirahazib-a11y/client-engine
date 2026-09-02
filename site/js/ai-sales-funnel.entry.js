@@ -7,6 +7,7 @@ import {
   renderSiteHeader, renderSiteFooter, renderHero, renderWorkflow,
   renderProductCTA, section, el,
 } from './components.js';
+import { initReveal } from './reveal.js';
 
 const root = document.getElementById('siteRoot');
 root.append(renderSiteHeader(NAV('', 'ai-sales-funnel')));
@@ -58,3 +59,4 @@ main.append(renderProductCTA({
 
 root.append(main);
 root.append(renderSiteFooter(''));
+initReveal(root);
