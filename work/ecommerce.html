@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AÉRA — Skincare, Considered | MusfirahLoom portfolio</title>
+<meta name="description" content="AÉRA is a fictional premium skincare brand — a portfolio demonstration site by MusfirahLoom. Concept design only; no products are for sale.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#B4623D">
+<meta property="og:title" content="AÉRA — Skincare, Considered">
+<meta property="og:description" content="Fictional premium skincare brand — a MusfirahLoom portfolio demonstration.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F4EFE8; --bg-2:#EBE3D7; --panel:#FFFFFF; --ink:#221D17; --ink-soft:#6A6157;
+    --line:rgba(34,29,23,0.14); --accent:#B4623D; --accent-deep:#8F4A2C; --sage:#77876B;
+    --sp:clamp(4rem,9vw,7.5rem); --disp:'Bricolage Grotesque',Georgia,serif; --body:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3{font-family:var(--disp);font-weight:700;letter-spacing:-0.02em;line-height:1.04;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 6vw;}
+  .eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem;border-radius:2px;font-weight:600;font-size:.82rem;border:1px solid var(--ink);transition:background .25s,color .25s,transform .25s;white-space:nowrap;}
+  .btn--solid{background:var(--ink);color:#fff;}
+  .btn--solid:hover{background:var(--accent-deep);border-color:var(--accent-deep);transform:translateY(-2px);}
+  .btn--ghost:hover{background:var(--ink);color:#fff;transform:translateY(-2px);}
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);}
+  .rv.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
+
+  /* demo ribbon + nav */
+  .demobar{background:var(--ink);color:#fff;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;text-align:center;padding:.5rem 1rem;}
+  .demobar a{color:#fff;border-bottom:1px solid rgba(255,255,255,.5);}
+  .nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 6vw;background:rgba(244,239,232,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .nav__brand{font-family:var(--disp);font-weight:700;font-size:1.25rem;letter-spacing:.16em;}
+  .nav__links{display:flex;gap:2rem;font-size:.8rem;font-weight:500;}
+  .nav__links a:hover{color:var(--accent);}
+  .nav__cart{font-family:var(--mono);font-size:.72rem;}
+  @media(max-width:820px){.nav__links{display:none;}}
+
+  /* hero */
+  .hero{position:relative;padding:var(--sp) 0 calc(var(--sp) * .7);overflow:hidden;}
+  .hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;}
+  .hero h1{font-size:clamp(2.9rem,7vw,5.6rem);margin:1.2rem 0;}
+  .hero p{font-size:1.05rem;color:var(--ink-soft);max-width:44ch;margin-bottom:1.8rem;}
+  .hero__actions{display:flex;gap:1rem;flex-wrap:wrap;}
+  .hero__vis{position:relative;aspect-ratio:4/5;border-radius:3px;background:
+     radial-gradient(120% 90% at 30% 15%, #E7C9AE 0%, transparent 55%),
+     linear-gradient(160deg,#C6784F 0%, #8F4A2C 60%, #5E2F1C 100%);
+     box-shadow:0 40px 80px -30px rgba(94,47,28,.5);}
+  .hero__vis::after{content:'AÉRA · 01';position:absolute;left:1.2rem;bottom:1rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;color:rgba(255,255,255,.85);}
+  .hero__tag{position:absolute;right:-.5rem;top:12%;background:var(--panel);border:1px solid var(--line);padding:.7rem 1rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;}
+  @media(max-width:820px){.hero__grid{grid-template-columns:1fr;}}
+
+  /* section shell */
+  .sec{padding:var(--sp) 0;}
+  .sec__head{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-bottom:2.6rem;}
+  .sec__head h2{font-size:clamp(1.9rem,4.4vw,3rem);}
+  .sec__head p{color:var(--ink-soft);max-width:40ch;}
+
+  /* product grid */
+  .prods{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2.5vw,2rem);}
+  @media(max-width:820px){.prods{grid-template-columns:1fr 1fr;}}
+  @media(max-width:520px){.prods{grid-template-columns:1fr;}}
+  .prod{background:var(--panel);border:1px solid var(--line);border-radius:3px;overflow:hidden;transition:transform .3s,box-shadow .3s;}
+  .prod:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(34,29,23,.3);}
+  .prod__vis{aspect-ratio:1/1;display:flex;align-items:flex-end;padding:1rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;color:rgba(255,255,255,.9);}
+  .prod:nth-child(1) .prod__vis{background:linear-gradient(150deg,#D9A679,#A75E38);}
+  .prod:nth-child(2) .prod__vis{background:linear-gradient(150deg,#9FB292,#5E7150);}
+  .prod:nth-child(3) .prod__vis{background:linear-gradient(150deg,#E4CBB4,#B98F6C);}
+  .prod:nth-child(4) .prod__vis{background:linear-gradient(150deg,#C9A9C6,#8C6A8E);}
+  .prod:nth-child(5) .prod__vis{background:linear-gradient(150deg,#E0B58E,#B07340);}
+  .prod:nth-child(6) .prod__vis{background:linear-gradient(150deg,#A9B7C4,#6E808F);}
+  .prod__body{padding:1.1rem 1.2rem 1.4rem;}
+  .prod__body h3{font-size:1.05rem;margin-bottom:.2rem;}
+  .prod__cat{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);}
+  .prod__foot{display:flex;align-items:center;justify-content:space-between;margin-top:.9rem;}
+  .prod__price{font-family:var(--disp);font-weight:700;}
+  .prod__add{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:2px;}
+
+  /* collections strip */
+  .colls{background:var(--bg-2);}
+  .colls__row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+  @media(max-width:720px){.colls__row{grid-template-columns:1fr;}}
+  .coll{position:relative;aspect-ratio:3/2;border-radius:3px;overflow:hidden;display:flex;align-items:flex-end;padding:1.4rem;color:#fff;font-family:var(--disp);font-weight:700;font-size:1.3rem;}
+  .coll:nth-child(1){background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.45)),linear-gradient(140deg,#C58A63,#7E4A2E);}
+  .coll:nth-child(2){background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.45)),linear-gradient(140deg,#8B9B7C,#4C5C3E);}
+  .coll:nth-child(3){background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.45)),linear-gradient(140deg,#B7A2B8,#6E5570);}
+  .coll span{position:absolute;top:1.2rem;left:1.4rem;font-family:var(--mono);font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;opacity:.85;}
+
+  /* product detail */
+  .pd{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center;}
+  @media(max-width:820px){.pd{grid-template-columns:1fr;}}
+  .pd__vis{aspect-ratio:1/1;border-radius:3px;background:radial-gradient(110% 90% at 25% 20%,#EBD3BC,transparent 55%),linear-gradient(160deg,#C98C63,#7E4A2E);box-shadow:0 40px 70px -30px rgba(94,47,28,.45);}
+  .pd h2{font-size:clamp(2rem,4.5vw,3.2rem);margin:.6rem 0 1rem;}
+  .pd__price{font-family:var(--disp);font-weight:700;font-size:1.4rem;margin-bottom:1rem;}
+  .pd__desc{color:var(--ink-soft);margin-bottom:1.4rem;max-width:46ch;}
+  .pd__list{list-style:none;font-size:.9rem;margin-bottom:1.6rem;}
+  .pd__list li{padding:.5rem 0;border-top:1px solid var(--line);display:flex;gap:.8rem;}
+  .pd__list li::before{content:'—';color:var(--accent);}
+
+  /* promo */
+  .promo{background:var(--ink);color:#fff;text-align:center;}
+  .promo h2{font-size:clamp(1.8rem,4.5vw,3rem);margin:.8rem auto 1rem;max-width:20ch;}
+  .promo p{color:rgba(255,255,255,.72);max-width:44ch;margin:0 auto 1.6rem;}
+  .promo .btn{border-color:#fff;color:#fff;}
+  .promo .btn:hover{background:#fff;color:var(--ink);}
+
+  /* testimonials */
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;}
+  @media(max-width:820px){.quotes{grid-template-columns:1fr;}}
+  .quote{background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:1.6rem;}
+  .quote p{font-size:.98rem;margin-bottom:1rem;}
+  .quote cite{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-style:normal;}
+  .quote__stars{color:var(--accent);letter-spacing:.15em;margin-bottom:.8rem;font-size:.8rem;}
+
+  /* story */
+  .story{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,5vw,4rem);align-items:center;}
+  @media(max-width:820px){.story{grid-template-columns:1fr;}}
+  .story__vis{aspect-ratio:4/5;border-radius:3px;background:linear-gradient(200deg,#D6B79A,#8A5636 70%,#54321F);}
+  .story h2{font-size:clamp(2rem,4.5vw,3.2rem);margin:.6rem 0 1rem;}
+  .story p{color:var(--ink-soft);margin-bottom:1rem;max-width:48ch;}
+
+  /* newsletter */
+  .news{background:var(--bg-2);text-align:center;}
+  .news h2{font-size:clamp(1.8rem,4.5vw,2.8rem);margin:.6rem auto .8rem;max-width:18ch;}
+  .news p{color:var(--ink-soft);margin:0 auto 1.6rem;max-width:40ch;}
+  .news__form{display:flex;gap:.6rem;max-width:420px;margin:0 auto;}
+  .news__form input{flex:1;padding:.85rem 1rem;border:1px solid var(--ink);border-radius:2px;background:var(--panel);font:inherit;font-size:.9rem;}
+  .news__form input:focus{outline:2px solid var(--accent);outline-offset:1px;}
+  .news__note{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;color:var(--ink-soft);margin-top:1rem;}
+
+  /* footer */
+  .foot{background:var(--ink);color:rgba(255,255,255,.7);padding:var(--sp) 0 2.4rem;}
+  .foot__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem;margin-bottom:3rem;}
+  @media(max-width:720px){.foot__grid{grid-template-columns:1fr 1fr;}}
+  .foot h4{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;margin-bottom:1rem;}
+  .foot a{display:block;padding:.25rem 0;font-size:.86rem;}
+  .foot a:hover{color:#fff;}
+  .foot__brand{font-family:var(--disp);font-weight:700;font-size:1.6rem;letter-spacing:.16em;color:#fff;margin-bottom:.6rem;}
+  .foot__bottom{border-top:1px solid rgba(255,255,255,.15);padding-top:1.6rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;}
+</style>
+</head>
+<body>
+<div class="demobar">Portfolio demo — fictional brand by <a href="../index.html#work">MusfirahLoom</a>. Not a real store.</div>
+
+<header class="nav">
+  <a href="#" class="nav__brand">AÉRA</a>
+  <nav class="nav__links">
+    <a href="#shop">Shop</a>
+    <a href="#collections">Collections</a>
+    <a href="#detail">The Serum</a>
+    <a href="#story">Our Story</a>
+    <a href="#journal">Journal</a>
+  </nav>
+  <span class="nav__cart">Bag (0)</span>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div class="rv">
+        <span class="eyebrow">Skincare, considered</span>
+        <h1>Fewer things.<br>Made better.</h1>
+        <p>A short ritual of high-grade actives, formulated in small batches and pressed into recyclable glass. Nothing performative — just skin that behaves.</p>
+        <div class="hero__actions">
+          <a href="#shop" class="btn btn--solid">Shop the range</a>
+          <a href="#story" class="btn btn--ghost">Our approach</a>
+        </div>
+      </div>
+      <div class="hero__vis rv" style="transition-delay:.1s">
+        <span class="hero__tag">Batch 24 · in stock</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="shop">
+    <div class="wrap">
+      <div class="sec__head rv">
+        <h2>Featured</h2>
+        <p>Six formulas that cover a complete routine — cleanse, treat, protect.</p>
+      </div>
+      <div class="prods">
+        <article class="prod rv"><div class="prod__vis">01</div><div class="prod__body"><span class="prod__cat">Treatment</span><h3>Barrier Serum</h3><div class="prod__foot"><span class="prod__price">£68</span><span class="prod__add">Add</span></div></div></article>
+        <article class="prod rv" style="transition-delay:.05s"><div class="prod__vis">02</div><div class="prod__body"><span class="prod__cat">Cleanse</span><h3>Milk Cleanser</h3><div class="prod__foot"><span class="prod__price">£34</span><span class="prod__add">Add</span></div></div></article>
+        <article class="prod rv" style="transition-delay:.1s"><div class="prod__vis">03</div><div class="prod__body"><span class="prod__cat">Hydrate</span><h3>Weightless Cream</h3><div class="prod__foot"><span class="prod__price">£52</span><span class="prod__add">Add</span></div></div></article>
+        <article class="prod rv"><div class="prod__vis">04</div><div class="prod__body"><span class="prod__cat">Night</span><h3>Retinal 0.1%</h3><div class="prod__foot"><span class="prod__price">£74</span><span class="prod__add">Add</span></div></div></article>
+        <article class="prod rv" style="transition-delay:.05s"><div class="prod__vis">05</div><div class="prod__body"><span class="prod__cat">Protect</span><h3>Mineral SPF 30</h3><div class="prod__foot"><span class="prod__price">£40</span><span class="prod__add">Add</span></div></div></article>
+        <article class="prod rv" style="transition-delay:.1s"><div class="prod__vis">06</div><div class="prod__body"><span class="prod__cat">Ritual</span><h3>The Full Set</h3><div class="prod__foot"><span class="prod__price">£240</span><span class="prod__add">Add</span></div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec colls" id="collections">
+    <div class="wrap">
+      <div class="sec__head rv"><h2>Collections</h2><p>Grouped by intent, not by marketing.</p></div>
+      <div class="colls__row">
+        <a class="coll rv" href="#shop"><span>01 · Reset</span>The Barrier Edit</a>
+        <a class="coll rv" href="#shop" style="transition-delay:.06s"><span>02 · Calm</span>Sensitive Skin</a>
+        <a class="coll rv" href="#shop" style="transition-delay:.12s"><span>03 · Glow</span>Evening Ritual</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="detail">
+    <div class="wrap pd">
+      <div class="pd__vis rv"></div>
+      <div class="rv" style="transition-delay:.08s">
+        <span class="eyebrow">The hero product</span>
+        <h2>Barrier Serum</h2>
+        <div class="pd__price">£68 · 30ml</div>
+        <p class="pd__desc">A daily leave-on serum built around ceramides, panthenol and a low-weight hyaluronic. Designed to be boring in the best way — no sting, no purge, no fragrance.</p>
+        <ul class="pd__list">
+          <li>Ceramide NP + phytosphingosine complex</li>
+          <li>5% panthenol for visible redness relief</li>
+          <li>Fragrance-free · pH 5.5 · patch-tested</li>
+          <li>Refillable 30ml apothecary glass</li>
+        </ul>
+        <a href="#" class="btn btn--solid">Add to bag — £68</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec promo">
+    <div class="wrap">
+      <span class="eyebrow" style="color:#E8B79B">Limited release</span>
+      <h2>The Full Set, at 20% off through Sunday</h2>
+      <p>Cleanser, serum, cream and SPF in one box — the complete AÉRA routine, sized for eight weeks.</p>
+      <a href="#shop" class="btn btn--ghost">Shop the set</a>
+    </div>
+  </section>
+
+  <section class="sec" id="journal">
+    <div class="wrap">
+      <div class="sec__head rv"><h2>What people say</h2><p>Reviews from a fictional but very satisfied customer base.</p></div>
+      <div class="quotes">
+        <figure class="quote rv"><div class="quote__stars">★★★★★</div><p>"Three weeks in and my skin finally stopped arguing with me. The serum does exactly one thing and does it well."</p><cite>— R. Okafor, verified</cite></figure>
+        <figure class="quote rv" style="transition-delay:.06s"><div class="quote__stars">★★★★★</div><p>"Packaging you don't want to hide in a drawer. The refill system actually works."</p><cite>— T. Lindqvist, verified</cite></figure>
+        <figure class="quote rv" style="transition-delay:.12s"><div class="quote__stars">★★★★★</div><p>"I have replaced a shelf of products with four. That is the whole pitch and it delivered."</p><cite>— M. Haddad, verified</cite></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="story">
+    <div class="wrap story">
+      <div class="story__vis rv"></div>
+      <div class="rv" style="transition-delay:.08s">
+        <span class="eyebrow">Our story</span>
+        <h2>Started in a kitchen. Still small on purpose.</h2>
+        <p>AÉRA began when its founder got tired of ten-step routines that promised transformation and delivered irritation. The brief was simple: the fewest effective products, made transparently, priced without theatre.</p>
+        <p>Everything is blended in batches of a few hundred units, dated, and sold until it runs out. When a formula can't be improved, it stays exactly as it is.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec news">
+    <div class="wrap">
+      <span class="eyebrow">Newsletter</span>
+      <h2>One email a month. Mostly skin science.</h2>
+      <p>New batches, restock alerts, and the occasional myth we'd like to retire.</p>
+      <form class="news__form" onsubmit="event.preventDefault();this.querySelector('input').value='';this.nextElementSibling.textContent='Thanks — this is a demo, nothing was sent.';">
+        <input type="email" placeholder="you@example.com" aria-label="Email address" required>
+        <button class="btn btn--solid" type="submit">Subscribe</button>
+      </form>
+      <p class="news__note">Demo form — no data is collected or sent.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <div class="foot__brand">AÉRA</div>
+        <p style="font-size:.86rem;max-width:32ch;">Small-batch skincare. A fictional brand built as a portfolio demonstration by MusfirahLoom.</p>
+      </div>
+      <div><h4>Shop</h4><a href="#shop">All products</a><a href="#collections">Collections</a><a href="#detail">The Serum</a><a href="#shop">Gift sets</a></div>
+      <div><h4>About</h4><a href="#story">Our story</a><a href="#journal">Journal</a><a href="#">Ingredients</a><a href="#">Sustainability</a></div>
+      <div><h4>Help</h4><a href="#">Shipping</a><a href="#">Returns</a><a href="#">Contact</a><a href="../index.html#work">Back to MusfirahLoom</a></div>
+    </div>
+    <div class="foot__bottom">
+      <span>© 2026 AÉRA (fictional). Portfolio demo.</span>
+      <span>Designed &amp; built by MusfirahLoom</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var io = ('IntersectionObserver' in window) && new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    }, { threshold:0.12, rootMargin:'0px 0px -8% 0px' });
+    var els = document.querySelectorAll('.rv');
+    if(!io || matchMedia('(prefers-reduced-motion:reduce)').matches){ els.forEach(function(el){el.classList.add('in');}); return; }
+    els.forEach(function(el){ io.observe(el); });
+  })();
+</script>
+</body>
+</html>

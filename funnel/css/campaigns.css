@@ -10,7 +10,7 @@ body { background: var(--bg); color: var(--ink); }
 .cp-topbar {
   position: sticky; top: 0; z-index: 100;
   display: flex; align-items: center; gap: 1rem;
-  padding: .9rem 6vw; background: rgba(240,239,236,0.88);
+  padding: .9rem 6vw; background: rgba(245,244,248,0.85);
   backdrop-filter: blur(12px); border-bottom: 1px solid var(--panel-line);
 }
 .cp-topbar__brand { font-family: var(--font-display); font-weight: 700;  font-size: 1.15rem; }

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATELIER NOCTURNE — Fashion House | MusfirahLoom portfolio</title>
+<meta name="description" content="ATELIER NOCTURNE is a fictional luxury fashion house — a cinematic portfolio demonstration site by MusfirahLoom. Concept design only.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0C0C0E">
+<meta property="og:title" content="ATELIER NOCTURNE — Fashion House">
+<meta property="og:description" content="Fictional luxury fashion house — a cinematic MusfirahLoom portfolio demonstration.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0C0C0E; --bg-2:#141317; --panel:#1A191E; --ink:#EDE9E1; --ink-soft:#9C978C;
+    --line:rgba(237,233,225,0.14); --oxblood:#7A2532; --gold:#C6A15B;
+    --sp:clamp(4.5rem,11vw,9rem); --disp:'Bricolage Grotesque',Georgia,serif; --body:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3{font-family:var(--disp);font-weight:700;letter-spacing:-0.02em;line-height:1.02;}
+  .wrap{max-width:1220px;margin:0 auto;padding:0 6vw;}
+  .eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);}
+  .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.9rem;border-radius:0;font-weight:500;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--ink);transition:background .3s,color .3s,letter-spacing .3s;white-space:nowrap;}
+  .btn--solid{background:var(--ink);color:var(--bg);}
+  .btn--solid:hover{background:var(--gold);border-color:var(--gold);color:var(--bg);letter-spacing:.22em;}
+  .btn--ghost:hover{background:var(--ink);color:var(--bg);letter-spacing:.22em;}
+  .rv{opacity:0;transform:translateY(30px);transition:opacity 1s cubic-bezier(.19,1,.22,1),transform 1s cubic-bezier(.19,1,.22,1);}
+  .rv.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
+
+  .demobar{background:#000;color:var(--ink-soft);font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:.55rem 1rem;}
+  .demobar a{color:var(--ink);border-bottom:1px solid var(--line);}
+  .nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:1.3rem 6vw;background:rgba(12,12,14,.7);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+  .nav__brand{font-family:var(--disp);font-weight:700;font-size:1.15rem;letter-spacing:.34em;}
+  .nav__links{display:flex;gap:2.4rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;}
+  .nav__links a:hover{color:var(--gold);}
+  @media(max-width:960px){.nav__links{display:none;}}
+
+  /* cinematic hero */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;
+     background:radial-gradient(120% 90% at 70% 10%, #24202A 0%, transparent 55%),
+     linear-gradient(180deg,#0C0C0E, #17131A 60%, #0C0C0E);}
+  .hero::before{content:'';position:absolute;inset:0;background-image:
+     linear-gradient(rgba(237,233,225,.04) 1px,transparent 1px),
+     linear-gradient(90deg,rgba(237,233,225,.04) 1px,transparent 1px);
+     background-size:72px 72px;mask-image:radial-gradient(120% 80% at 50% 40%,#000,transparent 75%);}
+  .hero__inner{position:relative;z-index:2;}
+  .hero h1{font-family:var(--disp);font-weight:800;font-size:clamp(3.4rem,13vw,10rem);line-height:.88;letter-spacing:-0.04em;margin:1.4rem 0;}
+  .hero h1 em{font-style:normal;color:var(--oxblood);}
+  .hero p{max-width:40ch;color:var(--ink-soft);font-size:1.02rem;margin-bottom:2rem;}
+  .hero__scroll{position:absolute;bottom:2rem;left:6vw;font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);}
+
+  .sec{padding:var(--sp) 0;}
+  .sec__head{margin-bottom:3rem;}
+  .sec__head h2{font-size:clamp(2rem,5vw,3.6rem);margin-top:.8rem;}
+  .sec__head p{color:var(--ink-soft);max-width:44ch;margin-top:.8rem;}
+
+  /* editorial split imagery */
+  .edi{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+  @media(max-width:820px){.edi{grid-template-columns:1fr;}}
+  .edi__cell{aspect-ratio:3/4;position:relative;display:flex;align-items:flex-end;padding:1.6rem;}
+  .edi__cell span{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,233,225,.8);}
+  .edi__cell:nth-child(1){background:linear-gradient(200deg,#3A2530,#120C10);}
+  .edi__cell:nth-child(2){background:linear-gradient(200deg,#2A2836,#0F0E14);aspect-ratio:3/4;margin-top:3rem;}
+  @media(max-width:820px){.edi__cell:nth-child(2){margin-top:0;}}
+
+  /* collection showcase — big rows */
+  .coll{border-top:1px solid var(--line);}
+  .coll__row{display:grid;grid-template-columns:.5fr 1fr;gap:2rem;padding:2.4rem 0;align-items:center;}
+  @media(max-width:820px){.coll__row{grid-template-columns:1fr;}}
+  .coll__row:hover .coll__name{color:var(--gold);}
+  .coll__idx{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;color:var(--ink-soft);}
+  .coll__name{font-family:var(--disp);font-weight:700;font-size:clamp(1.8rem,5vw,3.2rem);transition:color .3s;}
+  .coll__meta{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:.4rem;}
+  .coll__vis{aspect-ratio:16/7;border-radius:2px;}
+  .coll__row:nth-child(1) .coll__vis{background:linear-gradient(120deg,#3A2530,#141017);}
+  .coll__row:nth-child(2) .coll__vis{background:linear-gradient(120deg,#26303A,#0F1216);}
+  .coll__row:nth-child(3) .coll__vis{background:linear-gradient(120deg,#33302A,#131210);}
+
+  /* lookbook strip (horizontal scroll) */
+  .look{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:1rem;}
+  .look__track{display:flex;gap:1.2rem;width:max-content;}
+  .look__item{width:clamp(220px,32vw,340px);aspect-ratio:3/4;border-radius:2px;position:relative;display:flex;align-items:flex-end;padding:1.2rem;flex-shrink:0;}
+  .look__item span{font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;color:rgba(237,233,225,.75);}
+  .look__item:nth-child(odd){background:linear-gradient(200deg,#332430,#120D11);}
+  .look__item:nth-child(even){background:linear-gradient(200deg,#282734,#0E0D13);}
+
+  /* featured pieces */
+  .pieces{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;}
+  @media(max-width:960px){.pieces{grid-template-columns:1fr 1fr;}}
+  .piece{background:var(--panel);border:1px solid var(--line);border-radius:2px;overflow:hidden;transition:transform .35s;}
+  .piece:hover{transform:translateY(-6px);}
+  .piece__vis{aspect-ratio:4/5;}
+  .piece:nth-child(1) .piece__vis{background:linear-gradient(160deg,#3A2530,#150F13);}
+  .piece:nth-child(2) .piece__vis{background:linear-gradient(160deg,#2B2A38,#100F16);}
+  .piece:nth-child(3) .piece__vis{background:linear-gradient(160deg,#34302A,#141210);}
+  .piece:nth-child(4) .piece__vis{background:linear-gradient(160deg,#2A333A,#0F1215);}
+  .piece__body{padding:1rem 1.1rem 1.3rem;}
+  .piece__body h3{font-size:.98rem;}
+  .piece__body span{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);}
+  .piece__price{font-family:var(--disp);font-weight:700;margin-top:.5rem;}
+
+  /* campaign — full bleed */
+  .camp{position:relative;min-height:82vh;display:flex;align-items:center;
+     background:linear-gradient(180deg,rgba(12,12,14,.2),rgba(12,12,14,.75)),linear-gradient(140deg,#3E2732 0%,#1B1119 55%,#0C0C0E 100%);}
+  .camp h2{font-size:clamp(2.4rem,7vw,5.2rem);max-width:16ch;margin:1rem 0;}
+  .camp p{max-width:42ch;color:rgba(237,233,225,.78);margin-bottom:1.6rem;}
+
+  /* studio + philosophy */
+  .studio{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,6vw,5rem);align-items:center;}
+  @media(max-width:820px){.studio{grid-template-columns:1fr;}}
+  .studio__vis{aspect-ratio:4/5;border-radius:2px;background:linear-gradient(200deg,#2C2A36,#100F15);}
+  .studio h2{font-size:clamp(2rem,5vw,3.4rem);margin:.8rem 0 1.2rem;}
+  .studio p{color:var(--ink-soft);margin-bottom:1rem;max-width:52ch;}
+  .philo{border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center;}
+  .philo blockquote{font-family:var(--disp);font-weight:500;font-size:clamp(1.6rem,4.4vw,2.8rem);line-height:1.25;max-width:24ch;margin:0 auto;}
+  .philo cite{display:block;font-family:var(--mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-top:1.6rem;font-style:normal;}
+
+  /* editorial feature */
+  .feat{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+  @media(max-width:820px){.feat{grid-template-columns:1fr;}}
+  .feat__txt{background:var(--panel);padding:clamp(2rem,5vw,4rem);display:flex;flex-direction:column;justify-content:center;}
+  .feat__txt h3{font-size:clamp(1.6rem,3.6vw,2.4rem);margin:.8rem 0 1rem;}
+  .feat__txt p{color:var(--ink-soft);margin-bottom:1.4rem;}
+  .feat__vis{background:linear-gradient(160deg,#3A2530,#120D11);min-height:340px;}
+
+  .cta{text-align:center;}
+  .cta h2{font-size:clamp(2.4rem,7vw,4.8rem);margin:1rem auto 1.2rem;max-width:16ch;}
+  .cta p{color:var(--ink-soft);max-width:42ch;margin:0 auto 2rem;}
+
+  .foot{border-top:1px solid var(--line);padding:var(--sp) 0 2.6rem;color:var(--ink-soft);}
+  .foot__grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2rem;margin-bottom:3.4rem;}
+  @media(max-width:720px){.foot__grid{grid-template-columns:1fr 1fr;}}
+  .foot h4{font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);margin-bottom:1rem;}
+  .foot a{display:block;padding:.28rem 0;font-size:.84rem;}
+  .foot a:hover{color:var(--gold);}
+  .foot__brand{font-family:var(--disp);font-weight:700;font-size:1.4rem;letter-spacing:.32em;color:var(--ink);margin-bottom:.7rem;}
+  .foot__bottom{border-top:1px solid var(--line);padding-top:1.8rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;}
+</style>
+</head>
+<body>
+<div class="demobar">Portfolio demo — fictional fashion house by <a href="../index.html#work">MusfirahLoom</a>.</div>
+
+<header class="nav">
+  <a href="#" class="nav__brand">NOCTURNE</a>
+  <nav class="nav__links">
+    <a href="#collections">Collections</a>
+    <a href="#lookbook">Lookbook</a>
+    <a href="#pieces">Pieces</a>
+    <a href="#campaign">Campaign</a>
+    <a href="#studio">Studio</a>
+  </nav>
+  <a href="#cta" class="btn btn--solid">Enquire</a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <span class="eyebrow rv">Atelier Nocturne — Autumn / Winter</span>
+      <h1 class="rv" style="transition-delay:.08s">AFTER<br><em>DARK</em></h1>
+      <p class="rv" style="transition-delay:.16s">A fashion house working only after hours. Tailoring, drape and hardware, cut for the part of the evening that photographs badly and feels best.</p>
+      <a href="#collections" class="btn btn--ghost rv" style="transition-delay:.24s">View the collection</a>
+    </div>
+    <span class="hero__scroll">Scroll — 09 chapters</span>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec__head rv"><span class="eyebrow">Editorial 01</span><h2>Cut for the hours nobody documents.</h2><p>Shot on location between midnight and four. Grain intentional.</p></div>
+      <div class="edi">
+        <div class="edi__cell rv"><span>NOCTURNE · AW · Figure 01</span></div>
+        <div class="edi__cell rv" style="transition-delay:.1s"><span>NOCTURNE · AW · Figure 02</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec coll" id="collections">
+    <div class="wrap">
+      <div class="sec__head rv"><span class="eyebrow">Collections</span><h2>Three drops a year. Nothing carried over.</h2></div>
+      <div class="coll__row rv">
+        <div><div class="coll__idx">01 —</div><div class="coll__name">Nocturne</div><div class="coll__meta">AW · 34 looks · available</div></div>
+        <div class="coll__vis"></div>
+      </div>
+      <div class="coll__row rv">
+        <div><div class="coll__idx">02 —</div><div class="coll__name">Blue Hour</div><div class="coll__meta">SS · 28 looks · archive</div></div>
+        <div class="coll__vis"></div>
+      </div>
+      <div class="coll__row rv">
+        <div><div class="coll__idx">03 —</div><div class="coll__name">Static</div><div class="coll__meta">Resort · 19 looks · archive</div></div>
+        <div class="coll__vis"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="lookbook">
+    <div class="wrap">
+      <div class="sec__head rv"><span class="eyebrow">Lookbook</span><h2>AW — full run.</h2><p>Drag to move through the run. Thirty-four looks, styled by the studio.</p></div>
+    </div>
+    <div class="wrap look">
+      <div class="look__track rv">
+        <div class="look__item"><span>Look 04</span></div>
+        <div class="look__item"><span>Look 08</span></div>
+        <div class="look__item"><span>Look 11</span></div>
+        <div class="look__item"><span>Look 17</span></div>
+        <div class="look__item"><span>Look 22</span></div>
+        <div class="look__item"><span>Look 29</span></div>
+        <div class="look__item"><span>Look 33</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="pieces">
+    <div class="wrap">
+      <div class="sec__head rv"><span class="eyebrow">Featured pieces</span><h2>Four from the run.</h2></div>
+      <div class="pieces">
+        <article class="piece rv"><div class="piece__vis"></div><div class="piece__body"><span>Outerwear</span><h3>The Midnight Coat</h3><div class="piece__price">£1,850</div></div></article>
+        <article class="piece rv" style="transition-delay:.05s"><div class="piece__vis"></div><div class="piece__body"><span>Tailoring</span><h3>Column Trouser</h3><div class="piece__price">£520</div></div></article>
+        <article class="piece rv" style="transition-delay:.1s"><div class="piece__vis"></div><div class="piece__body"><span>Knitwear</span><h3>Static Roll-Neck</h3><div class="piece__price">£390</div></div></article>
+        <article class="piece rv" style="transition-delay:.15s"><div class="piece__vis"></div><div class="piece__body"><span>Hardware</span><h3>Hook Belt</h3><div class="piece__price">£240</div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="camp" id="campaign">
+    <div class="wrap rv">
+      <span class="eyebrow" style="color:var(--gold)">Campaign · AW</span>
+      <h2>Everyone left. The room stayed dressed.</h2>
+      <p>The AW campaign, directed by a fictional photographer across one empty hotel floor. Film only, no retouching.</p>
+      <a href="#lookbook" class="btn btn--ghost" style="border-color:var(--ink);color:var(--ink);">Watch the film</a>
+    </div>
+  </section>
+
+  <section class="sec" id="studio">
+    <div class="wrap studio">
+      <div class="studio__vis rv"></div>
+      <div class="rv" style="transition-delay:.08s">
+        <span class="eyebrow">The studio</span>
+        <h2>A small room, a long table, one machine that matters.</h2>
+        <p>Atelier Nocturne is a fictional six-person studio. Every garment is patterned in-house and graded across a deliberately short size run. Production is capped at what the studio can finish itself.</p>
+        <p>There is no wholesale, no seasonal sale, and no explanation offered for the working hours.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec philo">
+    <div class="wrap">
+      <blockquote class="rv">"Elegance is what's left after you remove the effort to be seen."</blockquote>
+      <cite class="rv" style="transition-delay:.08s">— Atelier Nocturne, founding note</cite>
+    </div>
+  </section>
+
+  <section class="sec" style="padding:0;">
+    <div class="feat">
+      <div class="feat__txt rv">
+        <span class="eyebrow">Featured editorial</span>
+        <h3>In conversation: the case for the unlit runway</h3>
+        <p>The studio's founder on showing a collection in near-darkness, why the front row got torches, and what a garment has to do to survive it.</p>
+        <a href="#" class="btn btn--ghost" style="align-self:flex-start;">Read the piece</a>
+      </div>
+      <div class="feat__vis rv" style="transition-delay:.08s"></div>
+    </div>
+  </section>
+
+  <section class="sec cta" id="cta">
+    <div class="wrap">
+      <span class="eyebrow rv">Enquiries</span>
+      <h2 class="rv" style="transition-delay:.06s">Dress the hours that count.</h2>
+      <p class="rv" style="transition-delay:.12s">Private appointments, press and stockist enquiries. This is a portfolio demonstration — nothing is sold here.</p>
+      <a href="../index.html#work" class="btn btn--solid rv" style="transition-delay:.18s">Back to MusfirahLoom</a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <div class="foot__brand">NOCTURNE</div>
+        <p style="font-size:.84rem;max-width:34ch;">Atelier Nocturne — a fictional fashion house created as a cinematic portfolio demonstration by MusfirahLoom.</p>
+      </div>
+      <div><h4>House</h4><a href="#collections">Collections</a><a href="#lookbook">Lookbook</a><a href="#pieces">Pieces</a><a href="#campaign">Campaign</a></div>
+      <div><h4>Studio</h4><a href="#studio">About</a><a href="#">Craft</a><a href="#">Stockists</a><a href="#">Press</a></div>
+      <div><h4>Contact</h4><a href="#cta">Enquire</a><a href="#">Appointments</a><a href="../index.html#work">MusfirahLoom</a></div>
+    </div>
+    <div class="foot__bottom">
+      <span>© 2026 Atelier Nocturne (fictional). Portfolio demo.</span>
+      <span>Designed &amp; built by MusfirahLoom</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var io = ('IntersectionObserver' in window) && new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    }, { threshold:0.1, rootMargin:'0px 0px -6% 0px' });
+    var els = document.querySelectorAll('.rv');
+    if(!io || matchMedia('(prefers-reduced-motion:reduce)').matches){ els.forEach(function(el){el.classList.add('in');}); return; }
+    els.forEach(function(el){ io.observe(el); });
+  })();
+</script>
+</body>
+</html>

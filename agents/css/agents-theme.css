@@ -20,11 +20,11 @@
   /* Chat surface + bubbles — light editorial */
   --ml-chat-surface:   #FFFFFF;
   --ml-chat-line:      rgba(26,26,26,0.12);
-  --ml-bubble-user-bg: var(--wine);
+  --ml-bubble-user-bg: var(--wine-deep);
   --ml-bubble-user-ink:#FFFFFF;
-  --ml-bubble-bot-bg:  #F1EFE9;
+  --ml-bubble-bot-bg:  #F0ECFA;
   --ml-bubble-bot-ink: var(--ink);
-  --ml-bubble-sys-bg:  rgba(110,44,59,0.06);
+  --ml-bubble-sys-bg:  rgba(117,99,158,0.07);
   --ml-bubble-sys-ink: var(--ink-soft);
 
   /* Shape + depth used only by the agent platform */
