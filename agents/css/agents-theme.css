@@ -8,32 +8,31 @@
    agent platform needs on top of the existing design system.
 =========================================================== */
 :root{
-  /* Per-agent accent marks — one warm champagne / bronze / burgundy
-     family so the agent line reads as one premium product set,
-     never a rainbow of SaaS colours. */
-  --agent-sales:   #C8A96B;  /* champagne — the revenue flagship   */
-  --agent-support: #A99B7C;  /* warm taupe-gold — calm, service    */
-  --agent-cart:    #C0894A;  /* burnt amber — urgency, warm        */
-  --agent-lead:    #A67C8A;  /* muted mauve — a whisper of wine    */
-  --agent-upsell:  #B2A15E;  /* bronze-olive — adds value          */
-  --agent-funnel:  #8FA39A;  /* soft sage — restrained, systemic   */
+  /* One accent for the whole platform — burgundy. Every agent
+     mark resolves to it so the site reads as a single system. */
+  --agent-sales:   var(--wine);
+  --agent-support: var(--wine);
+  --agent-cart:    var(--wine);
+  --agent-lead:    var(--wine);
+  --agent-upsell:  var(--wine);
+  --agent-funnel:  var(--wine);
 
-  /* Chat surface + bubbles — cinematic dark */
-  --ml-chat-surface:   #141414;
-  --ml-chat-line:      rgba(255,255,255,0.08);
+  /* Chat surface + bubbles — light editorial */
+  --ml-chat-surface:   #FFFFFF;
+  --ml-chat-line:      rgba(26,26,26,0.12);
   --ml-bubble-user-bg: var(--wine);
-  --ml-bubble-user-ink:#F3EFE6;
-  --ml-bubble-bot-bg:  #1C1C1C;
+  --ml-bubble-user-ink:#FFFFFF;
+  --ml-bubble-bot-bg:  #F1EFE9;
   --ml-bubble-bot-ink: var(--ink);
-  --ml-bubble-sys-bg:  rgba(200,169,107,0.08);
+  --ml-bubble-sys-bg:  rgba(110,44,59,0.06);
   --ml-bubble-sys-ink: var(--ink-soft);
 
   /* Shape + depth used only by the agent platform */
   --ml-radius-sm: 8px;
-  --ml-radius:    14px;
-  --ml-radius-lg: 20px;
-  --ml-shadow-card: 0 14px 34px rgba(0,0,0,0.5);
-  --ml-shadow-pop:  0 22px 46px rgba(0,0,0,0.6);
+  --ml-radius:    12px;
+  --ml-radius-lg: 16px;
+  --ml-shadow-card: 0 14px 34px rgba(26,26,26,0.10);
+  --ml-shadow-pop:  0 22px 46px rgba(26,26,26,0.16);
 
   /* Stacking */
   --ml-z-topbar: 120;

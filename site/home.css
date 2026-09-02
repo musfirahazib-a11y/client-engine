@@ -21,27 +21,23 @@
 .hero::before{
   content:''; position:absolute; inset:-12% -20% 30% -20%; z-index:-1; pointer-events:none;
   background:
-    radial-gradient(48rem 30rem at 50% -4rem, rgba(122,32,36,0.14), transparent 70%),
-    radial-gradient(38rem 28rem at 88% 6%, rgba(200,169,107,0.08), transparent 72%);
+    radial-gradient(48rem 30rem at 50% -4rem, rgba(110,44,59,0.06), transparent 70%);
 }
 .hero::after{
-  content:''; position:absolute; inset:0; z-index:-1; pointer-events:none; opacity:.5;
+  content:''; position:absolute; inset:0; z-index:-1; pointer-events:none; opacity:.6;
   background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(26,26,26,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,26,26,0.04) 1px, transparent 1px);
   background-size:60px 60px;
   -webkit-mask-image:radial-gradient(120% 70% at 50% 0%, #000, transparent 70%);
           mask-image:radial-gradient(120% 70% at 50% 0%, #000, transparent 70%);
-}
-@media(prefers-reduced-motion:no-preference){
-  .giant-name{ text-shadow:0 0 80px rgba(200,169,107,0.10); }
 }
 
 /* ---------- AI ecosystem bands (rendered into #work) ---------- */
 .home-band{ padding:var(--sp-7) 6vw; max-width:1120px; margin:0 auto; }
 .home-band .eyebrow{ color:var(--gold); }
 .home-band h2{
-  font-family:'Fraunces',serif; font-style:italic;
+  font-family:var(--font-display); 
   font-size:clamp(1.8rem,4vw,2.6rem); line-height:1.1; margin-bottom:var(--sp-2);
 }
 .home-lede{ font-size:1rem; line-height:1.7; color:var(--ink-soft); max-width:60ch; margin-bottom:var(--sp-5); }
@@ -61,8 +57,8 @@
 /* premium hover on the reused site cards */
 .home-band .site-card{ transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
 .home-band .site-card:hover{
-  transform:translateY(-4px); border-color:rgba(200,169,107,0.45);
-  box-shadow:0 20px 44px rgba(0,0,0,0.5);
+  transform:translateY(-4px); border-color:var(--wine);
+  box-shadow:0 18px 40px rgba(26,26,26,0.10);
 }
 @media(min-width:640px){ .home-band .ml-agent-grid{ grid-template-columns:repeat(2,1fr); } }
 
@@ -70,9 +66,9 @@
 .about{padding:var(--sp-8) 6vw var(--sp-6); max-width:760px; margin:0 auto; text-align:center;}
 .about__photo{
   width:clamp(180px,22vw,240px); margin:0 auto var(--sp-4); border-radius:12px;
-  filter:drop-shadow(0 24px 40px rgba(0,0,0,0.6));
+  filter:drop-shadow(0 24px 40px rgba(26,26,26,0.18));
 }
-.about h2{font-size:clamp(2rem,4.4vw,2.8rem); font-style:italic; margin-bottom:var(--sp-3);}
+.about h2{font-size:clamp(2rem,4.4vw,2.8rem);  margin-bottom:var(--sp-3);}
 .about p{font-size:1.02rem; line-height:1.7; color:var(--ink-soft);}
 .about .contact-row{margin-top:var(--sp-4);}
 .s-card a.s-link{display:inline-block; margin-top:var(--sp-2);}
