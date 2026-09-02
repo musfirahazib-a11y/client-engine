@@ -127,3 +127,10 @@ body { background: var(--bg); color: var(--ink); }
 @media (max-width: 620px) {
   .cp-maparrow { transform: rotate(90deg); }
 }
+
+/* mobile: wrap the utility topbar */
+@media (max-width:640px){
+  .cp-topbar{flex-wrap:wrap; row-gap:.4rem; gap:.8rem;}
+  .cp-topbar__spacer{display:none;}
+  .cp-topbar__link{font-size:.74rem;}
+}

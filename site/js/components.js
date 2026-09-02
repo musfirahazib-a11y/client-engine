@@ -40,7 +40,7 @@ export function renderSiteHeader(nav) {
 
   return el('header', { class: 'site-topbar' },
     el('a', { href: nav.brandHref, class: 'site-topbar__brand' },
-      'Misbah', el('span', {}, '.')),
+      'MusfirahLoom', el('span', {}, '.')),
     toggle,
     menu);
 }
@@ -53,8 +53,9 @@ export function renderSiteFooter(base = '') {
         el('p', {}, 'AI Automation & Intelligent Business Systems')),
       el('nav', { class: 'site-foot__links', 'aria-label': 'Footer' },
         el('a', { href: `${base}ai-agents.html` }, 'AI Agents'),
-        el('a', { href: `${base}ai-sales-funnel.html` }, 'AI Sales Funnel'),
-        el('a', { href: `${base}campaigns.html` }, 'AI Campaigns'),
+        el('a', { href: `${base}ai-sales-funnel.html` }, 'AI Funnel'),
+        el('a', { href: `${base}campaigns.html` }, 'Campaigns'),
+        el('a', { href: `${base}index.html#work` }, 'Work'),
         el('a', { href: `${base}index.html#about` }, 'About'),
         el('a', { href: `${base}index.html#contact` }, 'Contact')),
       el('span', { class: 'site-foot__copy' }, '© 2026 Misbah Azib. All rights reserved.')));

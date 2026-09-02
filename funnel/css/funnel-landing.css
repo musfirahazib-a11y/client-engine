@@ -155,3 +155,10 @@
   .fn-offerband__inner{flex-direction:column; align-items:flex-start;}
   .fn-start__panel{padding:var(--sp-4);}
 }
+
+/* mobile: wrap the utility topbar */
+@media (max-width:640px){
+  .fn-topbar{flex-wrap:wrap; row-gap:.4rem; gap:.8rem;}
+  .fn-topbar__spacer{display:none;}
+  .fn-topbar__link{font-size:.72rem;}
+}
