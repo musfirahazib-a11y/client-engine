@@ -1,0 +1,197 @@
+/* ===========================================================
+   MusfirahLoom — AI Sales Funnel System
+   funnel-console.css  ·  the business console (funnel-admin.html)
+
+   Depends on style.css (tokens, .btn), agents-theme.css
+   (.ml-badge, .ml-quote, --ml-radius*) and funnel-theme.css.
+=========================================================== */
+
+body{background:var(--bg);}
+.fc-app{min-height:100vh; display:flex; flex-direction:column;}
+
+/* ---------- header ---------- */
+.fc-head{
+  display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;
+  padding:.9rem 2vw .9rem 1.4rem; background:var(--white); border-bottom:1px solid var(--panel-line);
+  position:sticky; top:0; z-index:50;
+}
+.fc-brand{display:flex; align-items:center; gap:.7rem;}
+.fc-brand__mark{
+  width:34px; height:34px; border-radius:9px; display:flex; align-items:center; justify-content:center;
+  background:var(--funnel); color:#fff; font-size:1.1rem;
+}
+.fc-brand strong{display:block; font-family:'Fraunces',serif; font-style:italic; font-size:1rem;}
+.fc-brand__sub{font-size:.74rem; color:var(--ink-soft);}
+.fc-head__right{display:flex; align-items:center; gap:.6rem; flex-wrap:wrap;}
+.fc-head__link{font-size:.78rem; font-weight:600; color:var(--funnel-deep);}
+.fc-demobtn,.fc-resetbtn{
+  font-family:'IBM Plex Mono',monospace; font-size:.68rem; font-weight:500; letter-spacing:.04em;
+  border:1px solid var(--panel-line); background:transparent; color:var(--ink-soft);
+  border-radius:100px; padding:.4rem .8rem; cursor:pointer;
+}
+.fc-demobtn.is-on{color:var(--funnel-deep); border-color:var(--funnel); background:var(--funnel-soft);}
+.fc-resetbtn:hover{color:var(--fn-hot); border-color:var(--fn-hot);}
+
+/* ---------- body: nav + panel ---------- */
+.fc-body{display:flex; flex:1; align-items:flex-start;}
+.fc-nav{
+  width:210px; flex-shrink:0; padding:var(--sp-4) .8rem; border-right:1px solid var(--panel-line);
+  position:sticky; top:61px; display:flex; flex-direction:column; gap:.2rem;
+}
+.fc-nav__item{
+  display:flex; align-items:center; gap:.6rem; padding:.6rem .8rem; border-radius:9px;
+  font-size:.86rem; font-weight:600; color:var(--ink-soft);
+}
+.fc-nav__item:hover{background:var(--funnel-soft); color:var(--funnel-deep);}
+.fc-nav__item.is-active{background:var(--funnel); color:#fff;}
+.fc-nav__ic{font-size:.9rem; width:1.1em; text-align:center;}
+
+.fc-panel{flex:1; padding:var(--sp-5) clamp(1rem,3vw,2.4rem); min-width:0; max-width:1100px;}
+
+/* ---------- section head ---------- */
+.fc-sechead{display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-bottom:var(--sp-4);}
+.fc-sechead h2{font-size:1.5rem; font-style:italic;}
+.fc-sechead p{font-size:.85rem; color:var(--ink-soft); margin-top:.2rem;}
+.fc-sechead__right{display:flex; gap:.5rem; flex-wrap:wrap;}
+.fc-sechead__right .btn{padding:.5rem 1rem; font-size:.76rem;}
+.fc-sechead__right .btn-solid{background:var(--funnel); border-color:var(--funnel);}
+
+/* ---------- tiles ---------- */
+.fc-tiles{display:grid; gap:.7rem; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); margin-bottom:var(--sp-4);}
+.fc-tile{background:var(--white); border:1px solid var(--panel-line); border-radius:12px; padding:.9rem 1rem; display:flex; flex-direction:column; gap:.15rem;}
+.fc-tile__val{font-family:'Fraunces',serif; font-weight:700; font-size:1.4rem; color:var(--funnel-deep); line-height:1.1;}
+.fc-tile__label{font-family:'IBM Plex Mono',monospace; font-size:.6rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft);}
+.fc-tile__hint{font-size:.66rem; color:var(--ink-soft);}
+
+/* ---------- cards / grid ---------- */
+.fc-grid2{display:grid; gap:var(--sp-4); grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); margin-bottom:var(--sp-4);}
+.fc-card{background:var(--white); border:1px solid var(--panel-line); border-radius:var(--fn-radius); padding:var(--sp-4); margin-bottom:var(--sp-4);}
+.fc-card h3{font-size:1rem; font-style:italic; margin-bottom:.7rem;}
+.fc-card--flag{border-left:3px solid var(--funnel-gold);}
+.fc-note{font-size:.78rem; color:var(--ink-soft);}
+
+/* ---------- bars ---------- */
+.fc-bar{margin-bottom:.6rem;}
+.fc-bar__track{height:10px; background:var(--panel); border-radius:100px; overflow:hidden;}
+.fc-bar__fill{height:100%; border-radius:100px; min-width:2px; transition:width .4s ease;}
+.fc-bar__label{font-size:.74rem; color:var(--ink-soft); display:inline-block; margin-top:.25rem;}
+
+/* ---------- funnel viz ---------- */
+.fc-funnel{display:flex; flex-direction:column; gap:.5rem; margin-bottom:var(--sp-4);}
+.fc-funnel__row{display:flex; align-items:center; gap:.9rem;}
+.fc-funnel__bar{
+  background:linear-gradient(90deg,var(--funnel),var(--funnel-deep)); color:#fff;
+  border-radius:8px; padding:.55rem .8rem; min-width:54px; display:flex; align-items:center;
+}
+.fc-funnel__count{font-family:'Fraunces',serif; font-weight:700;}
+.fc-funnel__meta strong{display:block; font-size:.9rem;}
+.fc-td-sub{font-size:.72rem; color:var(--ink-soft);}
+
+/* ---------- pills ---------- */
+.fc-pill{
+  display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:.58rem; font-weight:600;
+  letter-spacing:.08em; text-transform:uppercase; border:1px solid currentColor; border-radius:100px;
+  padding:.15rem .5rem; margin-left:.35rem;
+}
+.fc-pill--hot{color:var(--fn-hot);} .fc-pill--warm{color:var(--fn-warm);}
+.fc-pill--cold{color:var(--fn-cold);} .fc-pill--info{color:var(--fn-info);}
+.fc-pill--good{color:var(--fn-good);} .fc-pill--muted{color:var(--fn-muted);}
+.fc-pill--neutral{color:var(--ink-soft);}
+
+/* ---------- toolbar / filters ---------- */
+.fc-toolbar{display:flex; gap:.6rem; flex-wrap:wrap; margin-bottom:var(--sp-3);}
+.fc-input,.fc-select{
+  font:inherit; font-size:.85rem; padding:.5rem .7rem; border:1px solid var(--panel-line);
+  border-radius:9px; background:var(--white); color:var(--ink);
+}
+.fc-input:focus,.fc-select:focus{outline:none; border-color:var(--funnel);}
+.fc-input[type=search]{min-width:220px; flex:1;}
+
+/* ---------- table ---------- */
+.fc-tablewrap{overflow-x:auto; border:1px solid var(--panel-line); border-radius:var(--fn-radius); background:var(--white);}
+.fc-table{width:100%; min-width:840px; border-collapse:collapse; font-size:.82rem;}
+.fc-table th{
+  text-align:left; padding:.55rem .7rem; background:var(--panel);
+  font-family:'IBM Plex Mono',monospace; font-size:.62rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft);
+  position:sticky; top:0; white-space:nowrap;
+}
+.fc-table td{padding:.55rem .7rem; border-top:1px solid var(--panel-line); vertical-align:top; line-height:1.4;}
+.fc-table__row{cursor:pointer;}
+.fc-table__row:hover{background:var(--funnel-soft);}
+.fc-td-block{display:block;}
+.fc-td-clamp{display:inline-block; max-width:24ch; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; vertical-align:bottom;}
+.fc-score{font-family:'Fraunces',serif; font-weight:700; color:var(--funnel-deep);}
+
+/* ---------- lead split + drawer ---------- */
+.fc-leadsplit{display:grid; grid-template-columns:1fr; gap:var(--sp-4); margin-top:var(--sp-3);}
+@media (min-width:1100px){ .fc-leadsplit{grid-template-columns:1.4fr 1fr; align-items:start;} }
+.fc-drawer{background:var(--white); border:1px solid var(--panel-line); border-radius:var(--fn-radius); position:sticky; top:80px; max-height:calc(100vh - 100px); overflow-y:auto;}
+.fc-drawer__inner{padding:var(--sp-4);}
+.fc-drawer__head{display:flex; justify-content:space-between; align-items:flex-start; gap:.6rem; margin-bottom:var(--sp-3);}
+.fc-drawer__head h3{font-size:1.15rem; font-style:italic;}
+.fc-drawer__x{background:transparent; border:1px solid var(--panel-line); border-radius:8px; width:28px; height:28px; cursor:pointer;}
+.fc-drawer__block{margin-top:var(--sp-3); padding-top:var(--sp-3); border-top:1px solid var(--panel-line);}
+.fc-drawer__block h4{font-size:.7rem; font-family:'IBM Plex Mono',monospace; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:.6rem;}
+.fc-drawer__actions{display:flex; gap:.5rem; flex-wrap:wrap; align-items:center;}
+.fc-drawer__actions .btn{padding:.45rem .8rem; font-size:.74rem;}
+.fc-drawer__actions .btn-solid{background:var(--funnel); border-color:var(--funnel);}
+.fc-actionlabel{font-size:.72rem; color:var(--ink-soft); display:flex; align-items:center; gap:.4rem;}
+
+.fc-kv{display:grid; gap:.3rem;}
+.fc-kv__row{display:flex; gap:.8rem; font-size:.82rem;}
+.fc-kv__k{flex-shrink:0; width:8rem; font-family:'IBM Plex Mono',monospace; font-size:.62rem; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-soft); padding-top:.1rem;}
+.fc-kv__v{color:var(--ink); word-break:break-word;}
+
+.fc-timeline{list-style:none; padding:0; margin:0; display:grid; gap:.6rem;}
+.fc-timeline__item{display:flex; gap:.6rem;}
+.fc-timeline__dot{flex-shrink:0; width:8px; height:8px; border-radius:50%; background:var(--funnel); margin-top:.35rem;}
+.fc-timeline__item p{font-size:.84rem; line-height:1.45;}
+.fc-fu--sent .fc-timeline__dot{background:var(--fn-good);}
+.fc-fu--due .fc-timeline__dot{background:var(--fn-warm);}
+.fc-fu--stopped .fc-timeline__dot{background:var(--fn-muted);}
+.fc-fu--scheduled .fc-timeline__dot{background:var(--panel-line);}
+
+.fc-transcript{display:grid; gap:.5rem;}
+.fc-tr{padding:.5rem .7rem; border-radius:10px; font-size:.83rem; line-height:1.45;}
+.fc-tr--user{background:var(--funnel-soft);}
+.fc-tr--agent{background:var(--panel);}
+.fc-tr__who{font-family:'IBM Plex Mono',monospace; font-size:.56rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); display:block; margin-bottom:.15rem;}
+
+.fc-simplelist{margin:0; padding-left:1.1rem; font-size:.84rem; line-height:1.6; color:var(--ink);}
+
+/* ---------- recovery ---------- */
+.fc-recovery{background:var(--white); border:1px solid var(--panel-line); border-left:3px solid var(--fn-warm); border-radius:var(--fn-radius); padding:var(--sp-4); margin-bottom:var(--sp-3);}
+.fc-recovery__head{display:flex; justify-content:space-between; gap:.8rem; flex-wrap:wrap; margin-bottom:.7rem;}
+.fc-recovery .ml-quote{margin:.7rem 0;}
+.fc-recovery .fc-drawer__actions{margin-top:.4rem;}
+
+/* ---------- follow-up ---------- */
+.fc-seq{list-style:none; padding:0; margin:0; display:grid; gap:.7rem;}
+.fc-seq__step{display:flex; gap:.9rem; align-items:flex-start;}
+.fc-seq__delay{flex-shrink:0; font-family:'IBM Plex Mono',monospace; font-size:.72rem; color:var(--funnel-deep); background:var(--funnel-soft); border-radius:100px; padding:.2rem .6rem; margin-top:.1rem;}
+.fc-seq__step p{font-size:.85rem; line-height:1.5; margin-top:.15rem;}
+.fc-fu-counts{display:flex; gap:.4rem; flex-wrap:wrap; margin:var(--sp-3) 0;}
+.fc-fu-counts .fc-pill{margin-left:0;}
+
+/* ---------- config ---------- */
+.fc-config__group{background:var(--white); border:1px solid var(--panel-line); border-radius:var(--fn-radius); padding:var(--sp-4); margin-bottom:var(--sp-3);}
+.fc-config__group h3{font-size:1rem; font-style:italic; margin-bottom:var(--sp-3);}
+.fc-field{display:flex; flex-direction:column; gap:.3rem; margin-bottom:.8rem;}
+.fc-field > span{font-size:.76rem; font-weight:600; color:var(--ink);}
+.fc-field--inline{flex-direction:row; align-items:center; gap:.5rem;}
+.fc-field__err{font-size:.72rem; color:var(--fn-hot); font-weight:600;}
+.fc-json{font-family:'IBM Plex Mono',monospace; font-size:.76rem; line-height:1.5; white-space:pre;}
+.fc-input.is-invalid{border-color:var(--fn-hot);}
+.fc-input--color{padding:.2rem; width:44px; height:38px;}
+.fc-colorpair{display:flex; gap:.5rem; align-items:center;}
+
+/* ---------- empty ---------- */
+.fc-empty{background:var(--white); border:1px dashed var(--panel-line); border-radius:var(--fn-radius); padding:var(--sp-5); text-align:center; color:var(--ink-soft);}
+.fc-empty p{margin-bottom:var(--sp-3); font-size:.9rem; line-height:1.6; max-width:52ch; margin-left:auto; margin-right:auto;}
+
+@media (max-width:820px){
+  .fc-body{flex-direction:column;}
+  .fc-nav{width:100%; flex-direction:row; overflow-x:auto; position:static; border-right:none; border-bottom:1px solid var(--panel-line);}
+  .fc-nav__item{white-space:nowrap;}
+  .fc-drawer{position:static; max-height:none;}
+}

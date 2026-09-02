@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Sales Funnel — MusfirahLoom</title>
+<meta name="description" content="An AI-powered sales system that captures, qualifies, nurtures and converts leads automatically. Interactive demo by MusfirahLoom.">
+<meta property="og:title" content="AI Sales Funnel — MusfirahLoom">
+<meta property="og:description" content="Capture, qualify, nurture and convert leads automatically with an AI sales assistant.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Existing MusfirahLoom design system (read-only, not modified) -->
+<link rel="stylesheet" href="style.css">
+<!-- AI Agent platform tokens + the reused chat component -->
+<link rel="stylesheet" href="agents/css/agents-theme.css">
+<link rel="stylesheet" href="agents/css/agent-chat.css">
+<!-- AI Sales Funnel styles -->
+<link rel="stylesheet" href="funnel/css/funnel-theme.css">
+<link rel="stylesheet" href="funnel/css/funnel-landing.css">
+<link rel="stylesheet" href="funnel/css/campaign-skins.css">
+</head>
+<body>
+
+<header class="fn-topbar">
+  <a href="index.html" class="fn-topbar__brand" data-biz-name>Demo</a>
+  <span class="fn-topbar__spacer"></span>
+  <a href="campaigns.html" class="fn-topbar__link">&larr; All demo campaigns</a>
+  <a href="funnel-admin.html" class="fn-topbar__link" data-campaign-link>Business console</a>
+  <span class="ml-badge">Interactive Demo</span>
+</header>
+
+<main id="funnelRoot">
+  <noscript>
+    <section style="max-width:640px;margin:4rem auto;padding:0 6vw;">
+      <h1>Interactive AI Sales Funnel demo</h1>
+      <p>This demo needs JavaScript enabled. It shows an AI-powered sales funnel
+      configured for one of three industries — Salon &amp; Spa, Real Estate or
+      E-commerce.</p>
+      <p><a href="campaigns.html">&larr; Back to the demo campaigns</a></p>
+    </section>
+  </noscript>
+</main>
+
+<script type="module" src="funnel/js/landing.entry.js"></script>
+</body>
+</html>

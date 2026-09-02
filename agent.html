@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agent Demo — MusfirahLoom</title>
+<meta name="description" content="Interactive demo of a MusfirahLoom commercial AI agent. Simulated data — Demo Mode.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Existing MusfirahLoom design system (read-only, not modified) -->
+<link rel="stylesheet" href="style.css">
+<!-- AI Agent platform styles -->
+<link rel="stylesheet" href="agents/css/agents-theme.css">
+<link rel="stylesheet" href="agents/css/agents-core.css">
+<link rel="stylesheet" href="agents/css/agent-chat.css">
+</head>
+<body>
+
+<header class="ml-topbar">
+  <a href="index.html" class="ml-wordmark">Misbah<span>.</span></a>
+  <span class="ml-topbar__spacer"></span>
+  <a href="agents.html" class="ml-topbar__link">&larr; All AI Agents</a>
+  <span class="ml-badge">Demo Mode</span>
+</header>
+
+<main class="ml-agent-shell">
+  <div id="agentHeader"></div>
+  <div id="agentChat" class="ml-chat-mount">
+    <noscript>
+      This interactive demo needs JavaScript enabled.
+      <a href="agents.html">Back to the AI Agents overview</a>.
+    </noscript>
+  </div>
+</main>
+
+<script type="module" src="agents/js/agent.entry.js"></script>
+</body>
+</html>

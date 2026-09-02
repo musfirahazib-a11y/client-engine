@@ -1,0 +1,31 @@
+/* ===========================================================
+   MusfirahLoom — AI Sales Funnel System
+   funnel-theme.css  ·  NEW TOKENS ONLY
+
+   Must NOT redefine any token from the portfolio's style.css
+   (--bg, --panel, --ink, --wine, --gold, --sp-*, .btn …) or
+   agents-theme.css (--ml-radius*, --ml-shadow-*). It only adds
+   the tokens the funnel needs on top.
+
+   --funnel / --funnel-gold are also written at runtime from
+   config.branding by landing.entry.js, so a rebrand needs no
+   CSS change.
+=========================================================== */
+:root{
+  --funnel:        #2F5D62;   /* deep teal — flagship accent   */
+  --funnel-deep:   #234a4e;
+  --funnel-soft:   rgba(47,93,98,0.08);
+  --funnel-gold:   #C9A66B;
+
+  /* lead temperature / status */
+  --fn-hot:   #6E2C3B;
+  --fn-warm:  #A9702F;
+  --fn-cold:  #4A6157;
+  --fn-info:  #4C3A5E;
+  --fn-good:  #3f6b4c;
+  --fn-muted: #6B5A5F;
+
+  --fn-radius:    14px;
+  --fn-radius-lg: 22px;
+  --fn-shadow:    0 14px 34px rgba(35,42,45,0.10);
+}

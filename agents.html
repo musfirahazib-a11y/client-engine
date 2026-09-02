@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agents — MusfirahLoom · Misbah Azib</title>
+<meta name="description" content="Five commercial AI agents for online stores — sales, support, cart recovery, lead booking and upsell. Interactive demos by MusfirahLoom.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Existing MusfirahLoom design system (read-only, not modified) -->
+<link rel="stylesheet" href="style.css">
+<!-- AI Agent platform styles -->
+<link rel="stylesheet" href="agents/css/agents-theme.css">
+<link rel="stylesheet" href="agents/css/agents-core.css">
+</head>
+<body>
+
+<header class="ml-topbar">
+  <a href="index.html" class="ml-wordmark">Misbah<span>.</span></a>
+  <span class="ml-topbar__spacer"></span>
+  <a href="index.html" class="ml-topbar__link">&larr; Portfolio</a>
+  <span class="ml-badge">Demo Mode</span>
+</header>
+
+<main>
+
+  <section class="ml-hero">
+    <span class="ml-hero__eyebrow">MusfirahLoom &middot; AI Agents</span>
+    <h1>Commercial AI agents, built to <em>run your storefront</em>.</h1>
+    <p class="ml-hero__lede">
+      Four focused agents that each own one revenue or service job — from
+      guiding a first-time buyer to recovering an abandoned cart — plus the
+      flagship <em>AI Sales Funnel System</em> that ties them together into one
+      capture-to-conversion machine. Try any of them live below. Every
+      conversation here is simulated: no real customer data, no live orders.
+    </p>
+    <div class="ml-hero__meta">
+      <span class="ml-badge">Demo Mode</span>
+      <span>Simulated data &middot; build <span data-runtime-version>0.0.0</span></span>
+    </div>
+  </section>
+
+  <div class="ml-hero__rule"></div>
+
+  <section class="ml-grid-section">
+    <div class="ml-grid-section__head">
+      <h2>The five agents</h2>
+      <p>Pick one to open its interactive demo.</p>
+    </div>
+    <div class="ml-agent-grid" id="agentGrid">
+      <noscript>
+        <p class="ml-card__benefit">
+          The agent demos need JavaScript enabled. The line-up: Sales &amp;
+          Product Recommendation, Customer Support + Order/Returns, Abandoned
+          Cart Recovery, Lead Qualification + Appointment Booking, and the
+          flagship AI Sales Funnel System (<a href="funnel.html">funnel.html</a>
+          / <a href="funnel-admin.html">console</a>).
+        </p>
+      </noscript>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ml-foot">
+  <div class="ml-foot__inner">
+    <span>&copy; 2026 Misbah Azib &middot; MusfirahLoom</span>
+    <span>AI Agent Platform &middot; Demo Mode</span>
+  </div>
+</footer>
+
+<script type="module" src="agents/js/hub.entry.js"></script>
+</body>
+</html>

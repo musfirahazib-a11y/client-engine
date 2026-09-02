@@ -1,0 +1,44 @@
+/* ===========================================================
+   MusfirahLoom — AI Sales Funnel System
+   campaign-skins.css  ·  per-campaign visual character
+
+   The palette is already swapped at runtime (landing.entry.js
+   writes --funnel / --funnel-gold from config.branding). This
+   file adds a few structural / typographic differences so the
+   three campaigns don't feel identical, keyed off
+   <body data-campaign="...">.
+=========================================================== */
+
+/* ---------- Salon & Spa — elegant, editorial, generous ---------- */
+body[data-campaign="salon"] {
+  --fn-radius-lg: 26px;
+}
+body[data-campaign="salon"] .fn-hero__headline {
+  font-style: italic;
+  letter-spacing: -0.02em;
+}
+body[data-campaign="salon"] .fn-sec h2 { font-weight: 500; }
+body[data-campaign="salon"] .fn-hero { background: linear-gradient(180deg, rgba(142,91,122,0.10), transparent 70%); }
+body[data-campaign="salon"] .fn-listing { border-radius: 18px; }
+body[data-campaign="salon"] .fn-listing__media { font-size: 2rem; }
+body[data-campaign="salon"] .fn-step__n { border-radius: 50%; }
+
+/* ---------- Real Estate — structured, confident, spacious ---------- */
+body[data-campaign="realestate"] .fn-hero__headline { letter-spacing: -0.015em; }
+body[data-campaign="realestate"] .fn-listing__media { border-radius: 0; }
+body[data-campaign="realestate"] .fn-listings__grid { gap: 1.4rem; }
+
+/* ---------- E-commerce — tighter grid, product-forward ---------- */
+body[data-campaign="ecommerce"] .fn-listings__grid {
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1rem;
+}
+body[data-campaign="ecommerce"] .fn-listing__media { height: 150px; }
+body[data-campaign="ecommerce"] .fn-hero__headline { font-weight: 700; letter-spacing: -0.02em; }
+body[data-campaign="ecommerce"] .fn-sec:nth-of-type(even) { background: #f3ece2; }
+
+/* ---------- console: campaign switch control ---------- */
+.fc-campaignsel {
+  font-family: 'IBM Plex Mono', monospace; font-size: .72rem;
+  padding: .4rem .6rem; max-width: 190px;
+}
