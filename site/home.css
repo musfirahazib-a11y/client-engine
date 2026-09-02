@@ -62,6 +62,56 @@
 }
 @media(min-width:640px){ .home-band .ml-agent-grid{ grid-template-columns:repeat(2,1fr); } }
 
+/* ---------- Selected Work (portfolio) ---------- */
+.sw{padding:var(--sp-8) 0;}
+.sw__wrap{max-width:1180px; margin:0 auto; padding:0 6vw;}
+.sw__head{max-width:60ch; margin-bottom:var(--sp-8);}
+.sw__head h2{
+  font-family:var(--font-display); font-weight:700; letter-spacing:-0.02em;
+  font-size:clamp(2rem,5vw,3.4rem); line-height:1.05; margin:var(--sp-2) 0 var(--sp-3);
+}
+.sw__head p{font-size:1.02rem; line-height:1.7; color:var(--ink-soft); max-width:52ch;}
+
+.sw__item{
+  display:grid; grid-template-columns:0.9fr 1.1fr; gap:clamp(1.6rem,4vw,3.5rem);
+  align-items:center; padding:var(--sp-6) 0; border-top:1px solid var(--panel-line);
+}
+.sw__item:last-child{border-bottom:1px solid var(--panel-line);}
+@media(min-width:861px){
+  .sw__item--flip{grid-template-columns:1.1fr 0.9fr;}
+  .sw__item--flip .sw__text{order:2;}
+}
+@media(max-width:860px){ .sw__item, .sw__item--flip{grid-template-columns:1fr; gap:var(--sp-4);} }
+
+.sw__num{
+  font-family:var(--font-display); font-weight:800; font-size:clamp(2.4rem,6vw,4rem);
+  line-height:1; color:var(--accent-soft); display:block;
+}
+.sw__cat{
+  display:block; font-family:var(--font-mono); font-size:.68rem; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--accent); margin:var(--sp-3) 0 var(--sp-2);
+}
+.sw__title{
+  font-family:var(--font-display); font-weight:700; letter-spacing:-0.02em;
+  font-size:clamp(1.5rem,3.4vw,2.2rem); line-height:1.1; margin-bottom:var(--sp-3);
+}
+.sw__desc{font-size:.98rem; line-height:1.7; color:var(--ink-soft); max-width:46ch; margin-bottom:var(--sp-4);}
+.sw__cta{font-size:.8rem;}
+
+.sw__vis{
+  position:relative; display:block; aspect-ratio:4/3; border-radius:6px; overflow:hidden;
+  border:1px solid var(--panel-line);
+  transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s;
+}
+.sw__vis span{
+  position:absolute; left:1.1rem; bottom:.9rem; font-family:var(--font-mono);
+  font-size:.62rem; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.85);
+}
+.sw__vis:hover{transform:translateY(-6px) scale(1.01); box-shadow:0 34px 70px -30px rgba(22,21,26,.4);}
+.sw__vis--01{background:radial-gradient(120% 100% at 25% 15%,#E7C9AE 0%,transparent 55%),linear-gradient(150deg,#C6784F,#8F4A2C 65%,#5E2F1C);}
+.sw__vis--02{background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.35)),linear-gradient(150deg,#4E6B58,#26362D 65%,#14201A);}
+.sw__vis--03{background:radial-gradient(120% 100% at 75% 10%,#2E2733 0%,transparent 55%),linear-gradient(150deg,#3A2530,#1B1119 60%,#0C0C0E);}
+
 /* ---------- About / Founder (moved from the Phase 2 <style> block) ---------- */
 .about{padding:var(--sp-8) 6vw var(--sp-6); max-width:760px; margin:0 auto; text-align:center;}
 .about__photo{
