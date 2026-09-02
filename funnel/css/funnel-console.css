@@ -54,12 +54,12 @@ body{background:var(--bg);}
 .fc-sechead p{font-size:.85rem; color:var(--ink-soft); margin-top:.2rem;}
 .fc-sechead__right{display:flex; gap:.5rem; flex-wrap:wrap;}
 .fc-sechead__right .btn{padding:.5rem 1rem; font-size:.76rem;}
-.fc-sechead__right .btn-solid{background:var(--funnel); border-color:var(--funnel);}
+.fc-sechead__right .btn-solid{background:var(--funnel); border-color:var(--funnel); color:var(--ink);}
 
 /* ---------- tiles ---------- */
 .fc-tiles{display:grid; gap:.7rem; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); margin-bottom:var(--sp-4);}
 .fc-tile{background:var(--white); border:1px solid var(--panel-line); border-radius:12px; padding:.9rem 1rem; display:flex; flex-direction:column; gap:.15rem;}
-.fc-tile__val{font-family:'Fraunces',serif; font-weight:700; font-size:1.4rem; color:var(--funnel-deep); line-height:1.1;}
+.fc-tile__val{font-family:'Fraunces',serif; font-weight:700; font-size:1.4rem; color:var(--gold); line-height:1.1;}
 .fc-tile__label{font-family:'IBM Plex Mono',monospace; font-size:.6rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft);}
 .fc-tile__hint{font-size:.66rem; color:var(--ink-soft);}
 
@@ -120,7 +120,7 @@ body{background:var(--bg);}
 .fc-table__row:hover{background:var(--funnel-soft);}
 .fc-td-block{display:block;}
 .fc-td-clamp{display:inline-block; max-width:24ch; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; vertical-align:bottom;}
-.fc-score{font-family:'Fraunces',serif; font-weight:700; color:var(--funnel-deep);}
+.fc-score{font-family:'Fraunces',serif; font-weight:700; color:var(--gold);}
 
 /* ---------- lead split + drawer ---------- */
 .fc-leadsplit{display:grid; grid-template-columns:1fr; gap:var(--sp-4); margin-top:var(--sp-3);}
@@ -134,7 +134,7 @@ body{background:var(--bg);}
 .fc-drawer__block h4{font-size:.7rem; font-family:'IBM Plex Mono',monospace; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:.6rem;}
 .fc-drawer__actions{display:flex; gap:.5rem; flex-wrap:wrap; align-items:center;}
 .fc-drawer__actions .btn{padding:.45rem .8rem; font-size:.74rem;}
-.fc-drawer__actions .btn-solid{background:var(--funnel); border-color:var(--funnel);}
+.fc-drawer__actions .btn-solid{background:var(--funnel); border-color:var(--funnel); color:var(--ink);}
 .fc-actionlabel{font-size:.72rem; color:var(--ink-soft); display:flex; align-items:center; gap:.4rem;}
 
 .fc-kv{display:grid; gap:.3rem;}

@@ -35,7 +35,7 @@ body[data-campaign="ecommerce"] .fn-listings__grid {
 }
 body[data-campaign="ecommerce"] .fn-listing__media { height: 150px; }
 body[data-campaign="ecommerce"] .fn-hero__headline { font-weight: 700; letter-spacing: -0.02em; }
-body[data-campaign="ecommerce"] .fn-sec:nth-of-type(even) { background: #f3ece2; }
+body[data-campaign="ecommerce"] .fn-sec:nth-of-type(even) { background: var(--bg-2); }
 
 /* ---------- console: campaign switch control ---------- */
 .fc-campaignsel {

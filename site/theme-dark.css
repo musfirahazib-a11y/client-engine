@@ -1,67 +1,39 @@
 /* ===========================================================
    MusfirahLoom — Website
-   site/theme-dark.css  ·  the "Luxury AI" dark variation
+   site/theme-dark.css  ·  extra polish for the AI product pages
 
-   Applied via <html class="theme-dark"> on the AI product pages
-   (ai-agents, ai-sales-funnel, campaigns + detail pages, the
-   agent hub). Same brand — deep wine + charcoal + warm ivory +
-   champagne gold — never generic purple/blue, never neon.
-   Loaded AFTER style.css / agents-core.css / site.css so these
-   rules win.
+   The cinematic near-black palette now lives in style.css :root
+   (the single source of truth). This file only adds a little
+   product-page atmosphere + card polish on top, applied via
+   <html class="theme-dark">. It must NOT redefine the palette
+   tokens. Loaded AFTER style.css / agents-core.css / site.css.
 =========================================================== */
 
-/* ---------- token overrides ---------- */
-html.theme-dark{
-  --bg:#160F13;
-  --bg-2:#1E151B;
-  --panel:#241922;
-  --panel-2:#2C202A;
-  --panel-line:rgba(216,184,121,0.16);
-  --ink:#F4ECE2;
-  --ink-soft:#BEAFA6;
-  --white:#241922;              /* keep components that fill --white on-theme */
-  --wine:#C25C70;              /* brightened for dark ground — CTAs / accents */
-  --wine-deep:#9A4152;
-  --gold:#D8B879;
-  --ml-radius-lg:20px;
-
-  color-scheme:dark;
-  background:var(--bg);
-}
-html.theme-dark body{background:var(--bg); color:var(--ink);}
+html.theme-dark{ color-scheme:dark; }
 
 /* subtle technology atmosphere — a faint champagne grid + a soft
-   wine glow near the top. Fixed + very low contrast, GPU-cheap. */
+   burgundy glow near the top. Fixed + very low contrast, GPU-cheap. */
 html.theme-dark body::before{
   content:''; position:fixed; inset:0; z-index:-2; pointer-events:none;
   background:
-    radial-gradient(60rem 40rem at 50% -12rem, rgba(194,92,112,0.16), transparent 70%),
-    radial-gradient(48rem 40rem at 92% 8%, rgba(216,184,121,0.08), transparent 70%);
+    radial-gradient(60rem 40rem at 50% -12rem, rgba(122,32,36,0.16), transparent 70%),
+    radial-gradient(48rem 40rem at 92% 8%, rgba(200,169,107,0.06), transparent 70%);
 }
 html.theme-dark body::after{
-  content:''; position:fixed; inset:0; z-index:-2; pointer-events:none; opacity:.5;
+  content:''; position:fixed; inset:0; z-index:-2; pointer-events:none; opacity:.45;
   background-image:
-    linear-gradient(rgba(216,184,121,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(216,184,121,0.05) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
   background-size:64px 64px;
   -webkit-mask-image:radial-gradient(100% 60% at 50% 0%, #000, transparent 75%);
           mask-image:radial-gradient(100% 60% at 50% 0%, #000, transparent 75%);
 }
 
-/* ---------- buttons ---------- */
-html.theme-dark .btn{border-color:rgba(244,236,226,0.28); color:var(--ink);}
-html.theme-dark .btn-solid{
-  background:var(--wine); border-color:var(--wine); color:#160F13; font-weight:700;
-}
-html.theme-dark .btn-solid:hover{background:#D06E80; border-color:#D06E80;}
-html.theme-dark .btn-outline{background:transparent; color:var(--ink);}
-html.theme-dark .btn-outline:hover{background:var(--ink); color:#160F13;}
-
 /* ---------- badges / eyebrows ---------- */
 html.theme-dark .ml-badge{
-  color:var(--gold); background:rgba(216,184,121,0.10); border-color:rgba(216,184,121,0.28);
+  color:var(--gold); background:rgba(200,169,107,0.10); border-color:rgba(200,169,107,0.28);
 }
-html.theme-dark .ml-badge::before{background:var(--gold); box-shadow:0 0 0 3px rgba(216,184,121,0.22);}
+html.theme-dark .ml-badge::before{background:var(--gold); box-shadow:0 0 0 3px rgba(200,169,107,0.22);}
 html.theme-dark .eyebrow,
 html.theme-dark .site-hero__eyebrow,
 html.theme-dark .cp-eyebrow{color:var(--gold);}
@@ -70,11 +42,11 @@ html.theme-dark .cp-eyebrow{color:var(--gold);}
 html.theme-dark .site-topbar,
 html.theme-dark .ml-topbar,
 html.theme-dark .cp-topbar{
-  background:rgba(22,15,19,0.82); backdrop-filter:blur(12px);
+  background:rgba(13,13,13,0.85); backdrop-filter:blur(12px);
   border-bottom:1px solid var(--panel-line);
 }
 html.theme-dark .site-topbar__brand span,
-html.theme-dark .ml-wordmark span{color:var(--wine);}
+html.theme-dark .ml-wordmark span{color:var(--gold);}
 html.theme-dark .site-topbar__link,
 html.theme-dark .ml-topbar__link,
 html.theme-dark .cp-topbar__link{color:var(--ink-soft);}
@@ -82,7 +54,7 @@ html.theme-dark .site-topbar__link:hover,
 html.theme-dark .site-topbar__link.is-active,
 html.theme-dark .ml-topbar__link:hover,
 html.theme-dark .cp-topbar__link:hover{color:var(--gold);}
-html.theme-dark .site-topbar__link.is-active{text-decoration-color:var(--wine);}
+html.theme-dark .site-topbar__link.is-active{text-decoration-color:var(--gold);}
 @media(max-width:900px){
   html.theme-dark .site-topbar__nav{background:var(--bg-2); border-bottom-color:var(--panel-line);}
 }
@@ -114,7 +86,8 @@ html.theme-dark .cp-card{
   box-shadow:0 1px 0 rgba(255,255,255,0.03) inset;
 }
 html.theme-dark .ml-card::before{
-  background:linear-gradient(90deg, var(--card-accent, var(--wine)), transparent);
+  background:linear-gradient(90deg, var(--card-accent, var(--gold)), transparent);
+  opacity:.85;
 }
 html.theme-dark .ml-card__name,
 html.theme-dark .cp-card h3{color:var(--ink);}
@@ -125,15 +98,13 @@ html.theme-dark .cp-card__niche{color:var(--ink-soft);}
 html.theme-dark .ml-card__caps li,
 html.theme-dark .cdt__chip,
 html.theme-dark .cp-card__caps li{
-  color:var(--gold); background:rgba(216,184,121,0.08); border-color:rgba(216,184,121,0.22);
+  color:var(--gold); background:rgba(200,169,107,0.08); border-color:rgba(200,169,107,0.22);
 }
 html.theme-dark .site-card__flow{color:var(--ink-soft);}
 html.theme-dark .site-card:hover,
 html.theme-dark .cp-card:hover{
-  border-color:var(--card-accent, var(--wine));
-  box-shadow:0 22px 50px rgba(0,0,0,0.5),
-             0 0 0 1px var(--card-accent, var(--wine)),
-             0 0 40px -12px var(--card-accent, var(--wine));
+  border-color:rgba(200,169,107,0.45);
+  box-shadow:0 24px 54px rgba(0,0,0,0.55);
 }
 
 /* ---------- workflow diagram + animated connector ---------- */
@@ -142,7 +113,7 @@ html.theme-dark .stage{
   background:var(--bg-2); border-color:var(--panel-line);
 }
 html.theme-dark .wf__list::before{
-  background:linear-gradient(var(--card-accent, var(--wine)) 0%, transparent 100%);
+  background:linear-gradient(var(--gold) 0%, transparent 100%);
   opacity:.55;
 }
 @media(prefers-reduced-motion:no-preference){
@@ -164,7 +135,7 @@ html.theme-dark .stage h3{color:var(--gold);}
 
 /* ---------- ecosystem ---------- */
 html.theme-dark .eco__level{background:var(--panel); border-color:var(--panel-line);}
-html.theme-dark .eco__level--2{background:linear-gradient(180deg, rgba(47,93,98,0.22), var(--panel));}
+html.theme-dark .eco__level--2{background:linear-gradient(180deg, rgba(143,163,154,0.18), var(--panel));}
 html.theme-dark .eco__label{color:var(--ink);}
 html.theme-dark .eco__note{color:var(--ink-soft);}
 html.theme-dark .eco__arrow{color:var(--gold);}
@@ -200,12 +171,12 @@ html.theme-dark .site-foot__copy{border-top-color:var(--panel-line);}
 /* ---------- agent hub (agents.html) ---------- */
 html.theme-dark .ml-grid-section__head p{color:var(--ink-soft);}
 html.theme-dark .ml-card__chip{color:var(--gold); border-color:var(--gold);}
-html.theme-dark .ml-card__icon{color:#160F13;}
+html.theme-dark .ml-card__icon{color:var(--on-accent);}
 
 /* ---------- campaigns hub (campaigns.html · .cp-*) ---------- */
 html.theme-dark .cp-sec{color:var(--ink);}
 html.theme-dark .cp-mapcol{background:var(--panel); border-color:var(--panel-line);}
-html.theme-dark .cp-mapcol--shared{background:linear-gradient(180deg, rgba(47,93,98,0.20), var(--panel));}
+html.theme-dark .cp-mapcol--shared{background:linear-gradient(180deg, rgba(143,163,154,0.16), var(--panel));}
 html.theme-dark .cp-mapcol h3{color:var(--ink);}
 html.theme-dark .cp-mapcol li{color:var(--ink-soft);}
 html.theme-dark .cp-maparrow{color:var(--gold);}
@@ -213,7 +184,7 @@ html.theme-dark .cp-case{background:var(--bg-2);}
 html.theme-dark .cp-case h3{color:var(--ink);}
 html.theme-dark .cp-case p{color:var(--ink-soft);}
 html.theme-dark .cp-journey li{color:var(--ink-soft);}
-html.theme-dark .cp-chip{color:var(--gold); background:rgba(216,184,121,0.08); border-color:rgba(216,184,121,0.22);}
+html.theme-dark .cp-chip{color:var(--gold); background:rgba(200,169,107,0.08); border-color:rgba(200,169,107,0.22);}
 html.theme-dark .cp-impact{background:var(--panel); border-color:var(--panel-line);}
 html.theme-dark .cp-impact__tile{background:var(--bg-2); border-color:var(--panel-line);}
 html.theme-dark .cp-impact__val{color:var(--gold);}
@@ -222,9 +193,9 @@ html.theme-dark .cp-impact__label,
 html.theme-dark .cp-note{color:var(--ink-soft);}
 html.theme-dark .cp-perf{background:var(--panel); border-color:var(--panel-line);}
 html.theme-dark .cp-perf__head strong{color:var(--ink);}
-html.theme-dark .cp-perf__bar{background:var(--card-accent, var(--wine)); color:#160F13;}
+html.theme-dark .cp-perf__bar{background:var(--card-accent, var(--wine)); color:var(--ink);}
 html.theme-dark .cp-card__link{color:var(--gold);}
-html.theme-dark .cp-card__ic{color:#160F13;}
+html.theme-dark .cp-card__ic{color:var(--ink);}
 
 /* ---------- a11y: keyboard focus + skip link on the dark theme ---------- */
 html.theme-dark a:focus-visible,
@@ -235,5 +206,5 @@ html.theme-dark textarea:focus-visible,
 html.theme-dark select:focus-visible{
   outline:2px solid var(--gold); outline-offset:2px;
 }
-html.theme-dark .site-skip{background:var(--gold); color:#160F13;}
+html.theme-dark .site-skip{background:var(--gold); color:var(--on-accent);}
 

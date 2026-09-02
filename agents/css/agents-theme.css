@@ -8,31 +8,32 @@
    agent platform needs on top of the existing design system.
 =========================================================== */
 :root{
-  /* Per-agent accent marks — desaturated to sit inside the
-     ivory / wine / gold world rather than fight it. */
-  --agent-sales:   #6E2C3B;  /* wine — the revenue flagship        */
-  --agent-support: #4A6157;  /* muted eucalyptus — calm, service   */
-  --agent-cart:    #A9702F;  /* burnt amber — urgency, warm        */
-  --agent-lead:    #4C3A5E;  /* deep plum — considered, premium    */
-  --agent-upsell:  #7A6A33;  /* bronze-olive — adds value          */
-  --agent-funnel:  #2F5D62;  /* deep teal — the flagship funnel    */
+  /* Per-agent accent marks — one warm champagne / bronze / burgundy
+     family so the agent line reads as one premium product set,
+     never a rainbow of SaaS colours. */
+  --agent-sales:   #C8A96B;  /* champagne — the revenue flagship   */
+  --agent-support: #A99B7C;  /* warm taupe-gold — calm, service    */
+  --agent-cart:    #C0894A;  /* burnt amber — urgency, warm        */
+  --agent-lead:    #A67C8A;  /* muted mauve — a whisper of wine    */
+  --agent-upsell:  #B2A15E;  /* bronze-olive — adds value          */
+  --agent-funnel:  #8FA39A;  /* soft sage — restrained, systemic   */
 
-  /* Chat surface + bubbles */
-  --ml-chat-surface:   #FFFFFF;
-  --ml-chat-line:      rgba(59,31,43,0.14);
+  /* Chat surface + bubbles — cinematic dark */
+  --ml-chat-surface:   #141414;
+  --ml-chat-line:      rgba(255,255,255,0.08);
   --ml-bubble-user-bg: var(--wine);
-  --ml-bubble-user-ink:#FFF7EF;
-  --ml-bubble-bot-bg:  #F1E7D8;
+  --ml-bubble-user-ink:#F3EFE6;
+  --ml-bubble-bot-bg:  #1C1C1C;
   --ml-bubble-bot-ink: var(--ink);
-  --ml-bubble-sys-bg:  rgba(110,44,59,0.06);
+  --ml-bubble-sys-bg:  rgba(200,169,107,0.08);
   --ml-bubble-sys-ink: var(--ink-soft);
 
   /* Shape + depth used only by the agent platform */
   --ml-radius-sm: 8px;
   --ml-radius:    14px;
   --ml-radius-lg: 20px;
-  --ml-shadow-card: 0 14px 34px rgba(42,22,32,0.10);
-  --ml-shadow-pop:  0 20px 44px rgba(42,22,32,0.18);
+  --ml-shadow-card: 0 14px 34px rgba(0,0,0,0.5);
+  --ml-shadow-pop:  0 22px 46px rgba(0,0,0,0.6);
 
   /* Stacking */
   --ml-z-topbar: 120;

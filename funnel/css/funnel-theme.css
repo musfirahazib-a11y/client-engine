@@ -12,20 +12,20 @@
    CSS change.
 =========================================================== */
 :root{
-  --funnel:        #2F5D62;   /* deep teal — flagship accent   */
-  --funnel-deep:   #234a4e;
-  --funnel-soft:   rgba(47,93,98,0.08);
-  --funnel-gold:   #C9A66B;
+  --funnel:        #3C6B70;   /* deep petrol — flagship accent (restrained on black) */
+  --funnel-deep:   #5E8A8F;   /* lighter petrol — hover fills + readable accent text */
+  --funnel-soft:   rgba(60,107,112,0.12);
+  --funnel-gold:   #C8A96B;
 
-  /* lead temperature / status */
-  --fn-hot:   #6E2C3B;
-  --fn-warm:  #A9702F;
-  --fn-cold:  #4A6157;
-  --fn-info:  #4C3A5E;
-  --fn-good:  #3f6b4c;
-  --fn-muted: #6B5A5F;
+  /* lead temperature / status — tuned for legibility on the dark ground */
+  --fn-hot:   #C97A86;
+  --fn-warm:  #C8944E;
+  --fn-cold:  #8BA79B;
+  --fn-info:  #A48CB4;
+  --fn-good:  #79B08C;
+  --fn-muted: #A8A39A;
 
   --fn-radius:    14px;
   --fn-radius-lg: 22px;
-  --fn-shadow:    0 14px 34px rgba(35,42,45,0.10);
+  --fn-shadow:    0 14px 34px rgba(0,0,0,0.5);
 }
