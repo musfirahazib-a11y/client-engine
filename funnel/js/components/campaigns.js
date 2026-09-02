@@ -16,6 +16,9 @@ const AGENT_NAMES = {
   lead: 'Lead Qualification + Booking',
 };
 
+/* campaign id -> marketing detail page under campaigns/ */
+const DETAIL_SLUG = { salon: 'salon-spa', realestate: 'real-estate', ecommerce: 'ecommerce' };
+
 function sec(id, cls, ...kids) {
   return el('section', { class: `cp-sec ${cls}`, id: id || undefined }, el('div', { class: 'cp-wrap' }, ...kids));
 }
@@ -49,6 +52,7 @@ export function renderCampaignsPage(root, { campaigns, statsFor }) {
       el('div', { class: 'cp-card__foot' },
         el('a', { class: 'btn btn-solid', href: `funnel.html?campaign=${c.id}` }, 'Launch demo →'),
         el('a', { class: 'btn btn-outline', href: `funnel-admin.html?campaign=${c.id}` }, 'Console'),
+        el('a', { class: 'cp-card__link', href: `campaigns/${DETAIL_SLUG[c.id] || c.id}.html` }, 'Full breakdown →'),
         el('a', { class: 'cp-card__link', href: `#case-${c.id}` }, 'Case study ↓'))));
   });
   frag.append(sec(null, 'cp-selector',
