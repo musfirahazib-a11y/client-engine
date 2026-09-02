@@ -3,12 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Misbah Azib — Web Design &amp; AI Automation</title>
-<meta name="description" content="Misbah Azib — Web Designer & AI Automation Specialist. Selected work in web design and AI automation for small businesses.">
+<title>MusfirahLoom — AI Automation &amp; Intelligent Business Systems</title>
+<meta name="description" content="MusfirahLoom builds AI agents, automated sales funnels and AI-powered campaign systems that help businesses capture leads, convert customers, automate support and recover lost opportunities.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<!-- Phase 2 (information architecture) — transitional tweaks only; the full
+     visual pass happens in Phase 4. Kept here so style.css stays untouched. -->
+<style id="ml-ia-tweaks">
+  .sticky-nav nav{gap:1.15rem;}
+  .sticky-nav nav a{font-size:0.78rem;}
+  @media(max-width:1180px){ .sticky-nav nav{gap:0.9rem;} }
+  .hero-nav-row{flex-wrap:wrap;}
+  .mobile-nav .sticky-cta{margin-top:0.4rem; text-align:center;}
+  /* Founder / About */
+  .about{padding:var(--sp-8) 6vw var(--sp-6); max-width:760px; margin:0 auto; text-align:center;}
+  .about__photo{width:clamp(180px,22vw,240px); margin:0 auto var(--sp-4); border-radius:12px;
+    filter:drop-shadow(0 24px 34px rgba(42,22,32,0.22));}
+  .about h2{font-size:clamp(2rem,4.4vw,2.8rem); font-style:italic; margin-bottom:var(--sp-3);}
+  .about p{font-size:1.02rem; line-height:1.7; color:var(--ink-soft);}
+  .about .contact-row{margin-top:var(--sp-4);}
+  /* AI systems cards reuse .s-card; give the whole card a link affordance */
+  .s-card a.s-link{display:inline-block; margin-top:var(--sp-2);}
+</style>
 </head>
 <body>
 
@@ -17,21 +35,28 @@
   <a href="#home" class="sticky-word">Misbah<span>.</span></a>
   <nav>
     <a href="#home">Home</a>
-    <a href="#work">Work</a>
     <a href="#services">Services</a>
-    <a href="campaigns.html">AI Demos</a>
+    <a href="agents.html">AI Agents</a>
+    <a href="funnel.html">AI Sales Funnel</a>
+    <a href="campaigns.html">AI Campaigns</a>
+    <a href="#work">Portfolio</a>
+    <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
-  <a href="#contact" class="sticky-cta">Work With Me</a>
+  <a href="#contact" class="sticky-cta">Build My AI System</a>
 </header>
 
 <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
 <nav class="mobile-nav" id="mobileNav">
   <a href="#home">Home</a>
-  <a href="#work">Work</a>
   <a href="#services">Services</a>
-  <a href="campaigns.html">AI Demos</a>
+  <a href="agents.html">AI Agents</a>
+  <a href="funnel.html">AI Sales Funnel</a>
+  <a href="campaigns.html">AI Campaigns</a>
+  <a href="#work">Portfolio</a>
+  <a href="#about">About</a>
   <a href="#contact">Contact</a>
+  <a href="#contact" class="sticky-cta">Build My AI System</a>
 </nav>
 
 <a href="tel:+923132028898" class="sticky-call" aria-label="Book a call with Misbah — 0313 2028898">
@@ -53,8 +78,8 @@
 
       <div class="stat-stack">
         <div class="float-card stat-card reveal">
-          <span class="stat-num">3+</span>
-          <span class="stat-label">AI Templates</span>
+          <span class="stat-num">4</span>
+          <span class="stat-label">AI Agents</span>
         </div>
         <div class="float-card stat-card reveal" style="transition-delay:0.1s">
           <span class="stat-num">2026</span>
@@ -63,139 +88,126 @@
       </div>
 
       <div class="photo-wrap reveal">
-        <img src="assets/images/portrait-cutout.png" alt="Misbah Azib" class="hero-photo">
+        <img src="assets/images/portrait-cutout.png" alt="Misbah Azib, founder of MusfirahLoom" class="hero-photo">
       </div>
 
       <div class="float-card trait-card reveal" style="transition-delay:0.15s">
         <div class="trait-row"><span class="trait-ic">✦</span>AI-Focused</div>
         <div class="trait-row"><span class="trait-ic">⚙</span>Automation-Driven</div>
-        <div class="trait-row"><span class="trait-ic">◆</span>Detail-Oriented</div>
-        <div class="trait-row"><span class="trait-ic">✎</span>Web Developer</div>
+        <div class="trait-row"><span class="trait-ic">◆</span>Systems Thinker</div>
+        <div class="trait-row"><span class="trait-ic">✎</span>Detail-Oriented</div>
         <div class="trait-row"><span class="trait-ic">⟳</span>Reliable</div>
       </div>
 
       <div class="hero-nav-row reveal">
         <a href="#home">Home</a>
         <span class="sep">·</span>
-        <a href="#work">Work</a>
-        <span class="sep">·</span>
         <a href="#services">Services</a>
         <span class="sep">·</span>
-        <a href="campaigns.html">AI Demos</a>
+        <a href="agents.html">AI Agents</a>
+        <span class="sep">·</span>
+        <a href="funnel.html">AI Sales Funnel</a>
+        <span class="sep">·</span>
+        <a href="campaigns.html">AI Campaigns</a>
+        <span class="sep">·</span>
+        <a href="#work">Portfolio</a>
+        <span class="sep">·</span>
+        <a href="#about">About</a>
         <span class="sep">·</span>
         <a href="#contact">Contact</a>
       </div>
 
       <div class="hero-foot reveal">
         <div class="hero-foot-text">
-          <span class="eyebrow">Web Design · AI Automation</span>
-          <h1>Your AI Automation &amp; Web Partner.<br><em>Misbah Azib.</em></h1>
-          <p class="lede">I design clean, considered websites and build AI receptionists and support agents that work 24/7 — for small businesses that want to look and run like bigger ones.</p>
+          <span class="eyebrow">AI Automation · Intelligent Business Systems</span>
+          <h1>AI systems that work while you sleep.<br><em>Built by Misbah.</em></h1>
+          <p class="lede">MusfirahLoom builds intelligent AI agents, automated sales funnels and campaign systems that turn business processes into scalable growth — for teams that want to capture, convert and retain without adding headcount.</p>
         </div>
         <div class="hero-foot-actions">
-          <a href="#work" class="btn btn-solid">View My Work →</a>
-          <a href="#contact" class="btn btn-outline">Work With Me</a>
+          <a href="agents.html" class="btn btn-solid">Explore AI Systems →</a>
+          <a href="campaigns.html" class="btn btn-outline">See Live Demos</a>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ================= WORK ================= -->
+  <!-- ================= PORTFOLIO / AI SYSTEMS ================= -->
   <section class="work-intro" id="work">
-    <span class="eyebrow reveal">Selected Work</span>
-    <h2 class="reveal">Digital experiences<br>designed to stand out.</h2>
-    <p class="reveal">A selection of websites and digital experiences crafted with a focus on visual identity, usability, detail and modern design. These are concept / demo websites, built to show range rather than list past clients.</p>
+    <span class="eyebrow reveal">What We Build</span>
+    <h2 class="reveal">The MusfirahLoom<br>AI ecosystem.</h2>
+    <p class="reveal">Four specialist AI agents, one flagship AI Sales Funnel that connects them, and three ready-to-deploy industry campaign systems. Individual agents solve tasks — connected systems automate entire business journeys.</p>
   </section>
 
-  <!-- Project 01 — AURELIS -->
-  <section class="project" id="aurelis">
-    <div class="project-head reveal">
-      <span class="p-label">01 / WEBSITE DESIGN</span>
-      <h3>AURELIS</h3>
-      <p class="p-cat">Luxury Real Estate — Concept Website</p>
-      <p class="p-desc">A refined digital experience designed for a premium real-estate brand, combining editorial typography, immersive property photography and a restrained, dark-to-light visual system.</p>
-      <p class="p-focus"><strong>Design Focus:</strong> Luxury UI · Editorial Layout · Responsive Web Design</p>
-    </div>
-
-    <div class="gallery gallery-3">
-      <img src="assets/images/aurelis-01-hero.jpg" alt="AURELIS homepage hero" class="g-item g-hero reveal" loading="lazy">
-      <img src="assets/images/aurelis-02-properties.jpg" alt="AURELIS selected properties grid" class="g-item g-half reveal" loading="lazy">
-      <img src="assets/images/aurelis-03-residence.jpg" alt="AURELIS residence detail page" class="g-item g-half reveal" loading="lazy">
-    </div>
-  </section>
-
-  <div class="project-divider"></div>
-
-  <!-- Project 02 — NOIRÉ -->
-  <section class="project" id="noire">
-    <div class="project-head reveal">
-      <span class="p-label">02 / WEBSITE DESIGN</span>
-      <h3>NOIRÉ</h3>
-      <p class="p-cat">Modern Fine Dining — Concept Website</p>
-      <p class="p-desc">A moody, editorial site for a fine-dining restaurant concept, built around dark backgrounds, gold accents and large italic type — designed to feel like an invitation, not a menu.</p>
-      <p class="p-focus"><strong>Design Focus:</strong> Dark UI · Editorial Typography · Reservation-First Design</p>
-    </div>
-
-    <div class="gallery gallery-3">
-      <img src="assets/images/noire-01-hero.jpg" alt="NOIRÉ homepage hero" class="g-item g-hero reveal" loading="lazy">
-      <img src="assets/images/noire-02-atmosphere.jpg" alt="NOIRÉ atmosphere section" class="g-item g-half reveal" loading="lazy">
-      <img src="assets/images/noire-03-chef.jpg" alt="NOIRÉ executive chef section" class="g-item g-half reveal" loading="lazy">
-    </div>
-  </section>
-
-  <div class="project-divider"></div>
-
-  <!-- Project 03 — ZAVIYAR -->
-  <section class="project" id="zaviyar">
-    <div class="project-head reveal">
-      <span class="p-label">03 / WEBSITE DESIGN</span>
-      <h3>ZAVIYAR</h3>
-      <p class="p-cat">Jewelry Ecommerce — Concept Website</p>
-      <p class="p-desc">A jewelry ecommerce concept built around warm, tactile product photography and a light, gallery-like layout — letting the pieces themselves carry the design.</p>
-      <p class="p-focus"><strong>Design Focus:</strong> Ecommerce UX · Editorial Product Photography · Light UI</p>
-    </div>
-
-    <div class="gallery gallery-3">
-      <img src="assets/images/zaviyar-01-hero.jpg" alt="ZAVIYAR homepage hero" class="g-item g-hero reveal" loading="lazy">
-      <img src="assets/images/zaviyar-02-collections.jpg" alt="ZAVIYAR collections section" class="g-item g-half reveal" loading="lazy">
-      <img src="assets/images/zaviyar-03-aurelia.jpg" alt="ZAVIYAR Aurelia collection detail" class="g-item g-half reveal" loading="lazy">
+  <section class="services" aria-label="AI systems">
+    <div class="service-grid">
+      <div class="s-card reveal">
+        <div class="s-icon">◆</div>
+        <h3>4 AI Agents</h3>
+        <p>Sales, Customer Support, Cart Recovery and Lead + Booking — each agent owns one revenue or service job and runs it end to end.</p>
+        <a href="agents.html" class="s-link">Explore agents →</a>
+      </div>
+      <div class="s-card reveal" style="transition-delay:0.08s">
+        <div class="s-icon">⟠</div>
+        <h3>AI Sales Funnel System</h3>
+        <p>The flagship. Landing page → lead capture → AI sales assistant → qualification → score → recommendation → offer → booking / checkout → follow-up → recovery, as one connected system.</p>
+        <a href="funnel.html" class="s-link">Explore the funnel →</a>
+      </div>
+      <div class="s-card reveal" style="transition-delay:0.16s">
+        <div class="s-icon">◈</div>
+        <h3>3 Industry Campaign Systems</h3>
+        <p>Salon &amp; Spa, Real Estate and E-commerce — the agents and funnel packaged and configured for a specific industry, with a live interactive demo for each.</p>
+        <a href="campaigns.html" class="s-link">Explore campaigns →</a>
+      </div>
     </div>
   </section>
 
   <!-- ================= SERVICES ================= -->
   <section class="services" id="services">
     <span class="eyebrow reveal">Work With Me</span>
-    <h2 class="reveal">AI automation and web design, done properly.</h2>
+    <h2 class="reveal">AI automation, done properly.</h2>
     <p class="services-lede reveal">Every engagement starts with a quick call to understand what you actually need — scope varies by project, so pricing is quoted after that call rather than listed here.</p>
 
     <div class="service-grid">
       <div class="s-card reveal">
         <div class="s-icon">◆</div>
         <h3>AI Automation Build</h3>
-        <p>A custom AI receptionist or support agent for your business — booking, FAQs, and follow-ups, built on n8n + ChatGPT.</p>
+        <p>A custom AI agent or automation for your business — sales, support, booking, follow-ups and recovery, built on n8n + ChatGPT.</p>
         <a href="https://wa.me/923132028898?text=Hi%20Misbah%2C%20I'm%20interested%20in%20an%20AI%20automation%20build." class="s-link">Enquire →</a>
       </div>
       <div class="s-card reveal" style="transition-delay:0.08s">
-        <div class="s-icon">▲</div>
-        <h3>Website Design &amp; Build</h3>
-        <p>A clean, considered website designed and built around your business — no generic templates.</p>
-        <a href="https://wa.me/923132028898?text=Hi%20Misbah%2C%20I'm%20interested%20in%20a%20website%20design." class="s-link">Enquire →</a>
+        <div class="s-icon">⟠</div>
+        <h3>AI Sales System</h3>
+        <p>A complete AI-powered funnel for your industry — capture, qualification, recommendations, offers, booking and follow-up, wired into your tools.</p>
+        <a href="https://wa.me/923132028898?text=Hi%20Misbah%2C%20I'm%20interested%20in%20an%20AI%20sales%20system." class="s-link">Enquire →</a>
       </div>
       <div class="s-card reveal" style="transition-delay:0.16s">
         <div class="s-icon">●</div>
         <h3>Ongoing Support</h3>
-        <p>Continued updates, iteration, and small fixes for an existing AI agent or website.</p>
+        <p>Continued updates, iteration and small fixes for an existing AI agent, funnel or system.</p>
         <a href="https://wa.me/923132028898?text=Hi%20Misbah%2C%20I'm%20interested%20in%20ongoing%20support." class="s-link">Enquire →</a>
       </div>
     </div>
   </section>
 
+  <!-- ================= ABOUT / FOUNDER ================= -->
+  <section class="about" id="about">
+    <img src="assets/images/portrait-cutout.png" alt="Misbah Azib, founder of MusfirahLoom" class="about__photo reveal">
+    <span class="eyebrow reveal">MusfirahLoom · Founder</span>
+    <h2 class="reveal">Built by Misbah.</h2>
+    <p class="reveal">Building AI-powered automation systems, intelligent agents and business growth solutions. I design and ship the systems above end to end — the conversation logic, the funnel, the campaign configuration and the console around it.</p>
+    <div class="contact-row reveal">
+      <a href="https://www.linkedin.com/in/misbahazib/">LinkedIn</a>
+      <span class="sep">·</span>
+      <a href="https://www.instagram.com/misbahbuilds7/?hl=en">@misbahbuilds7</a>
+    </div>
+  </section>
+
   <!-- ================= FINAL CTA / CONTACT ================= -->
   <section class="final-cta" id="contact">
-    <h2 class="reveal">Have a project in mind?</h2>
-    <p class="reveal">Let's create something thoughtful, distinctive and built to make an impression.</p>
-    <a href="https://wa.me/923132028898" class="btn btn-solid reveal">Let's Work Together →</a>
+    <h2 class="reveal">Ready to build your AI system?</h2>
+    <p class="reveal">Tell us what you want to automate and we'll help you design the right AI system for your business.</p>
+    <a href="https://wa.me/923132028898?text=Hi%20Misbah%2C%20I'd%20like%20to%20build%20an%20AI%20system." class="btn btn-solid reveal">Build My AI System →</a>
     <div class="contact-row reveal">
       <a href="mailto:musfirahazib@gmail.com">musfirahazib@gmail.com</a>
       <span class="sep">·</span>
@@ -210,7 +222,7 @@
 <footer>
   <div class="foot-inner">
     <span>© 2026 Misbah Azib. All rights reserved.</span>
-    <span>Web Design · AI Automation</span>
+    <span>AI Automation &amp; Intelligent Business Systems</span>
   </div>
 </footer>
 
