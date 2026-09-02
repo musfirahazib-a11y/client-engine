@@ -5,14 +5,15 @@
 import { NAV, AGENTS, ECOSYSTEM } from '../data/site.content.js';
 import {
   renderSiteHeader, renderSiteFooter, renderHero, renderAgentCard,
-  renderAgentDetail, renderEcosystem, renderProductCTA, section, el,
+  renderAgentDetail, renderEcosystem, renderProductCTA, renderSkipLink, section, el,
 } from './components.js';
 import { initReveal } from './reveal.js';
 
 const root = document.getElementById('siteRoot');
+root.append(renderSkipLink());
 root.append(renderSiteHeader(NAV('', 'ai-agents')));
 
-const main = el('main', {});
+const main = el('main', { id: 'main', tabindex: '-1' });
 
 main.append(renderHero({
   eyebrow: 'MusfirahLoom · AI Agents',

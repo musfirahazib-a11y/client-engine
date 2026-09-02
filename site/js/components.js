@@ -8,6 +8,11 @@
 =========================================================== */
 import { el } from '../../agents/js/core/dom.js';
 
+/* ---------- skip link (a11y) ---------- */
+export function renderSkipLink(targetId = 'main') {
+  return el('a', { href: `#${targetId}`, class: 'site-skip' }, 'Skip to content');
+}
+
 /* ---------- shared header ---------- */
 export function renderSiteHeader(nav) {
   const links = nav.links.map((l) =>

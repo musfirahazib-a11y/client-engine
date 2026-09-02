@@ -160,7 +160,7 @@ html.theme-dark .wf__list::before{
 }
 html.theme-dark .wf__label,
 html.theme-dark .stage p{color:var(--ink-soft);}
-html.theme-dark .stage h4{color:var(--gold);}
+html.theme-dark .stage h3{color:var(--gold);}
 
 /* ---------- ecosystem ---------- */
 html.theme-dark .eco__level{background:var(--panel); border-color:var(--panel-line);}
@@ -206,7 +206,7 @@ html.theme-dark .ml-card__icon{color:#160F13;}
 html.theme-dark .cp-sec{color:var(--ink);}
 html.theme-dark .cp-mapcol{background:var(--panel); border-color:var(--panel-line);}
 html.theme-dark .cp-mapcol--shared{background:linear-gradient(180deg, rgba(47,93,98,0.20), var(--panel));}
-html.theme-dark .cp-mapcol h4{color:var(--ink);}
+html.theme-dark .cp-mapcol h3{color:var(--ink);}
 html.theme-dark .cp-mapcol li{color:var(--ink-soft);}
 html.theme-dark .cp-maparrow{color:var(--gold);}
 html.theme-dark .cp-case{background:var(--bg-2);}
@@ -225,4 +225,15 @@ html.theme-dark .cp-perf__head strong{color:var(--ink);}
 html.theme-dark .cp-perf__bar{background:var(--card-accent, var(--wine)); color:#160F13;}
 html.theme-dark .cp-card__link{color:var(--gold);}
 html.theme-dark .cp-card__ic{color:#160F13;}
+
+/* ---------- a11y: keyboard focus + skip link on the dark theme ---------- */
+html.theme-dark a:focus-visible,
+html.theme-dark button:focus-visible,
+html.theme-dark .btn:focus-visible,
+html.theme-dark input:focus-visible,
+html.theme-dark textarea:focus-visible,
+html.theme-dark select:focus-visible{
+  outline:2px solid var(--gold); outline-offset:2px;
+}
+html.theme-dark .site-skip{background:var(--gold); color:#160F13;}
 

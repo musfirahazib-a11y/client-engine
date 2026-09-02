@@ -74,7 +74,7 @@ body { background: var(--bg); color: var(--ink); }
 @media (min-width: 820px) { .cp-mapgrid { grid-template-columns: 1fr auto 1.4fr; align-items: center; } }
 .cp-mapcol { background: var(--white); border: 1px solid var(--panel-line); border-radius: 16px; padding: var(--sp-4); }
 .cp-mapcol--shared { border-left: 3px solid var(--wine); }
-.cp-mapcol h4 { font-size: .72rem; font-family: 'IBM Plex Mono', monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: var(--sp-3); }
+.cp-mapcol h3 { font-size: .72rem; font-family: 'IBM Plex Mono', monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: var(--sp-3); }
 .cp-mapcol ul { margin: 0; padding-left: 1.1rem; font-size: .88rem; line-height: 1.7; }
 .cp-maparrow { font-size: 1.6rem; color: var(--wine); text-align: center; }
 

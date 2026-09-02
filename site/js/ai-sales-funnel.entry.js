@@ -5,14 +5,15 @@
 import { NAV, FUNNEL } from '../data/site.content.js';
 import {
   renderSiteHeader, renderSiteFooter, renderHero, renderWorkflow,
-  renderProductCTA, section, el,
+  renderProductCTA, renderSkipLink, section, el,
 } from './components.js';
 import { initReveal } from './reveal.js';
 
 const root = document.getElementById('siteRoot');
+root.append(renderSkipLink());
 root.append(renderSiteHeader(NAV('', 'ai-sales-funnel')));
 
-const main = el('main', { style: { '--card-accent': 'var(--agent-funnel)' } });
+const main = el('main', { id: 'main', tabindex: '-1', style: { '--card-accent': 'var(--agent-funnel)' } });
 
 main.append(renderHero({
   eyebrow: 'MusfirahLoom · Flagship system',
@@ -41,7 +42,7 @@ main.append(section('',
 main.append(section('',
   el('h2', {}, 'What each stage does'),
   el('div', { class: 'stage-grid' },
-    ...FUNNEL.stages.map(([h, p]) => el('article', { class: 'stage' }, el('h4', {}, h), el('p', {}, p))))));
+    ...FUNNEL.stages.map(([h, p]) => el('article', { class: 'stage' }, el('h3', {}, h), el('p', {}, p))))));
 
 main.append(section('',
   el('h2', {}, 'One system, three industries'),

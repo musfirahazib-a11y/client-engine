@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /funnel-admin.html
+Disallow: /agent.html
+
+# Replace the host below with your live domain before deploying.
+Sitemap: https://REPLACE-WITH-YOUR-DOMAIN/sitemap.xml

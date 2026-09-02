@@ -7,6 +7,9 @@
 <meta name="description" content="Three interactive demos of one AI-powered sales system, configured for Salon & Spa, Real Estate and E-commerce. Built by MusfirahLoom.">
 <meta property="og:title" content="AI Business Demo Campaigns — MusfirahLoom">
 <meta property="og:description" content="One AI sales system, three industries. Launch an interactive demo.">
+<meta property="og:site_name" content="MusfirahLoom">
+<link rel="canonical" href="campaigns.html">
+<meta name="theme-color" content="#160F13">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -16,8 +19,17 @@
 <link rel="stylesheet" href="funnel/css/funnel-theme.css">
 <link rel="stylesheet" href="funnel/css/campaigns.css">
 <link rel="stylesheet" href="site/theme-dark.css">
+<style>
+  .site-skip{position:absolute;left:8px;top:-48px;z-index:200;padding:.6rem 1rem;
+    border-radius:0 0 10px 10px;background:var(--gold);color:#160F13;font-weight:600;
+    font-size:.8rem;transition:top .18s ease;}
+  .site-skip:focus{top:0;}
+  main[tabindex="-1"]:focus{outline:none;}
+</style>
 </head>
 <body>
+
+<a href="#campaignsRoot" class="site-skip">Skip to content</a>
 
 <header class="cp-topbar">
   <a href="index.html" class="cp-topbar__brand">Misbah<span>.</span></a>
@@ -29,7 +41,7 @@
   <span class="ml-badge">Interactive Demo</span>
 </header>
 
-<main id="campaignsRoot">
+<main id="campaignsRoot" tabindex="-1">
   <noscript>
     <section style="max-width:640px;margin:4rem auto;padding:0 6vw;">
       <h1>AI Business Demo Campaigns</h1>

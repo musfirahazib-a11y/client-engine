@@ -9,6 +9,21 @@
 =========================================================== */
 
 .site-wrap{max-width:1120px; margin:0 auto; padding:0 6vw;}
+
+/* ---------- skip link (a11y) ---------- */
+.site-skip{
+  position:absolute; left:8px; top:-48px; z-index:200;
+  padding:.6rem 1rem; border-radius:0 0 10px 10px;
+  background:var(--wine); color:#fff; font-weight:600; font-size:.8rem;
+  transition:top .18s ease;
+}
+.site-skip:focus{top:0;}
+main[tabindex="-1"]:focus{outline:none;}
+/* visible keyboard focus ring on every page */
+a:focus-visible,button:focus-visible,
+.btn:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
+  outline:2px solid var(--wine); outline-offset:2px; border-radius:3px;
+}
 .eyebrow{
   display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:.72rem;
   letter-spacing:.1em; text-transform:uppercase; color:var(--wine-deep);
@@ -166,7 +181,7 @@
   background:var(--white); border:1px solid var(--panel-line);
   border-radius:14px; padding:var(--sp-4);
 }
-.stage h4{font-size:.98rem; font-style:italic; margin-bottom:var(--sp-2); color:var(--wine-deep);}
+.stage h3{font-size:.98rem; font-style:italic; margin-bottom:var(--sp-2); color:var(--wine-deep);}
 .stage p{font-size:.86rem; line-height:1.6; color:var(--ink-soft);}
 
 /* ---------- campaign detail ---------- */
