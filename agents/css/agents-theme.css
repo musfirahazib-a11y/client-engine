@@ -24,7 +24,7 @@
   --ml-bubble-user-ink:#FFFFFF;
   --ml-bubble-bot-bg:  #F0ECFA;
   --ml-bubble-bot-ink: var(--ink);
-  --ml-bubble-sys-bg:  rgba(117,99,158,0.07);
+  --ml-bubble-sys-bg:  rgba(185,166,211,0.16);
   --ml-bubble-sys-ink: var(--ink-soft);
 
   /* Shape + depth used only by the agent platform */

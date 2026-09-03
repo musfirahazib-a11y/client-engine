@@ -17,33 +17,35 @@
 :root{
   color-scheme:light;
 
-  --bg:#F5F4F8;            /* off-white, faint lavender-grey — primary ground */
-  --bg-2:#EDE9F7;          /* soft lavender — alternating sections */
-  --panel:#FFFFFF;         /* white editorial cards / panels     */
-  --panel-2:#F7F6FA;       /* barely-raised surface              */
-  --panel-line:rgba(22,21,26,0.12);   /* soft dark hairline      */
-  --hairline:rgba(22,21,26,0.06);
-  --ink:#16151A;           /* near-black — primary text + primary button fill */
-  --ink-2:#242229;
-  --ink-soft:#686570;      /* muted grey — secondary text        */
-  --ink-dim:#8F8C99;       /* tertiary / fine print              */
+  --bg:#F3F1F5;            /* light grey — the dominant ground    */
+  --bg-2:#FAF9FB;          /* off-white — alternating sections    */
+  --bg-lav:#ECE6F3;        /* soft lavender wash — feature bands  */
+  --panel:#FFFFFF;         /* white editorial cards / panels      */
+  --panel-2:#FAF9FB;       /* barely-raised surface               */
+  --panel-line:rgba(32,32,39,0.12);   /* soft charcoal hairline   */
+  --hairline:rgba(32,32,39,0.06);
+  --ink:#202027;           /* dark charcoal — primary text + primary button fill */
+  --ink-2:#2C2B34;
+  --ink-soft:#6F6A75;      /* muted grey — secondary text         */
+  --ink-dim:#948F9C;       /* tertiary / fine print               */
   --white:#FFFFFF;
 
-  --accent:#75639E;        /* sophisticated muted purple — the accent */
-  --accent-strong:#5A4B86; /* deeper purple — hover / fills carrying white text */
-  --accent-soft:#8B7BB5;   /* lighter muted purple — borders, large text, decor */
-  --lav:#EDE9F7;           /* soft lavender */
-  --lav-2:#E5E0F2;         /* deeper lavender */
-  --dark:#111014;          /* optional near-black surface */
+  --accent:#6A5892;        /* readable muted lavender — accent text / links */
+  --accent-strong:#54487A; /* deeper — hover, fills carrying white text */
+  --accent-soft:#B9A6D3;   /* soft luxury lavender — borders, glows, large decor */
+  --lav:#DCD2E8;           /* soft lavender surface               */
+  --lav-2:#ECE6F3;         /* palest lavender                     */
+  --glow:rgba(185,166,211,0.22);  /* subtle lavender glow         */
+  --dark:#181820;          /* optional deep charcoal surface      */
 
   /* legacy aliases — everything that referenced --wine / --gold
-     (the previous single accent) now resolves to the purple. */
-  --wine:#75639E;
-  --wine-deep:#5A4B86;
-  --gold:#75639E;
-  --gold-deep:#5A4B86;
-  --beige:#EDE9F7;         /* was "warm tint" -> now the lavender tint */
-  --on-accent:#FFFFFF;     /* white text on the deeper-purple / dark fills */
+     (older single-accent tokens) now resolves to the lavender. */
+  --wine:#6A5892;
+  --wine-deep:#54487A;
+  --gold:#6A5892;
+  --gold-deep:#54487A;
+  --beige:#ECE6F3;         /* was "warm tint" -> palest lavender  */
+  --on-accent:#FFFFFF;     /* white text on the deeper-lavender / charcoal fills */
 
   --font-display:'Bricolage Grotesque','Fraunces',Georgia,serif;
   --font-body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
@@ -76,7 +78,7 @@ img{max-width:100%; display:block;}
 .sticky-nav{
   position:fixed; top:0; left:0; right:0; z-index:200;
   display:flex; align-items:center; justify-content:space-between;
-  padding:1rem 6vw; background:rgba(245,244,248,0.85); backdrop-filter:blur(12px);
+  padding:1rem 6vw; background:rgba(243,241,245,0.82); backdrop-filter:blur(12px);
   border-bottom:1px solid var(--panel-line);
   transform:translateY(-100%); transition:transform 0.3s ease;
 }

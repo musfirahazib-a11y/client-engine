@@ -103,11 +103,11 @@
 .ml-chat__quick:not(:empty){padding-bottom:.9rem;}
 .ml-chat__chip{
   font-size:.78rem; font-weight:600; color:var(--gold);
-  background:rgba(117,99,158,0.06); border:1px solid var(--panel-line);
+  background:rgba(185,166,211,0.14); border:1px solid var(--panel-line);
   border-radius:100px; padding:.4rem .8rem; cursor:pointer;
   transition:background .2s ease, border-color .2s ease, transform .15s ease;
 }
-.ml-chat__chip:hover{background:rgba(117,99,158,0.12); border-color:var(--gold); transform:translateY(-1px);}
+.ml-chat__chip:hover{background:rgba(185,166,211,0.22); border-color:var(--gold); transform:translateY(-1px);}
 
 /* ---------- empty state ---------- */
 .ml-chat__empty{

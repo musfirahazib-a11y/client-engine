@@ -12,10 +12,10 @@
    CSS change.
 =========================================================== */
 :root{
-  --funnel:        #75639E;   /* muted purple — the accent (may be overwritten at runtime per campaign) */
-  --funnel-deep:   #5A4B86;   /* deeper purple — hover fills */
-  --funnel-soft:   rgba(117,99,158,0.09);
-  --funnel-gold:   #75639E;
+  --funnel:        #6A5892;   /* muted purple — the accent (may be overwritten at runtime per campaign) */
+  --funnel-deep:   #54487A;   /* deeper purple — hover fills */
+  --funnel-soft:   rgba(185,166,211,0.14);
+  --funnel-gold:   #6A5892;
 
   /* lead temperature / status — legible on the light ground */
   --fn-hot:   #9A3D52;

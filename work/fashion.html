@@ -45,8 +45,8 @@
 
   /* cinematic hero */
   .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;
-     background:radial-gradient(120% 90% at 70% 10%, #24202A 0%, transparent 55%),
-     linear-gradient(180deg,#0C0C0E, #17131A 60%, #0C0C0E);}
+     background:linear-gradient(90deg,rgba(12,12,14,.9) 0%,rgba(12,12,14,.62) 45%,rgba(12,12,14,.42) 100%),
+     url(../assets/work/fashion-editorial.jpg);background-size:cover;background-position:center right;}
   .hero::before{content:'';position:absolute;inset:0;background-image:
      linear-gradient(rgba(237,233,225,.04) 1px,transparent 1px),
      linear-gradient(90deg,rgba(237,233,225,.04) 1px,transparent 1px);
@@ -67,8 +67,8 @@
   @media(max-width:820px){.edi{grid-template-columns:1fr;}}
   .edi__cell{aspect-ratio:3/4;position:relative;display:flex;align-items:flex-end;padding:1.6rem;}
   .edi__cell span{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,233,225,.8);}
-  .edi__cell:nth-child(1){background:linear-gradient(200deg,#3A2530,#120C10);}
-  .edi__cell:nth-child(2){background:linear-gradient(200deg,#2A2836,#0F0E14);aspect-ratio:3/4;margin-top:3rem;}
+  .edi__cell:nth-child(1){background:linear-gradient(200deg,rgba(18,12,16,.35),rgba(18,12,16,.6)),url(../assets/work/fashion-editorial.jpg);background-size:cover;background-position:center;}
+  .edi__cell:nth-child(2){background:linear-gradient(200deg,rgba(15,14,20,.35),rgba(15,14,20,.6)),url(../assets/work/fashion-detail.jpg);background-size:cover;background-position:center;aspect-ratio:3/4;margin-top:3rem;}
   @media(max-width:820px){.edi__cell:nth-child(2){margin-top:0;}}
 
   /* collection showcase — big rows */
@@ -80,17 +80,17 @@
   .coll__name{font-family:var(--disp);font-weight:700;font-size:clamp(1.8rem,5vw,3.2rem);transition:color .3s;}
   .coll__meta{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:.4rem;}
   .coll__vis{aspect-ratio:16/7;border-radius:2px;}
-  .coll__row:nth-child(1) .coll__vis{background:linear-gradient(120deg,#3A2530,#141017);}
-  .coll__row:nth-child(2) .coll__vis{background:linear-gradient(120deg,#26303A,#0F1216);}
-  .coll__row:nth-child(3) .coll__vis{background:linear-gradient(120deg,#33302A,#131210);}
+  .coll__row:nth-child(2) .coll__vis{background:linear-gradient(120deg,rgba(20,16,23,.3),rgba(20,16,23,.5)),url(../assets/work/fashion-campaign.jpg);background-size:cover;background-position:center;}
+  .coll__row:nth-child(3) .coll__vis{background:linear-gradient(120deg,rgba(15,18,22,.3),rgba(15,18,22,.5)),url(../assets/work/fashion-runway.jpg);background-size:cover;background-position:center;}
+  .coll__row:nth-child(4) .coll__vis{background:linear-gradient(120deg,rgba(19,18,16,.3),rgba(19,18,16,.5)),url(../assets/work/fashion-hero.jpg);background-size:cover;background-position:center;}
 
   /* lookbook strip (horizontal scroll) */
   .look{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:1rem;}
   .look__track{display:flex;gap:1.2rem;width:max-content;}
   .look__item{width:clamp(220px,32vw,340px);aspect-ratio:3/4;border-radius:2px;position:relative;display:flex;align-items:flex-end;padding:1.2rem;flex-shrink:0;}
   .look__item span{font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;color:rgba(237,233,225,.75);}
-  .look__item:nth-child(odd){background:linear-gradient(200deg,#332430,#120D11);}
-  .look__item:nth-child(even){background:linear-gradient(200deg,#282734,#0E0D13);}
+  .look__item:nth-child(odd){background:linear-gradient(200deg,rgba(18,13,17,.3),rgba(18,13,17,.5)),url(../assets/work/fashion-editorial.jpg);background-size:cover;background-position:center;}
+  .look__item:nth-child(even){background:linear-gradient(200deg,rgba(14,13,19,.3),rgba(14,13,19,.5)),url(../assets/work/fashion-detail.jpg);background-size:cover;background-position:center;}
 
   /* featured pieces */
   .pieces{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;}
@@ -98,25 +98,24 @@
   .piece{background:var(--panel);border:1px solid var(--line);border-radius:2px;overflow:hidden;transition:transform .35s;}
   .piece:hover{transform:translateY(-6px);}
   .piece__vis{aspect-ratio:4/5;}
-  .piece:nth-child(1) .piece__vis{background:linear-gradient(160deg,#3A2530,#150F13);}
-  .piece:nth-child(2) .piece__vis{background:linear-gradient(160deg,#2B2A38,#100F16);}
-  .piece:nth-child(3) .piece__vis{background:linear-gradient(160deg,#34302A,#141210);}
-  .piece:nth-child(4) .piece__vis{background:linear-gradient(160deg,#2A333A,#0F1215);}
+  .piece:nth-child(1) .piece__vis{background:url(../assets/work/fashion-hero.jpg) center/cover;}
+  .piece:nth-child(2) .piece__vis{background:url(../assets/work/fashion-runway.jpg) center/cover;}
+  .piece:nth-child(3) .piece__vis{background:url(../assets/work/fashion-detail.jpg) center/cover;}
+  .piece:nth-child(4) .piece__vis{background:url(../assets/work/fashion-editorial.jpg) center/cover;}
   .piece__body{padding:1rem 1.1rem 1.3rem;}
   .piece__body h3{font-size:.98rem;}
   .piece__body span{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);}
   .piece__price{font-family:var(--disp);font-weight:700;margin-top:.5rem;}
 
   /* campaign — full bleed */
-  .camp{position:relative;min-height:82vh;display:flex;align-items:center;
-     background:linear-gradient(180deg,rgba(12,12,14,.2),rgba(12,12,14,.75)),linear-gradient(140deg,#3E2732 0%,#1B1119 55%,#0C0C0E 100%);}
+  .camp{position:relative;min-height:82vh;display:flex;align-items:center;background:linear-gradient(180deg,rgba(12,12,14,.35),rgba(12,12,14,.72)),url(../assets/work/fashion-runway.jpg);background-size:cover;background-position:center;}
   .camp h2{font-size:clamp(2.4rem,7vw,5.2rem);max-width:16ch;margin:1rem 0;}
   .camp p{max-width:42ch;color:rgba(237,233,225,.78);margin-bottom:1.6rem;}
 
   /* studio + philosophy */
   .studio{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,6vw,5rem);align-items:center;}
   @media(max-width:820px){.studio{grid-template-columns:1fr;}}
-  .studio__vis{aspect-ratio:4/5;border-radius:2px;background:linear-gradient(200deg,#2C2A36,#100F15);}
+  .studio__vis{aspect-ratio:4/5;border-radius:2px;background:linear-gradient(200deg,rgba(16,15,21,.28),rgba(16,15,21,.5)),url(../assets/work/fashion-detail.jpg);background-size:cover;background-position:center;}
   .studio h2{font-size:clamp(2rem,5vw,3.4rem);margin:.8rem 0 1.2rem;}
   .studio p{color:var(--ink-soft);margin-bottom:1rem;max-width:52ch;}
   .philo{border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center;}
@@ -129,7 +128,7 @@
   .feat__txt{background:var(--panel);padding:clamp(2rem,5vw,4rem);display:flex;flex-direction:column;justify-content:center;}
   .feat__txt h3{font-size:clamp(1.6rem,3.6vw,2.4rem);margin:.8rem 0 1rem;}
   .feat__txt p{color:var(--ink-soft);margin-bottom:1.4rem;}
-  .feat__vis{background:linear-gradient(160deg,#3A2530,#120D11);min-height:340px;}
+  .feat__vis{background:linear-gradient(160deg,rgba(18,13,17,.3),rgba(18,13,17,.5)),url(../assets/work/fashion-editorial.jpg);background-size:cover;background-position:center;min-height:340px;}
 
   .cta{text-align:center;}
   .cta h2{font-size:clamp(2.4rem,7vw,4.8rem);margin:1rem auto 1.2rem;max-width:16ch;}

@@ -34,7 +34,7 @@ a:focus-visible,button:focus-visible,
 .site-topbar{
   position:sticky; top:0; z-index:120;
   display:flex; align-items:center; gap:1.4rem;
-  padding:1rem 6vw; background:rgba(245,244,248,0.85);
+  padding:1rem 6vw; background:rgba(243,241,245,0.82);
   backdrop-filter:blur(12px); border-bottom:1px solid var(--panel-line);
 }
 .site-topbar__brand{
@@ -192,7 +192,7 @@ a:focus-visible,button:focus-visible,
 .cdt__chips{display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:var(--sp-2);}
 .cdt__chip{
   font-size:.76rem; font-weight:600; color:var(--gold);
-  background:rgba(117,99,158,0.06); border:1px solid var(--panel-line);
+  background:rgba(185,166,211,0.14); border:1px solid var(--panel-line);
   border-radius:100px; padding:.32rem .7rem;
 }
 .cdt__agents{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.6rem;}
