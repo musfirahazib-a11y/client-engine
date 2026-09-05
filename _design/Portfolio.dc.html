@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    :root{
+      --bg:#F3F1F5; --panel:#FFFFFF; --ink:#202027; --muted:#6F6A75;
+      --line:rgba(32,32,39,0.12); --accent:#6A5892; --lav:#DCD2E8; --lav-soft:#B9A6D3;
+      --disp:'Bricolage Grotesque','Helvetica Neue',Arial,sans-serif;
+      --body:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{margin:0;font-family:var(--body);}
+    a{color:var(--accent);} a:hover{color:#544679;}
+  </style>
+</helmet>
+
+<div style="width:1200px;height:628px;position:relative;overflow:hidden;background:var(--bg);color:var(--ink);font-family:var(--body);">
+
+  <div style="position:absolute;right:-140px;top:-180px;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle at 50% 50%, rgba(185,166,211,0.4), rgba(185,166,211,0) 70%);pointer-events:none;"></div>
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(32,32,39,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(32,32,39,0.035) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(120% 90% at 18% 12%,#000,transparent 72%);mask-image:radial-gradient(120% 90% at 18% 12%,#000,transparent 72%);pointer-events:none;"></div>
+
+  <div style="position:relative;height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:52px 60px;">
+
+    <!-- header -->
+    <div style="display:flex;align-items:baseline;justify-content:space-between;">
+      <div style="font-family:var(--disp);font-weight:800;font-size:26px;letter-spacing:-0.02em;">Misbah&nbsp;Azib<span style="color:var(--accent);">.</span></div>
+      <div style="font-family:var(--mono);font-size:12px;letter-spacing:0.22em;color:var(--muted);">PORTFOLIO&nbsp;·&nbsp;2026</div>
+    </div>
+
+    <!-- headline -->
+    <div>
+      <div style="font-family:var(--mono);font-size:12.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;">AI&nbsp;Automation&nbsp;·&nbsp;Web&nbsp;Development</div>
+      <h1 style="font-family:var(--disp);font-weight:800;font-size:52px;line-height:1.02;letter-spacing:-0.03em;max-width:22ch;">
+        Systems that automate.<br><span style="color:var(--accent);">Websites that convert.</span>
+      </h1>
+    </div>
+
+    <!-- two columns: AI systems | websites -->
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;">
+
+      <div>
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">AI&nbsp;Systems</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;box-shadow:0 16px 34px -26px rgba(32,32,39,0.28);">
+            <span style="flex:0 0 auto;width:30px;height:30px;border-radius:8px;background:var(--accent);color:#fff;font-family:var(--disp);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;">01</span>
+            <span style="font-family:var(--disp);font-weight:700;font-size:14.5px;">AI Sales &amp; Support Agents</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;box-shadow:0 16px 34px -26px rgba(32,32,39,0.28);">
+            <span style="flex:0 0 auto;width:30px;height:30px;border-radius:8px;background:var(--accent);color:#fff;font-family:var(--disp);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;">02</span>
+            <span style="font-family:var(--disp);font-weight:700;font-size:14.5px;">Cart Recovery &amp; Lead Booking</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;box-shadow:0 16px 34px -26px rgba(32,32,39,0.28);">
+            <span style="flex:0 0 auto;width:30px;height:30px;border-radius:8px;background:var(--ink);color:#fff;font-family:var(--disp);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;">03</span>
+            <span style="font-family:var(--disp);font-weight:700;font-size:14.5px;">AI Sales Funnel &amp; Campaigns</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Client&nbsp;Websites</div>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;">
+
+          <div style="background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 16px 34px -26px rgba(32,32,39,0.28);">
+            <div style="height:64px;background:linear-gradient(150deg,#4a4356,#221d2b);"></div>
+            <div style="padding:9px 10px;">
+              <div style="font-family:var(--disp);font-weight:700;font-size:11px;">Fashion</div>
+              <div style="height:4px;background:var(--lav);border-radius:3px;margin-top:6px;width:82%;"></div>
+              <div style="height:4px;background:var(--lav);border-radius:3px;margin-top:4px;width:60%;"></div>
+            </div>
+          </div>
+
+          <div style="background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 16px 34px -26px rgba(32,32,39,0.28);">
+            <div style="height:64px;background:linear-gradient(150deg,#4E6B58,#26362D);"></div>
+            <div style="padding:9px 10px;">
+              <div style="font-family:var(--disp);font-weight:700;font-size:11px;">Real Estate</div>
+              <div style="height:4px;background:var(--lav);border-radius:3px;margin-top:6px;width:82%;"></div>
+              <div style="height:4px;background:var(--lav);border-radius:3px;margin-top:4px;width:60%;"></div>
+            </div>
+          </div>
+
+          <div style="background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 16px 34px -26px rgba(32,32,39,0.28);">
+            <div style="height:64px;background:linear-gradient(150deg,#C08A5A,#7E4A2E);"></div>
+            <div style="padding:9px 10px;">
+              <div style="font-family:var(--disp);font-weight:700;font-size:11px;">E-commerce</div>
+              <div style="height:4px;background:var(--lav);border-radius:3px;margin-top:6px;width:82%;"></div>
+              <div style="height:4px;background:var(--lav);border-radius:3px;margin-top:4px;width:60%;"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- footer -->
+    <div style="display:flex;align-items:center;justify-content:space-between;padding-top:20px;border-top:1px solid var(--line);">
+      <div style="display:flex;gap:9px;flex-wrap:wrap;">
+        <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);background:rgba(185,166,211,0.16);border:1px solid var(--line);border-radius:100px;padding:6px 12px;">AI&nbsp;Agents</span>
+        <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);background:rgba(185,166,211,0.16);border:1px solid var(--line);border-radius:100px;padding:6px 12px;">Automation</span>
+        <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);background:rgba(185,166,211,0.16);border:1px solid var(--line);border-radius:100px;padding:6px 12px;">Sales&nbsp;Funnel</span>
+        <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);background:rgba(185,166,211,0.16);border:1px solid var(--line);border-radius:100px;padding:6px 12px;">Web&nbsp;Development</span>
+      </div>
+      <div style="font-family:var(--mono);font-size:13px;letter-spacing:0.04em;color:var(--muted);">musfirahloom.com</div>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

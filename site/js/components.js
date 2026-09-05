@@ -57,6 +57,7 @@ export function renderSiteFooter(base = '') {
         el('a', { href: `${base}campaigns.html` }, 'Campaigns'),
         el('a', { href: `${base}index.html#work` }, 'Work'),
         el('a', { href: `${base}index.html#about` }, 'About'),
+        el('a', { href: `${base}resume.html` }, 'Résumé'),
         el('a', { href: `${base}index.html#contact` }, 'Contact')),
       el('span', { class: 'site-foot__copy' }, '© 2026 Misbah Azib. All rights reserved.')));
 }

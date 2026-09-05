@@ -1,0 +1,63 @@
+/* ===========================================================
+   AMBLE — Design Tokens
+   A MusfirahLoom showcase. Warm, editorial, cinematic —
+   near-black espresso, warm ivory, one brass/gold accent.
+   Every token here is the single source of truth for the
+   visual system; components consume tokens, never literals,
+   so this file is the whole "swap the brand" surface.
+=========================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* ---------- palette ---------- */
+  --bone: #f4eee2;
+  --bone-soft: #ece2d0;
+  --paper: #faf7f1;
+  --espresso: #15100c;
+  --espresso-2: #221a13;
+  --espresso-3: #2e2318;
+  --ink: #1b140e;
+  --ink-soft: #6e6255;
+  --ink-on-dark: #f4eee2;
+  --ink-on-dark-soft: #c9bfae;
+  --accent: #c9a15a;
+  --accent-deep: #9c763a;
+  --accent-pale: #e7d3a4;
+  --line: rgba(27, 20, 14, 0.12);
+  --line-soft: rgba(27, 20, 14, 0.07);
+  --line-dark: rgba(244, 238, 226, 0.16);
+  --line-dark-soft: rgba(244, 238, 226, 0.08);
+
+  /* ---------- type ---------- */
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --step-eyebrow: 0.78rem;
+  --step-body: clamp(1rem, 0.94rem + 0.25vw, 1.125rem);
+  --step-lede: clamp(1.05rem, 0.98rem + 0.35vw, 1.3rem);
+  --step-h2: clamp(2.2rem, 1.4rem + 3.6vw, 4.2rem);
+  --step-h1: clamp(3.2rem, 1.6rem + 7vw, 7.5rem);
+  --step-display-sm: clamp(1.6rem, 1.2rem + 1.8vw, 2.4rem);
+
+  /* ---------- rhythm (8px scale) ---------- */
+  --sp-1: 0.4rem;
+  --sp-2: 0.8rem;
+  --sp-3: 1.2rem;
+  --sp-4: 1.6rem;
+  --sp-5: 2.4rem;
+  --sp-6: 3.2rem;
+  --sp-7: 4.8rem;
+  --sp-8: 6.4rem;
+  --sp-9: 9.6rem;
+
+  --gutter: clamp(1.5rem, 5vw, 6vw);
+  --maxw: 1440px;
+  --radius: 3px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 0.35s;
+  --dur-med: 0.7s;
+  --dur-slow: 1.2s;
+}

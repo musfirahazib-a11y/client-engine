@@ -16,6 +16,9 @@
 .hero-nav-row{flex-wrap:wrap;}
 .mobile-nav .sticky-cta{margin-top:0.4rem; text-align:center;}
 
+/* hero stat card carrying a date range instead of a single number */
+.stat-card--range .stat-num{ font-size:1.02rem; letter-spacing:-0.01em; }
+
 /* subtle technology atmosphere behind the hero — warm, low contrast */
 .hero{position:relative; isolation:isolate;}
 .hero::before{

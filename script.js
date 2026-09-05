@@ -19,6 +19,11 @@ if (menuToggle && mobileNav) {
   });
 }
 
+// "Download CV" buttons — trigger the browser's print-to-PDF (resume.html)
+document.querySelectorAll('[data-print]').forEach(btn => {
+  btn.addEventListener('click', e => { e.preventDefault(); window.print(); });
+});
+
 // Scroll reveal
 const revealEls = document.querySelectorAll('.reveal');
 const revealObserver = new IntersectionObserver((entries) => {

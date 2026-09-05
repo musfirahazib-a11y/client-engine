@@ -1,0 +1,65 @@
+/* ===========================================================
+   AURELLE — Design Tokens
+   A MusfirahLoom showcase. Deep plum + warm ivory + a muted
+   dusty-rose accent, with near-black for the most cinematic
+   scenes and a very sparing champagne hairline. Editorial,
+   restrained — colour is spent in one place at a time.
+=========================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* ---------- palette ---------- */
+  --plum: #3a1f2e;
+  --plum-deep: #26141f;
+  --plum-soft: #55324a;
+  --ivory: #f6eee4;
+  --ivory-soft: #ede1d2;
+  --paper: #fbf7f1;
+  --rose: #c79098;
+  --rose-deep: #a96f79;
+  --rose-pale: #ecd9d9;
+  --espresso: #170f10;
+  --champagne: #cbb183;
+
+  --ink: #241419;
+  --ink-soft: #6b5a61;
+  --ink-on-dark: #f6eee4;
+  --ink-on-dark-soft: #cbb7be;
+
+  --line: rgba(36, 20, 25, 0.14);
+  --line-soft: rgba(36, 20, 25, 0.08);
+  --line-dark: rgba(246, 238, 228, 0.18);
+  --line-dark-soft: rgba(246, 238, 228, 0.09);
+
+  /* ---------- type ---------- */
+  --font-display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --step-eyebrow: 0.76rem;
+  --step-body: clamp(1rem, 0.95rem + 0.2vw, 1.1rem);
+  --step-lede: clamp(1.05rem, 0.98rem + 0.35vw, 1.35rem);
+  --step-h2: clamp(2.4rem, 1.5rem + 4vw, 4.6rem);
+  --step-h1: clamp(3.4rem, 1.6rem + 7.5vw, 7.8rem);
+
+  /* ---------- rhythm ---------- */
+  --sp-1: 0.4rem;
+  --sp-2: 0.8rem;
+  --sp-3: 1.2rem;
+  --sp-4: 1.6rem;
+  --sp-5: 2.4rem;
+  --sp-6: 3.2rem;
+  --sp-7: 4.8rem;
+  --sp-8: 6.4rem;
+  --sp-9: 9.6rem;
+
+  --gutter: clamp(1.5rem, 5vw, 6vw);
+  --maxw: 1480px;
+  --radius: 0px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 0.4s;
+  --dur-med: 0.8s;
+  --dur-slow: 1.3s;
+}

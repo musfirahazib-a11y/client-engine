@@ -1,0 +1,85 @@
+/* ===========================================================
+   Hero
+=========================================================== */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--espresso);
+}
+
+.hero__bg {
+  position: absolute;
+  inset: -6%;
+  z-index: 0;
+}
+.hero__bg .media-frame { width: 100%; height: 100%; border-radius: 0; aspect-ratio: auto; }
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(21, 16, 12, 0.92) 0%, rgba(21, 16, 12, 0.35) 46%, rgba(21, 16, 12, 0.55) 100%);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  padding-bottom: clamp(4rem, 10vw, 7rem);
+  padding-top: clamp(7rem, 16vw, 10rem);
+  /* No max-width here: the display headline sets its own scale, and the
+     lede paragraph constrains its own measure (below) — a container cap
+     sized for body text would clip single long display words. */
+}
+
+.hero__headline {
+  font-size: var(--step-h1);
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+  color: var(--bone);
+  margin: var(--sp-3) 0 var(--sp-4);
+}
+
+.hero__lede {
+  font-family: var(--font-sans);
+  font-size: var(--step-lede);
+  line-height: 1.55;
+  color: var(--ink-on-dark-soft);
+  max-width: 40ch;
+  margin: 0 0 var(--sp-5);
+}
+
+.hero__actions { display: flex; gap: var(--sp-3); flex-wrap: wrap; }
+
+.hero__cue {
+  position: absolute;
+  right: var(--gutter);
+  bottom: var(--sp-4);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  color: var(--ink-on-dark-soft);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+}
+.hero__cue-line {
+  width: 1px;
+  height: 46px;
+  background: linear-gradient(var(--accent-pale), transparent);
+  animation: cuePulse 2.4s ease-in-out infinite;
+}
+@keyframes cuePulse {
+  0%, 100% { opacity: 0.35; transform: scaleY(0.5); transform-origin: top; }
+  50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+}
+@media (prefers-reduced-motion: reduce) { .hero__cue-line { animation: none; } }
+
+@media (max-width: 720px) {
+  .hero { align-items: center; }
+  .hero__content { padding-top: 6.5rem; padding-bottom: 3rem; max-width: none; }
+  .hero__cue { display: none; }
+}

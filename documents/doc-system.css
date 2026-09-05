@@ -1,0 +1,302 @@
+/* ===========================================================
+   MusfirahLoom — Client Document System
+   doc-system.css  ·  one shared design system for all five
+   print-ready documents (brochure, questionnaire, proposal,
+   agreement, invoice).
+
+   Built on the musfirahloom.com brand tokens, tuned for A4
+   print: near-black ink on white, one muted-purple accent,
+   Bricolage Grotesque / Inter / IBM Plex Mono.
+
+   Every page is an explicit A4 block (.doc-page). One block =
+   one printed page. Headers, footers and page numbers repeat
+   on every block; doc.js fills the numbers automatically.
+=========================================================== */
+
+:root{
+  --disp:'Bricolage Grotesque','Helvetica Neue',Arial,sans-serif;
+  --body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SFMono-Regular',monospace;
+
+  --ink:#1e1b22;          /* primary text                     */
+  --ink-soft:#57515f;     /* secondary text                   */
+  --ink-dim:#8b8592;      /* placeholders, fine print         */
+  --line:#d7d0e0;         /* rules / table borders            */
+  --line-soft:#ebe7f1;    /* light row dividers               */
+  --accent:#5c4b84;       /* muted purple — labels, rules     */
+  --accent-strong:#463869;
+  --accent-soft:#efebf6;  /* pale lavender fill               */
+  --paper:#ffffff;
+  --screen-bg:#eceaf1;    /* behind the pages, on screen only */
+
+  --page-w:210mm;
+  --page-h:297mm;
+  --page-pad-y:17mm;
+  --page-pad-x:19mm;
+}
+
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+
+html{ background:var(--screen-bg); }
+body{
+  background:var(--screen-bg);
+  font-family:var(--body);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+/* ===========================================================
+   SCREEN CONTROL BAR — never prints
+=========================================================== */
+.doc-toolbar{
+  position:sticky; top:0; z-index:50;
+  display:flex; align-items:center; gap:1rem; flex-wrap:wrap;
+  padding:.75rem 1.1rem;
+  background:var(--ink); color:#fff;
+  font-family:var(--body); font-size:.82rem;
+}
+.doc-toolbar__title{ font-weight:600; letter-spacing:.01em; }
+.doc-toolbar__title span{ color:#b6adc6; font-weight:400; }
+.doc-toolbar__spacer{ flex:1; }
+.doc-toolbar button{
+  font-family:var(--body); font-weight:600; font-size:.8rem;
+  color:var(--ink); background:#fff; border:1px solid #fff; border-radius:6px;
+  padding:.5rem 1rem; cursor:pointer; transition:transform .15s ease, background .15s ease;
+}
+.doc-toolbar button:hover{ transform:translateY(-1px); background:var(--accent-soft); }
+.doc-toolbar .hint{
+  font-family:var(--mono); font-size:.68rem; letter-spacing:.02em; color:#b6adc6;
+  flex-basis:100%; margin-top:.15rem;
+}
+
+/* ===========================================================
+   PAGE
+=========================================================== */
+.doc{ counter-reset:pg; padding:14mm 0 8mm; }
+.doc-page{
+  width:var(--page-w); min-height:var(--page-h);
+  margin:0 auto 10mm; padding:var(--page-pad-y) var(--page-pad-x);
+  background:var(--paper);
+  box-shadow:0 6px 30px rgba(30,27,34,.16);
+  display:grid; grid-template-rows:auto 1fr auto;
+  position:relative;
+}
+
+/* running header */
+.doc-head{
+  display:flex; align-items:baseline; justify-content:space-between;
+  padding-bottom:7mm; margin-bottom:8mm;
+  border-bottom:1px solid var(--line);
+}
+.doc-head__brand{ font-family:var(--disp); font-weight:800; font-size:1rem; letter-spacing:-.01em; }
+.doc-head__brand b{ color:var(--accent); font-weight:800; }
+.doc-head__kicker{
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--ink-soft);
+}
+
+/* running footer */
+.doc-foot{
+  display:flex; align-items:baseline; justify-content:space-between;
+  padding-top:6mm; margin-top:8mm;
+  border-top:1px solid var(--line);
+  font-family:var(--mono); font-size:.64rem; letter-spacing:.03em; color:var(--ink-dim);
+}
+.doc-foot a{ color:inherit; text-decoration:none; }
+.doc-foot__pg b{ color:var(--ink-soft); font-weight:500; }
+
+/* ===========================================================
+   BODY TYPE
+=========================================================== */
+.doc-body{ align-self:start; }
+.doc-body > * + *{ margin-top:.7rem; }
+
+.doc-body h1{
+  font-family:var(--disp); font-weight:800; letter-spacing:-.025em;
+  font-size:2rem; line-height:1.06; text-wrap:balance;
+}
+.doc-body h2{
+  font-family:var(--disp); font-weight:700; letter-spacing:-.015em;
+  font-size:1.18rem; line-height:1.2; margin-top:1.5rem;
+}
+.doc-body h2:first-child, .doc-body h1:first-child{ margin-top:0; }
+.doc-body h3{
+  font-family:var(--disp); font-weight:600; font-size:.98rem; line-height:1.3; margin-top:1rem;
+}
+.doc-body p, .doc-body li{ font-size:.9rem; line-height:1.62; }
+.doc-body ul, .doc-body ol{ padding-left:1.15rem; }
+.doc-body li + li{ margin-top:.28rem; }
+.doc-body li::marker{ color:var(--accent); }
+.doc-body strong{ font-weight:600; }
+.doc-body a{ color:var(--accent-strong); }
+
+.kicker{
+  display:block; font-family:var(--mono); font-size:.68rem; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--accent); margin-bottom:.5rem;
+}
+.lede{ font-size:1rem; line-height:1.6; color:var(--ink-soft); }
+.small{ font-size:.8rem; }
+.muted{ color:var(--ink-soft); }
+.legal{ font-size:.76rem; line-height:1.55; color:var(--ink-soft); }
+.legal p + p{ margin-top:.5rem; }
+
+/* cover page */
+.doc-page--cover .doc-body{ align-self:center; }
+.doc-page--cover h1{ font-size:2.7rem; }
+.doc-cover__meta{
+  margin-top:2rem; padding-top:1rem; border-top:2px solid var(--accent);
+  display:grid; grid-template-columns:repeat(2,1fr); gap:.6rem 2rem;
+  font-family:var(--mono); font-size:.74rem; letter-spacing:.02em; color:var(--ink-soft);
+}
+.doc-cover__meta b{ display:block; color:var(--ink); font-weight:500; margin-top:.15rem; }
+
+/* ===========================================================
+   REUSABLE BLOCKS
+=========================================================== */
+
+/* two-column grid */
+.cols-2{ display:grid; grid-template-columns:1fr 1fr; gap:1.4rem 2rem; }
+.cols-2 > * + *{ margin-top:0; }
+
+/* labelled definition rows (parties, invoice meta …) */
+.deflist{ display:grid; grid-template-columns:auto 1fr; gap:.35rem 1.1rem; font-size:.86rem; }
+.deflist dt{
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--ink-soft); padding-top:.15rem;
+}
+.deflist dd{ color:var(--ink); }
+
+/* callout note */
+.note{
+  border-left:3px solid var(--accent); background:var(--accent-soft);
+  padding:.8rem 1rem; border-radius:0 5px 5px 0; font-size:.85rem; line-height:1.55;
+}
+.note strong{ color:var(--accent-strong); }
+
+/* feature list with lavender ticks */
+.ticks{ list-style:none; padding-left:0; }
+.ticks li{ position:relative; padding-left:1.5rem; }
+.ticks li::before{
+  content:'→'; position:absolute; left:0; top:0; color:var(--accent); font-weight:700;
+}
+
+/* numbered clause list (agreement) */
+.clauses{ list-style:none; padding-left:0; counter-reset:cl; }
+.clauses > li{ counter-increment:cl; margin-top:1.1rem; }
+.clauses > li > h3{ margin-top:0; }
+.clauses > li > h3::before{
+  content:counter(cl) ".\00a0\00a0"; color:var(--accent); font-family:var(--mono); font-weight:500;
+}
+.clauses ul{ margin-top:.4rem; }
+
+/* tables */
+.tbl{ width:100%; border-collapse:collapse; margin-top:.6rem; }
+.tbl caption{
+  caption-side:top; text-align:left; font-family:var(--mono); font-size:.66rem;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--accent); padding-bottom:.4rem;
+}
+.tbl th{
+  text-align:left; font-family:var(--mono); font-weight:500; font-size:.64rem;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--accent);
+  border-bottom:1.5px solid var(--accent); padding:.45rem .55rem;
+}
+.tbl td{
+  font-size:.84rem; line-height:1.5; border-bottom:1px solid var(--line-soft);
+  padding:.5rem .55rem; vertical-align:top;
+}
+.tbl tbody tr:last-child td{ border-bottom:1px solid var(--line); }
+.tbl tfoot td{ border-bottom:0; padding-top:.5rem; font-size:.86rem; }
+.tbl tfoot tr.tbl-total td,
+.tbl tfoot tr:last-child td{ font-family:var(--disp); font-weight:700; font-size:1rem; color:var(--ink); }
+.tbl tfoot tr.tbl-total td{ border-top:1.5px solid var(--accent); padding-top:.55rem; }
+.tbl tfoot tr.tbl-total + tr td{ padding-top:.55rem; }
+.tbl .num{ text-align:right; font-family:var(--mono); font-variant-numeric:tabular-nums; white-space:nowrap; }
+.tbl .tot-label{ text-align:right; font-family:var(--mono); font-size:.72rem; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-soft); }
+
+/* checkbox rows (questionnaire) */
+.checks{ list-style:none; padding-left:0; }
+.checks li{ display:flex; gap:.6rem; align-items:flex-start; padding:.2rem 0; }
+.checks li::before{
+  content:''; flex:0 0 auto; width:.95rem; height:.95rem; margin-top:.15rem;
+  border:1.5px solid var(--accent); border-radius:3px;
+}
+
+/* question block */
+.q{ margin-top:1.1rem; }
+.q__label{ font-weight:600; font-size:.9rem; }
+.q__hint{ font-size:.78rem; color:var(--ink-soft); margin-top:.1rem; }
+.q__answer{
+  margin-top:.4rem; min-height:2.4em; border:1px solid var(--line);
+  border-radius:5px; padding:.5rem .6rem; font-size:.86rem; background:#fff;
+}
+.q__answer--lg{ min-height:4.6em; }
+.rule-lines{
+  margin-top:.4rem; background-image:repeating-linear-gradient(
+    var(--paper), var(--paper) calc(1.7em - 1px), var(--line-soft) calc(1.7em - 1px), var(--line-soft) 1.7em);
+  min-height:5.1em;
+}
+
+/* signature block */
+.sign{ display:grid; grid-template-columns:1fr 1fr; gap:1.6rem 2.5rem; margin-top:1.6rem; }
+.sign__field{ display:flex; flex-direction:column; }
+.sign__space{ height:2.6em; border-bottom:1px solid var(--ink); }
+.sign__label{
+  margin-top:.3rem; font-family:var(--mono); font-size:.64rem; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--ink-soft);
+}
+
+/* pill / tag */
+.tag{
+  display:inline-block; font-family:var(--mono); font-size:.62rem; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--accent); background:var(--accent-soft);
+  border:1px solid var(--line); border-radius:100px; padding:.25rem .6rem;
+}
+
+/* ===========================================================
+   EDITABLE FIELDS
+   Anything the consultant fills in per client. Highlighted on
+   screen, clean on paper. Empty fields show their prompt.
+=========================================================== */
+.fld{
+  background:var(--accent-soft);
+  border-radius:2px; padding:0 .18em;
+  outline:none; cursor:text;
+}
+.fld:focus{ box-shadow:0 0 0 2px var(--accent); background:#fff; }
+.fld--block{ display:block; padding:.15em .3em; }
+.fld--multi{ display:block; min-height:3em; padding:.35em .45em; }
+.fld:empty::before{ content:attr(data-ph); color:var(--ink-dim); }
+.fld[data-ph]:not(:empty)::before{ content:none; }
+
+@media print{
+  .fld{ background:transparent; padding:0; }
+  .fld:focus{ box-shadow:none; }
+  .fld:empty::before{ color:var(--ink-dim); }   /* unfilled fields stay visible as a flag */
+}
+
+/* ===========================================================
+   PRINT
+=========================================================== */
+@page{ size:A4; margin:0; }
+
+@media print{
+  html, body{ background:#fff; }
+  .doc-toolbar{ display:none !important; }
+  .doc{ padding:0; }
+  .doc-page{
+    width:auto; min-height:auto; height:var(--page-h);
+    margin:0; box-shadow:none;
+    break-inside:avoid; break-after:page;
+  }
+  .doc-page:last-child{ break-after:auto; }
+  a{ color:inherit; }
+  .note{ background:var(--accent-soft) !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .tag, .checks li::before{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+}
+
+@media (max-width:800px){
+  .doc-page{ width:100%; min-height:0; padding:8mm 6mm; }
+  .cols-2, .doc-cover__meta, .sign{ grid-template-columns:1fr; }
+}

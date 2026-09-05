@@ -1,0 +1,128 @@
+@import "./tokens.css";
+
+/* ===========================================================
+   AURELLE — Global base
+=========================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--step-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+img, video { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+ul { margin: 0; padding: 0; list-style: none; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.container { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--sp-9); position: relative; }
+@media (max-width: 720px) { .section { padding-block: var(--sp-7); } }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--step-eyebrow);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--rose-deep);
+}
+.eyebrow::before { content: ""; width: 1.8em; height: 1px; background: currentColor; opacity: 0.7; }
+.on-dark .eyebrow { color: var(--champagne); }
+
+/* ---------- buttons: sharp, editorial, tracked ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 1.15em 2em;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+.btn__arrow { transition: transform var(--dur-fast) var(--ease-out); }
+.btn:hover .btn__arrow { transform: translateX(5px); }
+
+.btn--solid-dark { background: var(--plum); color: var(--ivory); border-color: var(--plum); }
+.btn--solid-dark:hover { background: var(--rose-deep); border-color: var(--rose-deep); color: var(--ivory); }
+
+.btn--outline-dark { background: transparent; color: var(--plum); border-color: var(--plum); }
+.btn--outline-dark:hover { background: var(--plum); color: var(--ivory); }
+
+.btn--solid-light { background: var(--ivory); color: var(--plum); border-color: var(--ivory); }
+.btn--solid-light:hover { background: var(--rose); border-color: var(--rose); color: var(--plum-deep); }
+
+.btn--outline-light { background: transparent; color: var(--ivory); border-color: var(--line-dark); }
+.btn--outline-light:hover { background: var(--ivory); color: var(--plum); border-color: var(--ivory); }
+
+.btn--text {
+  padding: 0; border: 0;
+  font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.78rem;
+  border-bottom: 1px solid currentColor; padding-bottom: 0.25em;
+}
+
+/* ---------- focus ---------- */
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+  outline: 1.5px solid var(--rose-deep);
+  outline-offset: 3px;
+}
+
+/* ---------- reveal primitives ---------- */
+.reveal { opacity: 0; transform: translateY(30px); }
+.reveal.is-in { opacity: 1; transform: none; transition: opacity 1s var(--ease-out), transform 1s var(--ease-out); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  * { scroll-behavior: auto !important; }
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* ---------- media frame (real image or designed placeholder) ---------- */
+.media-frame { position: relative; overflow: hidden; background: var(--plum-deep); }
+.media-frame__img, .media-frame__fallback, .media-frame__fallback svg {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.placeholder-scene { width: 100%; height: 100%; }
+.media-frame__tag {
+  position: absolute; left: 0.7rem; bottom: 0.7rem;
+  font-family: var(--font-sans); font-size: 0.62rem; font-weight: 500; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--ink-on-dark-soft); opacity: 0.8; white-space: nowrap;
+}
+
+/* ---------- RevealText line-mask ---------- */
+.rt-mask { display: block; overflow: hidden; }
+.rt-inner { display: block; will-change: transform; }
+
+.on-dark, .on-dark h1, .on-dark h2, .on-dark h3, .on-dark p { color: var(--ink-on-dark); }
+
+/* ---------- selection ---------- */
+::selection { background: var(--rose); color: var(--plum-deep); }

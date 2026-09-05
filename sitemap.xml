@@ -3,6 +3,7 @@
      Excludes the noindex pages (agent.html, funnel-admin.html). -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://musfirahloom.com/</loc><priority>1.0</priority></url>
+  <url><loc>https://musfirahloom.com/resume.html</loc><priority>0.9</priority></url>
   <url><loc>https://musfirahloom.com/ai-agents.html</loc><priority>0.9</priority></url>
   <url><loc>https://musfirahloom.com/ai-sales-funnel.html</loc><priority>0.9</priority></url>
   <url><loc>https://musfirahloom.com/campaigns.html</loc><priority>0.8</priority></url>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice — MusfirahLoom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="doc-system.css">
+<style>
+  /* invoice-only helpers */
+  .inv-top{ display:grid; grid-template-columns:1fr 1fr; gap:1.6rem 2rem; margin-bottom:1.2rem; }
+  .inv-block h3{ margin-top:0; font-size:.82rem; font-family:var(--mono); letter-spacing:.08em; text-transform:uppercase; color:var(--accent); }
+  .inv-block p{ font-size:.86rem; line-height:1.55; }
+  .inv-meta{ margin-top:1rem; }
+  .inv-pay{ margin-top:1.4rem; }
+  @media (max-width:800px){ .inv-top{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<div class="doc-toolbar">
+  <span class="doc-toolbar__title">Invoice <span>· duplicate per invoice, set the number &amp; dates, edit line items — totals calculate automatically</span></span>
+  <span class="doc-toolbar__spacer"></span>
+  <button type="button" data-print>Print / Save as PDF</button>
+  <span class="hint">Edit Qty, Rate, Tax %, Currency and Amount paid — the maths updates live. Print dialog → Margins: None · Headers &amp; footers: Off.</span>
+</div>
+
+<article class="doc" data-doc="invoice">
+
+  <section class="doc-page" data-invoice>
+    <header class="doc-head">
+      <span class="doc-head__brand">Musfirah<b>Loom</b></span>
+      <span class="doc-head__kicker">Invoice</span>
+    </header>
+
+    <div class="doc-body">
+      <h1>Invoice</h1>
+
+      <div class="inv-top">
+        <div class="inv-block">
+          <h3>From</h3>
+          <p>
+            Misbah Azib — MusfirahLoom<br>
+            AI Automation Specialist<br>
+            musfirahloom.com · musfirahazib@gmail.com<br>
+            <span class="fld" contenteditable="true" data-ph="[ address / tax ID — optional ]"></span>
+          </p>
+        </div>
+        <div class="inv-block">
+          <h3>Bill to</h3>
+          <p>
+            <span class="fld" contenteditable="true" data-ph="[ Client company ]"></span><br>
+            <span class="fld" contenteditable="true" data-ph="[ Contact name ]"></span><br>
+            <span class="fld" contenteditable="true" data-ph="[ Email ]"></span><br>
+            <span class="fld" contenteditable="true" data-ph="[ Address — optional ]"></span>
+          </p>
+        </div>
+      </div>
+
+      <dl class="deflist inv-meta">
+        <dt>Invoice no.</dt><dd class="fld" contenteditable="true" data-ph="[ e.g. MLA-0001 ]"></dd>
+        <dt>Issue date</dt><dd class="fld" contenteditable="true" data-ph="[ date ]"></dd>
+        <dt>Due date</dt><dd class="fld" contenteditable="true" data-ph="[ date ]"></dd>
+        <dt>Terms</dt><dd class="fld" contenteditable="true" data-ph="[ e.g. Net 14 ]"></dd>
+        <dt>Project / ref</dt><dd class="fld" contenteditable="true" data-ph="[ project name or proposal ref ]"></dd>
+        <dt>Currency</dt><dd><span class="fld" contenteditable="true" data-currency data-ph="[ $, £, € or PKR — with trailing space ]"></span></dd>
+      </dl>
+
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th class="num" style="width:12%">Qty</th>
+            <th class="num" style="width:20%">Rate</th>
+            <th class="num" style="width:22%">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-line>
+            <td class="fld" contenteditable="true" data-ph="[ e.g. AI Sales Funnel System — build, per proposal MLA-… ]"></td>
+            <td class="num fld" contenteditable="true" data-qty data-ph="1"></td>
+            <td class="num fld" contenteditable="true" data-rate data-ph="[ rate ]"></td>
+            <td class="num" data-amount></td>
+          </tr>
+          <tr data-line>
+            <td class="fld" contenteditable="true" data-ph="[ line item ]"></td>
+            <td class="num fld" contenteditable="true" data-qty data-ph="1"></td>
+            <td class="num fld" contenteditable="true" data-rate data-ph="[ rate ]"></td>
+            <td class="num" data-amount></td>
+          </tr>
+          <tr data-line>
+            <td class="fld" contenteditable="true" data-ph="[ line item ]"></td>
+            <td class="num fld" contenteditable="true" data-qty data-ph="1"></td>
+            <td class="num fld" contenteditable="true" data-rate data-ph="[ rate ]"></td>
+            <td class="num" data-amount></td>
+          </tr>
+          <tr data-line>
+            <td class="fld" contenteditable="true" data-ph="[ line item — delete rows you don't need ]"></td>
+            <td class="num fld" contenteditable="true" data-qty data-ph="1"></td>
+            <td class="num fld" contenteditable="true" data-rate data-ph="[ rate ]"></td>
+            <td class="num" data-amount></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr><td class="tot-label" colspan="3">Subtotal</td><td class="num" data-subtotal></td></tr>
+          <tr><td class="tot-label" colspan="3">Tax (<span class="fld" contenteditable="true" data-taxrate data-ph="0">0</span>%)</td><td class="num" data-tax></td></tr>
+          <tr class="tbl-total"><td class="tot-label" colspan="3">Total</td><td class="num" data-total></td></tr>
+          <tr><td class="tot-label" colspan="3">Amount paid</td><td class="num fld" contenteditable="true" data-paid data-ph="0"></td></tr>
+          <tr><td class="tot-label" colspan="3">Balance due</td><td class="num" data-due></td></tr>
+        </tfoot>
+      </table>
+
+      <div class="inv-pay">
+        <h2>Payment details</h2>
+        <p class="fld fld--multi" contenteditable="true" data-ph="[ Bank name, account name, account number / IBAN, SWIFT — or Wise / Payoneer details. Add a payment link if you use one. ]"></p>
+      </div>
+
+      <h3>Notes</h3>
+      <p class="small fld fld--multi" contenteditable="true" data-ph="[ e.g. This invoice covers Phase 1 per the accepted proposal. Third-party costs (hosting, domains, API usage) are billed separately at cost. ]"></p>
+
+      <p class="small muted" style="margin-top:1rem">Thank you. Please reference the invoice number with your payment.</p>
+    </div>
+
+    <footer class="doc-foot">
+      <span>Misbah Azib · <a href="https://musfirahloom.com">musfirahloom.com</a> · musfirahazib@gmail.com</span>
+      <span class="doc-foot__pg">Page <b class="pg-num">1</b> / <b class="pg-total">1</b></span>
+    </footer>
+  </section>
+
+</article>
+
+<script src="doc.js"></script>
+</body>
+</html>

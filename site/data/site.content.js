@@ -23,6 +23,7 @@ export function NAV(base = '', active = '') {
       { id: 'portfolio', label: 'Work', href: `${base}index.html#work` },
       { id: 'services', label: 'Services', href: `${base}index.html#services` },
       { id: 'about', label: 'About', href: `${base}index.html#about` },
+      { id: 'resume', label: 'Résumé', href: `${base}resume.html` },
       { id: 'contact', label: 'Contact', href: `${base}index.html#contact` },
     ],
   };

@@ -1,0 +1,8 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1200, "h": 628, "title": "Featured — headline" },
+    { "file": "Portfolio.dc.html", "x": 1320, "y": 0, "w": 1200, "h": 628, "title": "Featured — portfolio" },
+    { "file": "OptionB.dc.html", "x": 2640, "y": 0, "w": 1200, "h": 628, "title": "Alternate — browser frame" }
+  ],
+  "launch": { "view": "canvas" }
+}
