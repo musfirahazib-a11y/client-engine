@@ -1,0 +1,136 @@
+/* ===========================================================
+   Misbah Azib — Website
+   site/start.css  ·  the "Start a Project" lead-qualification page
+
+   New page only. Reuses style.css tokens (--ink, --accent,
+   --panel*, --sp-*, fonts) and site.css layout primitives
+   (.site-wrap, .site-topbar, .site-foot, .site-reveal, .btn).
+   Every selector here is scoped under .st-* so nothing leaks
+   into existing pages.
+=========================================================== */
+
+.st-page{ padding:var(--sp-6) 0 var(--sp-8); }
+
+/* ---------- header block ---------- */
+.st-head{ max-width:60ch; margin-bottom:var(--sp-6); }
+.st-head h1{
+  font-family:var(--font-display); font-weight:700; letter-spacing:-0.01em;
+  font-size:clamp(2rem,5vw,3rem); line-height:1.06; margin:var(--sp-2) 0 var(--sp-3);
+}
+.st-head h1 em{ font-style:normal; color:var(--accent); }
+.st-head p{ font-size:1.05rem; line-height:1.7; color:var(--ink-soft); }
+
+/* ---------- two-column layout ---------- */
+.st-layout{ display:grid; grid-template-columns:1fr; gap:var(--sp-6); }
+@media(min-width:920px){
+  .st-layout{ grid-template-columns:19rem minmax(0,1fr); gap:var(--sp-7); align-items:start; }
+  .st-rail{ position:sticky; top:5.5rem; }
+}
+
+/* ---------- left rail: process + reassurance ---------- */
+.st-rail h2{
+  font-family:var(--font-mono); font-size:.74rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--ink-soft); margin-bottom:var(--sp-3);
+}
+.st-steps{ list-style:none; margin:0 0 var(--sp-5); padding:0; display:flex; flex-direction:column; gap:var(--sp-3); }
+.st-step{ display:flex; gap:.9rem; }
+.st-step__no{
+  flex-shrink:0; width:1.9rem; height:1.9rem; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-mono); font-size:.72rem; font-weight:500;
+  color:var(--on-accent); background:var(--accent-strong);
+}
+.st-step__body strong{ display:block; font-size:.92rem; color:var(--ink); }
+.st-step__body span{ font-size:.84rem; line-height:1.55; color:var(--ink-soft); }
+
+.st-assure{ list-style:none; margin:0 0 var(--sp-5); padding:0; display:flex; flex-direction:column; gap:.5rem; }
+.st-assure li{ font-size:.86rem; line-height:1.5; color:var(--ink-soft); padding-left:1.2rem; position:relative; }
+.st-assure li::before{ content:'✓'; position:absolute; left:0; color:var(--accent); font-weight:700; }
+
+.st-alt{ font-size:.84rem; color:var(--ink-soft); line-height:1.7; }
+.st-alt a{ color:var(--accent); font-weight:600; }
+
+/* ---------- form panel ---------- */
+.st-form{
+  background:var(--panel); border:1px solid var(--panel-line); border-radius:14px;
+  padding:var(--sp-5); display:flex; flex-direction:column; gap:var(--sp-5);
+}
+@media(min-width:920px){ .st-form{ padding:var(--sp-6); } }
+
+.st-group{ border:0; padding:0; margin:0; display:flex; flex-direction:column; gap:var(--sp-3); }
+.st-group__legend{
+  font-family:var(--font-mono); font-size:.72rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--accent); padding:0; margin-bottom:.2rem;
+}
+.st-group + .st-group{ padding-top:var(--sp-4); border-top:1px solid var(--hairline); }
+
+.st-field{ display:flex; flex-direction:column; gap:.4rem; }
+.st-field__label{ font-size:.86rem; font-weight:600; color:var(--ink); }
+.st-field__label .req{ color:var(--accent); }
+.st-field__hint{ font-size:.78rem; color:var(--ink-dim); }
+
+.st-form input,
+.st-form select,
+.st-form textarea{
+  width:100%; font-family:var(--font-body); font-size:.95rem; color:var(--ink);
+  background:var(--bg-2); border:1px solid var(--panel-line); border-radius:8px;
+  padding:.7rem .85rem; line-height:1.4; min-height:2.85rem;
+  transition:border-color .15s ease, background .15s ease;
+}
+.st-form textarea{ min-height:5.5rem; resize:vertical; }
+.st-form select{ appearance:none; background-image:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236F6A75' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right .9rem center; padding-right:2.4rem; }
+.st-form input:hover,
+.st-form select:hover,
+.st-form textarea:hover{ border-color:var(--accent-soft); }
+.st-form input:focus,
+.st-form select:focus,
+.st-form textarea:focus{ background:var(--panel); border-color:var(--accent); outline:none; }
+.st-form input.is-invalid,
+.st-form select.is-invalid,
+.st-form textarea.is-invalid{ border-color:#B23A3A; background:#FBF3F3; }
+
+.st-field__err{ font-size:.78rem; color:#B23A3A; font-weight:600; }
+
+/* radio group */
+.st-radios{ display:flex; flex-wrap:wrap; gap:.6rem; }
+.st-radio{
+  display:flex; align-items:center; gap:.5rem; cursor:pointer;
+  border:1px solid var(--panel-line); border-radius:100px;
+  padding:.55rem 1rem; font-size:.88rem; color:var(--ink);
+  background:var(--bg-2); transition:border-color .15s ease, background .15s ease;
+}
+.st-radio:hover{ border-color:var(--accent-soft); }
+.st-radio input{ width:auto; min-height:0; accent-color:var(--accent-strong); margin:0; }
+.st-radio:has(input:checked){ border-color:var(--accent); background:var(--lav-2); }
+
+/* consent */
+.st-consent{ display:flex; gap:.6rem; align-items:flex-start; font-size:.84rem; color:var(--ink-soft); line-height:1.5; }
+.st-consent input{ width:auto; min-height:0; margin-top:.15rem; accent-color:var(--accent-strong); }
+
+.st-form__err{
+  font-size:.85rem; color:#B23A3A; font-weight:600;
+  background:#FBF3F3; border:1px solid #E7C9C9; border-radius:8px; padding:.7rem .9rem;
+}
+.st-form__submit{ align-self:flex-start; }
+.st-form__fine{ font-size:.78rem; color:var(--ink-dim); line-height:1.6; }
+
+/* ---------- confirmation state ---------- */
+.st-done{
+  background:var(--panel); border:1px solid var(--panel-line); border-radius:14px;
+  padding:var(--sp-6); display:flex; flex-direction:column; gap:var(--sp-4);
+}
+.st-done h2{
+  font-family:var(--font-display); font-weight:700; font-size:clamp(1.5rem,3.4vw,2rem);
+  line-height:1.15; color:var(--ink);
+}
+.st-done h2:focus{ outline:none; }
+.st-done p{ font-size:.95rem; line-height:1.7; color:var(--ink-soft); }
+.st-done__actions{ display:flex; flex-wrap:wrap; gap:var(--sp-3); }
+.st-brief{
+  font-family:var(--font-mono); font-size:.78rem; line-height:1.7; color:var(--ink-soft);
+  background:var(--bg-2); border:1px solid var(--panel-line); border-radius:10px;
+  padding:var(--sp-4); white-space:pre-wrap; max-height:16rem; overflow:auto;
+}
+.st-copy-note{ font-size:.8rem; color:var(--accent); font-weight:600; }
