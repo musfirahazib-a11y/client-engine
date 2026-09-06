@@ -15,6 +15,7 @@ import { NAV, PROCESS } from '../data/site.content.js';
 import { renderSiteHeader, renderSiteFooter, renderSkipLink, el } from './components.js';
 import { track } from './track.js';
 import { scoreLead, triageText } from './leadScore.js';
+import { buildPayload, postLead, resolveFormConfig } from './submitLead.js';
 
 const WHATSAPP = '923132028898';
 const EMAIL = 'musfirahazib@gmail.com';
@@ -194,16 +195,18 @@ function buildForm(onDone) {
     formErr,
     submit,
     el('p', { class: 'st-form__fine' },
-      'No account, no autopilot: this doesn’t store your details or send anything by itself. '
-      + 'On the next screen you send the brief through your preferred channel.'));
+      'Your details are used only to reply to this enquiry — no list, no spam. '
+      + 'On the next screen you can also send the brief through WhatsApp or email.'));
 
   let started = false;
+  let busy = false;
   form.addEventListener('input', () => {
     if (!started) { started = true; track('form_start', {}); }
   }, { once: false });
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (busy) return;
     formErr.hidden = true;
     let firstBad = null;
 
@@ -229,21 +232,38 @@ function buildForm(onDone) {
     ALL_FIELDS.forEach((f) => { values[f.key] = reg[f.key].read(); });
 
     // Transparent lead triage (site/js/leadScore.js). Internal only:
-    // it is NOT shown to the visitor and NOT added to the brief they
-    // send. It rides the dormant analytics seam, and once a real
-    // submission destination is connected it goes to Misbah with the
-    // brief. Until then it is visible in the console for reference.
+    // never shown to the visitor and never added to the brief they
+    // send by hand. It travels in the webhook payload (below) and,
+    // until a webhook is configured, prints to the console.
     const triage = scoreLead(values);
-    track('form_submit', {
-      industry: values.industry, need: values.need,
-      budget: values.budget, timeline: values.timeline, contact: values.contact,
-      band: triage.band, score: triage.score,
-    });
     if (typeof console !== 'undefined' && console.info) {
       console.info(`[start] lead triage — ${triage.bandEmoji} ${triage.bandLabel}\n${triageText(triage)}`);
     }
 
-    onDone(values);
+    // Submit to the n8n webhook if one is configured in site/js/site.config.js.
+    // No URL -> { status: 'disabled' } and we fall back to the WhatsApp /
+    // email / copy handoff below (which is always offered regardless).
+    busy = true;
+    submit.disabled = true;
+    submit.textContent = 'Sending…';
+
+    const formCfg = resolveFormConfig();
+    const payload = buildPayload(values, triage, {
+      now: new Date().toISOString(),
+      page: (typeof location !== 'undefined' && location.href) || null,
+    });
+    const sendResult = await postLead(payload, {
+      url: formCfg.WEBHOOK_URL || '',
+      timeoutMs: formCfg.TIMEOUT_MS || 8000,
+    });
+
+    track('form_submit', {
+      industry: values.industry, need: values.need,
+      budget: values.budget, timeline: values.timeline, contact: values.contact,
+      band: triage.band, score: triage.score, sent: sendResult.status,
+    });
+
+    onDone(values, sendResult);
   });
 
   return form;
@@ -273,10 +293,12 @@ function briefText(v) {
   ].join('\n');
 }
 
-function renderDone(v) {
+function renderDone(v, sendResult = {}) {
   const brief = briefText(v);
   const firstName = (v.name || '').trim().split(/\s+/)[0] || 'there';
   const subject = `Project brief — ${v.business || 'new enquiry'}`;
+  const wasSent = sendResult.status === 'sent';
+  const sendFailed = sendResult.status === 'failed';
 
   const waLink = el('a', {
     class: 'btn btn-solid', href: wa(brief), target: '_blank', rel: 'noopener',
@@ -310,11 +332,24 @@ function renderDone(v) {
   else if (v.contact === 'Discovery call') actions = [bookLink, waLink, mailLink, copyBtn];
   else actions = [mailLink, waLink, copyBtn];
 
-  const heading = el('h2', { tabindex: '-1' }, `Thanks, ${firstName} — your brief is ready.`);
+  const heading = el('h2', { tabindex: '-1' },
+    wasSent
+      ? `Thanks, ${firstName} — your brief is on its way.`
+      : `Thanks, ${firstName} — your brief is ready.`);
 
-  const note = v.contact === 'Discovery call'
-    ? 'You picked a discovery call. The button below dials Misbah directly for now — a self-scheduling link will replace it shortly. You can also send the brief first so he has context.'
-    : 'This page doesn’t store your details or send anything automatically. Send the brief below through your preferred channel and Misbah will reply within one business day.';
+  let note;
+  if (wasSent) {
+    note = v.contact === 'Discovery call'
+      ? 'Your brief has been sent to Misbah — he’ll reply within one business day to set up the call. You can also reach him directly below.'
+      : 'Your brief has been sent to Misbah — he’ll reply within one business day. Prefer to reach him directly? Use a button below.';
+  } else if (v.contact === 'Discovery call') {
+    note = 'You picked a discovery call. The button below dials Misbah directly for now — a self-scheduling link will replace it shortly. Send the brief first so he has context.';
+  } else {
+    note = 'Send the brief below through your preferred channel and Misbah will reply within one business day.';
+  }
+  if (sendFailed) {
+    note += ' (The site couldn’t send it automatically just now — please use a button below.)';
+  }
 
   const panel = el('div', { class: 'st-done' },
     el('span', { class: 'eyebrow' }, 'Brief ready'),
@@ -371,8 +406,8 @@ rail.append(
 );
 
 const formHost = el('div', { class: 'st-formhost' });
-formHost.append(buildForm((values) => {
-  formHost.replaceChildren(renderDone(values));
+formHost.append(buildForm((values, sendResult) => {
+  formHost.replaceChildren(renderDone(values, sendResult));
 }));
 
 main.append(el('div', { class: 'site-wrap st-page' },
