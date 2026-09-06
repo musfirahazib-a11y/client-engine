@@ -12,16 +12,16 @@
 export function NAV(base = '', active = '') {
   return {
     brandHref: `${base}index.html`,
-    ctaHref: `${base}index.html#contact`,
+    ctaHref: `${base}start.html`,
     ctaLabel: 'Start a Project',
     active,
     links: [
       { id: 'home', label: 'Home', href: `${base}index.html` },
+      { id: 'services', label: 'Services', href: `${base}index.html#services` },
+      { id: 'portfolio', label: 'Work', href: `${base}index.html#work` },
       { id: 'ai-agents', label: 'AI Agents', href: `${base}ai-agents.html` },
       { id: 'ai-sales-funnel', label: 'AI Funnel', href: `${base}ai-sales-funnel.html` },
       { id: 'campaigns', label: 'Campaigns', href: `${base}campaigns.html` },
-      { id: 'portfolio', label: 'Work', href: `${base}index.html#work` },
-      { id: 'services', label: 'Services', href: `${base}index.html#services` },
       { id: 'about', label: 'About', href: `${base}index.html#about` },
       { id: 'resume', label: 'Résumé', href: `${base}resume.html` },
       { id: 'contact', label: 'Contact', href: `${base}index.html#contact` },

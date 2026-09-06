@@ -15,6 +15,9 @@
 @media(max-width:1180px){ .sticky-nav nav{gap:0.9rem;} }
 .hero-nav-row{flex-wrap:wrap;}
 .mobile-nav .sticky-cta{margin-top:0.4rem; text-align:center;}
+/* on mobile the ☰ menu carries its own CTA — drop the sticky-bar one so it
+   doesn't collide with the fixed menu-toggle button (Phase 1 · STEP 4) */
+@media(max-width:900px){ .sticky-nav .sticky-cta{display:none;} }
 
 /* hero stat card carrying a date range instead of a single number */
 .stat-card--range .stat-num{ font-size:1.02rem; letter-spacing:-0.01em; }
@@ -164,3 +167,52 @@
 .about p{font-size:1.02rem; line-height:1.7; color:var(--ink-soft);}
 .about .contact-row{margin-top:var(--sp-4);}
 .s-card a.s-link{display:inline-block; margin-top:var(--sp-2);}
+
+/* ---------- How it works (Phase 1 · STEP 4) ---------- */
+.how{
+  padding:var(--sp-8) 6vw; background:var(--panel);
+  border-top:1px solid var(--panel-line); border-bottom:1px solid var(--panel-line);
+}
+.how__wrap{max-width:1120px; margin:0 auto;}
+.how__wrap h2{
+  font-family:var(--font-display); font-size:clamp(1.8rem,4vw,2.6rem);
+  line-height:1.1; margin-bottom:var(--sp-5);
+}
+.how__grid{
+  list-style:none; margin:0; padding:0; display:grid; gap:var(--sp-4);
+  grid-template-columns:1fr;
+}
+@media(min-width:640px){ .how__grid{grid-template-columns:repeat(2,1fr);} }
+@media(min-width:980px){ .how__grid{grid-template-columns:repeat(4,1fr);} }
+.how__step{
+  background:var(--bg-2); border:1px solid var(--panel-line);
+  border-radius:12px; padding:var(--sp-4);
+}
+.how__no{
+  font-family:var(--font-mono); font-size:.72rem; letter-spacing:.14em;
+  color:var(--accent); display:block; margin-bottom:var(--sp-2);
+}
+.how__step h3{font-family:var(--font-display); font-size:1.05rem; margin-bottom:var(--sp-2);}
+.how__step p{font-size:.9rem; line-height:1.6; color:var(--ink-soft);}
+
+/* ---------- FAQ (Phase 1 · STEP 4) ---------- */
+.faq{padding:var(--sp-8) 6vw;}
+.faq__wrap{max-width:760px; margin:0 auto;}
+.faq__wrap h2{
+  font-family:var(--font-display); font-size:clamp(1.8rem,4vw,2.6rem);
+  line-height:1.1; margin-bottom:var(--sp-5);
+}
+.faq__list{display:flex; flex-direction:column; gap:var(--sp-2);}
+.faq__item{
+  background:var(--panel); border:1px solid var(--panel-line);
+  border-radius:10px; padding:var(--sp-3) var(--sp-4);
+}
+.faq__item summary{
+  font-weight:600; cursor:pointer; list-style:none; font-size:.98rem; color:var(--ink);
+  display:flex; justify-content:space-between; align-items:center; gap:var(--sp-3);
+}
+.faq__item summary::-webkit-details-marker{display:none;}
+.faq__item summary::after{content:'+'; font-family:var(--font-mono); color:var(--accent); font-size:1.1rem; flex-shrink:0;}
+.faq__item[open] summary::after{content:'–';}
+.faq__item p{margin-top:var(--sp-2); font-size:.92rem; line-height:1.7; color:var(--ink-soft);}
+.faq__item summary:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:3px;}
