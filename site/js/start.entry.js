@@ -14,6 +14,7 @@
 import { NAV, PROCESS } from '../data/site.content.js';
 import { renderSiteHeader, renderSiteFooter, renderSkipLink, el } from './components.js';
 import { track } from './track.js';
+import { scoreLead, triageText } from './leadScore.js';
 
 const WHATSAPP = '923132028898';
 const EMAIL = 'musfirahazib@gmail.com';
@@ -226,10 +227,22 @@ function buildForm(onDone) {
 
     const values = {};
     ALL_FIELDS.forEach((f) => { values[f.key] = reg[f.key].read(); });
+
+    // Transparent lead triage (site/js/leadScore.js). Internal only:
+    // it is NOT shown to the visitor and NOT added to the brief they
+    // send. It rides the dormant analytics seam, and once a real
+    // submission destination is connected it goes to Misbah with the
+    // brief. Until then it is visible in the console for reference.
+    const triage = scoreLead(values);
     track('form_submit', {
       industry: values.industry, need: values.need,
       budget: values.budget, timeline: values.timeline, contact: values.contact,
+      band: triage.band, score: triage.score,
     });
+    if (typeof console !== 'undefined' && console.info) {
+      console.info(`[start] lead triage — ${triage.bandEmoji} ${triage.bandLabel}\n${triageText(triage)}`);
+    }
+
     onDone(values);
   });
 
