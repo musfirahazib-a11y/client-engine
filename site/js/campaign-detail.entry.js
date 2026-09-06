@@ -71,8 +71,8 @@ if (!c) {
   main.append(renderProductCTA({
     title: `Want this for your ${c.short.toLowerCase()} business?`,
     text: "We'll configure the agents and funnel for your services, your data and your tools.",
-    href: `${base}index.html#contact`,
-    label: 'Build My AI System →',
+    href: `${base}start.html`,
+    label: 'Start a project →',
   }));
 
   root.append(main);

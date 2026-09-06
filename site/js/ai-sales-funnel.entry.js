@@ -54,8 +54,8 @@ main.append(section('',
 main.append(renderProductCTA({
   title: 'Turn your traffic into customers.',
   text: "We'll configure the AI Sales Funnel for your business and wire it into your tools.",
-  href: 'index.html#contact',
-  label: 'Build My AI System →',
+  href: 'start.html',
+  label: 'Start a project →',
 }));
 
 root.append(main);

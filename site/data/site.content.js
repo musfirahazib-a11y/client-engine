@@ -18,6 +18,7 @@ export function NAV(base = '', active = '') {
     links: [
       { id: 'home', label: 'Home', href: `${base}index.html` },
       { id: 'services', label: 'Services', href: `${base}index.html#services` },
+      { id: 'solutions', label: 'Solutions', href: `${base}index.html#solutions` },
       { id: 'portfolio', label: 'Work', href: `${base}index.html#work` },
       { id: 'ai-agents', label: 'AI Agents', href: `${base}ai-agents.html` },
       { id: 'ai-sales-funnel', label: 'AI Funnel', href: `${base}ai-sales-funnel.html` },

@@ -48,8 +48,8 @@ main.append(section('',
 main.append(renderProductCTA({
   title: 'Ready to put an agent to work?',
   text: "Tell us which job you want automated and we'll design the right agent — or the whole system.",
-  href: 'index.html#contact',
-  label: 'Build My AI System →',
+  href: 'start.html',
+  label: 'Start a project →',
 }));
 
 root.append(main);
