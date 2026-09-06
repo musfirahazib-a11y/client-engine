@@ -40,7 +40,7 @@ export function renderSiteHeader(nav) {
 
   return el('header', { class: 'site-topbar' },
     el('a', { href: nav.brandHref, class: 'site-topbar__brand' },
-      'MusfirahLoom', el('span', {}, '.')),
+      'Misbah Azib', el('span', {}, '.')),
     toggle,
     menu);
 }
@@ -49,8 +49,8 @@ export function renderSiteFooter(base = '') {
   return el('footer', { class: 'site-foot' },
     el('div', { class: 'site-wrap site-foot__inner' },
       el('div', {},
-        el('strong', {}, 'MusfirahLoom'),
-        el('p', {}, 'AI Automation & Intelligent Business Systems')),
+        el('strong', {}, 'Misbah Azib'),
+        el('p', {}, 'AI Automation & Web Development')),
       el('nav', { class: 'site-foot__links', 'aria-label': 'Footer' },
         el('a', { href: `${base}ai-agents.html` }, 'AI Agents'),
         el('a', { href: `${base}ai-sales-funnel.html` }, 'AI Funnel'),
