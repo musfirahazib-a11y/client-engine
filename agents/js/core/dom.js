@@ -1,7 +1,10 @@
 /* ===========================================================
-   MusfirahLoom — AI Agent Platform
+   Misbah Azib — AI Agent Platform
    core/dom.js  ·  tiny render helpers (no framework)
 =========================================================== */
+import { getCurrency } from '../services/scope.js';
+
+const CURRENCY = getCurrency();
 
 /**
  * el('button', { class:'x', onClick:fn, disabled:true }, 'Label', childNode)
@@ -65,8 +68,8 @@ export function qsa(selector, root = document) {
   return [...root.querySelectorAll(selector)];
 }
 
-/** Format a number as USD, e.g. 49 -> "$49.00" */
+/** Format a number in the active demo currency, e.g. 49 -> "$49.00" / "£49.00" */
 export function money(amount) {
   const n = Number(amount) || 0;
-  return `$${n.toFixed(2)}`;
+  return `${CURRENCY}${n.toFixed(2)}`;
 }

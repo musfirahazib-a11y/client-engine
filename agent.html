@@ -23,6 +23,24 @@
     font-size:.8rem;transition:top .18s ease;}
   .site-skip:focus{top:0;}
   main[tabindex="-1"]:focus{outline:none;}
+
+  /* business context strip — shown when ?biz= is set */
+  .ml-biz-context{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;
+    padding:.7rem 1rem;margin-bottom:1rem;border:1px solid var(--panel-line);
+    border-left:3px solid var(--biz-accent,var(--wine));border-radius:8px;
+    background:var(--panel);font-size:.82rem;}
+  .ml-biz-context strong{font-family:var(--font-display);}
+  .ml-biz-context .ml-biz-context__sep{color:var(--ink-dim);}
+  .ml-biz-context .ml-biz-context__purpose{color:var(--ink-soft);flex-basis:100%;font-size:.8rem;line-height:1.5;}
+  .ml-biz-context a{color:var(--wine);font-weight:600;text-decoration:underline;text-underline-offset:3px;}
+
+  /* embed mode — chat sits inside an <iframe> panel on the demo site */
+  body.is-embed{background:var(--panel);}
+  body.is-embed .ml-topbar,
+  body.is-embed .site-skip{display:none;}
+  body.is-embed .ml-agent-shell{padding:1rem;max-width:none;min-height:100vh;}
+  body.is-embed .ml-agent-header__back{display:none;}
+  body.is-embed .ml-agent-header{margin-bottom:1rem;}
 </style>
 </head>
 <body>

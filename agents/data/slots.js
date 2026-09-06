@@ -16,14 +16,20 @@ const TIMES = [
   ['16:30', '17:15'],
 ];
 
-const SERVICES = [
+import { getBusinessId } from '../js/services/scope.js';
+import { SLOT_CONFIG as MERIDIAN_SLOTS } from './businesses/meridian.js';
+
+const BIZ_SLOT_CONFIG = { meridian: MERIDIAN_SLOTS };
+const _cfg = BIZ_SLOT_CONFIG[getBusinessId()] || null;
+
+const SERVICES = _cfg?.services || [
   'Website Consultation',
   'Discovery Call',
   'AI Automation Review',
   'Brand Strategy Session',
 ];
 
-const STAFF = ['Misbah Azib', 'Alina Raza', 'Omar Sheikh'];
+const STAFF = _cfg?.staff || ['Misbah Azib', 'Alina Raza', 'Omar Sheikh'];
 
 function build() {
   const out = [];

@@ -9,8 +9,18 @@
 
    recipient / occasion / style values are lowercase and are
    matched loosely by salesAgent's intent detection.
+
+   When agent.html is opened with ?biz=<aera|nocturne|meridian>
+   the catalogue below is replaced by that demo business's own
+   range (data/businesses/<id>.js) so recommendations refer to
+   real demo products. With no ?biz= this generic set is used.
 =========================================================== */
-export const PRODUCTS = [
+import { getBusinessId } from '../js/services/scope.js';
+import { PRODUCTS as AERA } from './businesses/aera.js';
+import { PRODUCTS as NOCTURNE } from './businesses/nocturne.js';
+import { PRODUCTS as MERIDIAN } from './businesses/meridian.js';
+
+const GENERIC_PRODUCTS = [
   {
     id: 'frg-amber-01',
     title: 'Amber & Oud Eau de Parfum',
@@ -298,5 +308,8 @@ export const PRODUCTS = [
     related: ['bty-balm-01', 'frg-rose-01'],
   },
 ];
+
+const BY_BIZ = { aera: AERA, nocturne: NOCTURNE, meridian: MERIDIAN };
+export const PRODUCTS = BY_BIZ[getBusinessId()] || GENERIC_PRODUCTS;
 
 export default PRODUCTS;

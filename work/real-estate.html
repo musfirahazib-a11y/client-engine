@@ -3,157 +3,175 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MERIDIAN Estates — Architectural Property | MusfirahLoom portfolio</title>
-<meta name="description" content="MERIDIAN Estates is a fictional luxury real estate company — a portfolio demonstration site by MusfirahLoom. Concept design only; no properties are for sale.">
+<title>MERIDIAN Estates — Architectural Property | Misbah Azib portfolio</title>
+<meta name="description" content="MERIDIAN Estates is a fictional architectural property brokerage — a portfolio demonstration by Misbah Azib. Concept design and front-end build only; no properties are for sale.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#2E4739">
 <meta property="og:title" content="MERIDIAN Estates — Architectural Property">
-<meta property="og:description" content="Fictional luxury real estate brand — a MusfirahLoom portfolio demonstration.">
+<meta property="og:description" content="Fictional architectural property brokerage — a portfolio demonstration by Misbah Azib.">
 <meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232E4739'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' fill='%23fff' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#F4F5F3; --bg-2:#E9EBE7; --panel:#FFFFFF; --ink:#1B1F1D; --ink-soft:#5E635F;
-    --line:rgba(27,31,29,0.14); --accent:#2E4739; --accent-deep:#20342A; --brass:#A98B54;
-    --sp:clamp(4rem,9vw,7.5rem); --disp:'Bricolage Grotesque',Georgia,serif; --body:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',monospace;
+    --line:rgba(27,31,29,0.14); --accent:#2E4739; --accent-deep:#20342A; --brass:#8A6E3E;
+    --sp:clamp(4rem,9vw,7rem); --disp:'Bricolage Grotesque',Georgia,serif; --body:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',monospace;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
   img{max-width:100%;display:block;}
   a{color:inherit;text-decoration:none;}
-  h1,h2,h3{font-family:var(--disp);font-weight:700;letter-spacing:-0.02em;line-height:1.05;}
+  h1,h2,h3{font-family:var(--disp);font-weight:700;letter-spacing:-0.02em;line-height:1.06;color:var(--ink);}
   .wrap{max-width:1200px;margin:0 auto;padding:0 6vw;}
   .eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);}
-  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.7rem;border-radius:3px;font-weight:600;font-size:.82rem;border:1px solid var(--ink);transition:background .25s,color .25s,transform .25s;white-space:nowrap;}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.7rem;border-radius:3px;font-weight:600;font-size:.82rem;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;font-family:var(--body);transition:background .25s,color .25s,transform .25s;white-space:nowrap;}
   .btn--solid{background:var(--ink);color:#fff;}
   .btn--solid:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-2px);}
   .btn--ghost:hover{background:var(--ink);color:#fff;transform:translateY(-2px);}
-  .rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);}
+  .rv{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);}
   .rv.in{opacity:1;transform:none;}
   @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
 
-  .demobar{background:var(--ink);color:#fff;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;text-align:center;padding:.5rem 1rem;}
+  .demobar{background:var(--ink);color:#fff;font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:.5rem 1rem;}
   .demobar a{color:#fff;border-bottom:1px solid rgba(255,255,255,.5);}
-  .nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 6vw;background:rgba(244,245,243,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
-  .nav__brand{font-family:var(--disp);font-weight:700;font-size:1.2rem;letter-spacing:.18em;}
+  .nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.05rem 6vw;background:rgba(244,245,243,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .nav__brand{font-family:var(--disp);font-weight:700;font-size:1.25rem;letter-spacing:.18em;}
   .nav__links{display:flex;gap:2rem;font-size:.8rem;font-weight:500;}
   .nav__links a:hover{color:var(--accent);}
-  .nav .btn{padding:.6rem 1.1rem;font-size:.74rem;}
-  @media(max-width:900px){.nav__links{display:none;}}
+  .nav .btn{padding:.55rem 1.05rem;font-size:.74rem;}
+  @media(max-width:920px){.nav__links{display:none;}}
 
   /* hero */
-  .hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;padding:var(--sp) 0 3rem;overflow:hidden;background:linear-gradient(180deg,rgba(20,26,23,.35),rgba(20,26,23,.7)),url(../assets/work/realestate-hero.jpg);background-size:cover;background-position:center;}
+  .hero{position:relative;min-height:76vh;display:flex;align-items:flex-end;padding:var(--sp) 0 3rem;overflow:hidden;}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,24,21,.28),rgba(18,24,21,.72));z-index:1;}
+  .hero .wrap{position:relative;z-index:2;}
   .hero *{color:#fff;}
-  .hero h1{font-size:clamp(3rem,8vw,6.4rem);max-width:16ch;margin:1rem 0;}
-  .hero p{max-width:46ch;color:rgba(255,255,255,.8);font-size:1.05rem;}
-  .hero__meta{display:flex;gap:2.4rem;flex-wrap:wrap;margin-top:2rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);}
+  .hero h1{font-size:clamp(2.8rem,7.4vw,5.8rem);max-width:15ch;margin:1rem 0;}
+  .hero p{max-width:46ch;color:rgba(255,255,255,.85);font-size:1.05rem;}
+  .hero__meta{display:flex;gap:2.2rem;flex-wrap:wrap;margin-top:1.8rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);}
 
   /* search bar */
-  .search{position:relative;z-index:5;margin-top:-3.4rem;}
-  .search__panel{background:var(--panel);border:1px solid var(--line);border-radius:4px;box-shadow:0 40px 80px -40px rgba(27,31,29,.4);padding:1.4rem;display:grid;grid-template-columns:repeat(4,1fr) auto;gap:1rem;align-items:end;}
-  @media(max-width:900px){.search__panel{grid-template-columns:1fr 1fr;}}
+  .search{position:relative;z-index:5;margin-top:-3.2rem;}
+  .search__panel{background:var(--panel);border:1px solid var(--line);border-radius:4px;box-shadow:0 40px 80px -40px rgba(27,31,29,.4);padding:1.3rem;display:grid;grid-template-columns:repeat(4,1fr) auto;gap:1rem;align-items:end;}
+  @media(max-width:920px){.search__panel{grid-template-columns:1fr 1fr;}}
   @media(max-width:560px){.search__panel{grid-template-columns:1fr;}}
   .field{display:flex;flex-direction:column;gap:.35rem;}
-  .field label{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);}
-  .field select,.field input{padding:.7rem .8rem;border:1px solid var(--line);border-radius:3px;background:var(--bg);font:inherit;font-size:.88rem;}
-  .field select:focus,.field input:focus{outline:2px solid var(--accent);outline-offset:1px;}
+  .field label{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);}
+  .field select{padding:.7rem .8rem;border:1px solid var(--line);border-radius:3px;background:var(--bg);font:inherit;font-size:.88rem;}
 
   .sec{padding:var(--sp) 0;}
-  .sec__head{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-bottom:2.6rem;}
+  .sec__head{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-bottom:2.4rem;}
   .sec__head h2{font-size:clamp(1.9rem,4.4vw,3rem);}
-  .sec__head p{color:var(--ink-soft);max-width:38ch;}
+  .sec__head p{color:var(--ink-soft);max-width:36ch;}
 
   /* property cards */
-  .props{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2.4vw,1.8rem);}
-  @media(max-width:900px){.props{grid-template-columns:1fr 1fr;}}
+  .props{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2.2vw,1.6rem);}
+  @media(max-width:920px){.props{grid-template-columns:1fr 1fr;}}
   @media(max-width:560px){.props{grid-template-columns:1fr;}}
-  .prop{background:var(--panel);border:1px solid var(--line);border-radius:4px;overflow:hidden;transition:transform .3s,box-shadow .3s;}
+  .prop{background:var(--panel);border:1px solid var(--line);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s;}
   .prop:hover{transform:translateY(-6px);box-shadow:0 30px 60px -34px rgba(27,31,29,.32);}
-  .prop__vis{aspect-ratio:4/3;position:relative;display:flex;align-items:flex-start;justify-content:space-between;padding:.9rem;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;color:#fff;}
-  .prop:nth-child(1) .prop__vis{background:linear-gradient(160deg,rgba(20,26,23,.12),rgba(20,26,23,.42)),url(../assets/work/realestate-hero.jpg);background-size:cover;background-position:center;}
-  .prop:nth-child(2) .prop__vis{background:linear-gradient(160deg,rgba(20,24,27,.12),rgba(20,24,27,.42)),url(../assets/work/realestate-interior.jpg);background-size:cover;background-position:center;}
-  .prop:nth-child(3) .prop__vis{background:linear-gradient(160deg,rgba(24,22,18,.12),rgba(24,22,18,.42)),url(../assets/work/realestate-exterior2.jpg);background-size:cover;background-position:center;}
-  .prop:nth-child(4) .prop__vis{background:linear-gradient(160deg,rgba(18,22,25,.12),rgba(18,22,25,.42)),url(../assets/work/realestate-detail.jpg);background-size:cover;background-position:center;}
-  .prop:nth-child(5) .prop__vis{background:linear-gradient(160deg,rgba(20,26,23,.12),rgba(20,26,23,.42)),url(../assets/work/realestate-interior.jpg);background-size:cover;background-position:center;}
-  .prop:nth-child(6) .prop__vis{background:linear-gradient(160deg,rgba(24,22,18,.12),rgba(24,22,18,.42)),url(../assets/work/realestate-hero.jpg);background-size:cover;background-position:center;}
-  .prop__badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);padding:.25rem .5rem;border-radius:2px;letter-spacing:.12em;text-transform:uppercase;}
-  .prop__body{padding:1.1rem 1.2rem 1.4rem;}
+  .prop__vis{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--bg-2);}
+  .prop__vis img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+  .prop:hover .prop__vis img{transform:scale(1.04);}
+  .prop__badge{position:absolute;left:.8rem;top:.8rem;background:rgba(27,31,29,.82);color:#fff;font-family:var(--mono);font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;padding:.28rem .55rem;border-radius:2px;}
+  .prop__body{padding:1.1rem 1.15rem 1.3rem;display:flex;flex-direction:column;flex:1;}
   .prop__loc{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);}
-  .prop__body h3{font-size:1.1rem;margin:.2rem 0 .6rem;}
-  .prop__specs{display:flex;gap:1.1rem;font-size:.78rem;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:.7rem;margin-top:.7rem;}
-  .prop__price{font-family:var(--disp);font-weight:700;font-size:1.1rem;margin-top:.6rem;}
+  .prop__body h3{font-size:1.1rem;margin:.25rem 0 .5rem;}
+  .prop__price{font-family:var(--disp);font-weight:700;font-size:1.1rem;}
+  .prop__specs{display:flex;gap:1rem;font-size:.76rem;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:.7rem;margin-top:auto;}
+  .prop__cta{margin-top:.9rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid var(--line);border-radius:2px;padding:.45rem .7rem;background:transparent;cursor:pointer;text-align:center;transition:background .2s,color .2s;}
+  .prop__cta:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
 
   /* property detail */
   .pd{display:grid;grid-template-columns:1.3fr .9fr;gap:clamp(2rem,5vw,3.5rem);align-items:stretch;}
-  @media(max-width:900px){.pd{grid-template-columns:1fr;}}
-  .pd__vis{border-radius:4px;min-height:340px;background:linear-gradient(160deg,rgba(20,26,23,.12),rgba(20,26,23,.4)),url(../assets/work/realestate-interior.jpg);background-size:cover;background-position:center;position:relative;}
-  .pd__vis span{position:absolute;left:1.2rem;bottom:1rem;font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;color:rgba(255,255,255,.85);}
+  @media(max-width:920px){.pd{grid-template-columns:1fr;}}
+  .pd__vis{position:relative;border-radius:4px;overflow:hidden;min-height:340px;}
+  .pd__vis img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+  .pd__vis span{position:absolute;left:1.2rem;bottom:1rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;color:#fff;background:rgba(27,31,29,.6);padding:.3rem .6rem;border-radius:2px;z-index:1;}
   .pd__panel{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:1.8rem;}
-  .pd__panel h2{font-size:clamp(1.7rem,3.6vw,2.4rem);margin:.4rem 0 .6rem;}
-  .pd__grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:1.2rem 0;}
+  .pd__panel h2{font-size:clamp(1.7rem,3.6vw,2.3rem);margin:.4rem 0 .5rem;}
+  .pd__grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:1.1rem 0;}
   .pd__grid div{border-top:1px solid var(--line);padding-top:.6rem;}
-  .pd__grid b{display:block;font-family:var(--disp);font-size:1.15rem;}
-  .pd__grid span{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);}
-  .pd__price{font-family:var(--disp);font-weight:700;font-size:1.6rem;margin:.4rem 0 1.2rem;}
+  .pd__grid b{display:block;font-family:var(--disp);font-size:1.1rem;}
+  .pd__grid span{font-family:var(--mono);font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);}
+  .pd__price{font-family:var(--disp);font-weight:700;font-size:1.5rem;margin:.4rem 0 1.1rem;}
 
   /* locations */
   .locs{background:var(--bg-2);}
   .locs__row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
-  @media(max-width:900px){.locs__row{grid-template-columns:1fr 1fr;}}
-  .loc{aspect-ratio:3/4;border-radius:4px;position:relative;display:flex;align-items:flex-end;padding:1.2rem;color:#fff;font-family:var(--disp);font-weight:700;font-size:1.1rem;overflow:hidden;}
-  .loc:nth-child(1){background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.62)),url(../assets/work/realestate-exterior2.jpg);background-size:cover;background-position:center;}
-  .loc:nth-child(2){background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.62)),url(../assets/work/realestate-hero.jpg);background-size:cover;background-position:center;}
-  .loc:nth-child(3){background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.62)),url(../assets/work/realestate-detail.jpg);background-size:cover;background-position:center;}
-  .loc:nth-child(4){background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.62)),url(../assets/work/realestate-interior.jpg);background-size:cover;background-position:center;}
-  .loc span{position:absolute;top:1.1rem;left:1.2rem;font-family:var(--mono);font-weight:500;font-size:.58rem;letter-spacing:.16em;opacity:.85;}
+  @media(max-width:920px){.locs__row{grid-template-columns:1fr 1fr;}}
+  .loc{position:relative;aspect-ratio:3/4;border-radius:4px;overflow:hidden;display:flex;align-items:flex-end;padding:1.2rem;color:#fff;}
+  .loc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+  .loc::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.66));z-index:1;}
+  .loc__name{position:relative;z-index:2;font-family:var(--disp);font-weight:700;font-size:1.15rem;}
+  .loc__idx{position:absolute;top:1.1rem;left:1.2rem;z-index:2;font-family:var(--mono);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;opacity:.9;}
 
   /* stats */
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center;}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;text-align:center;}
   @media(max-width:720px){.stats{grid-template-columns:1fr 1fr;}}
-  .stat b{display:block;font-family:var(--disp);font-weight:700;font-size:clamp(2.2rem,5vw,3.4rem);color:var(--accent);}
-  .stat span{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);}
+  .stat b{display:block;font-family:var(--disp);font-weight:700;font-size:clamp(2rem,5vw,3.2rem);color:var(--accent);}
+  .stat span{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);}
 
-  /* consultants */
-  .team{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;}
+  /* advisors */
+  .team{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;}
   @media(max-width:820px){.team{grid-template-columns:1fr;}}
-  .adv{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:1.4rem;}
-  .adv__vis{aspect-ratio:1/1;border-radius:3px;margin-bottom:1rem;}
-  .adv:nth-child(1) .adv__vis{background:url(../assets/work/realestate-detail.jpg) center/cover;}
-  .adv:nth-child(2) .adv__vis{background:url(../assets/work/realestate-exterior2.jpg) center/cover;}
-  .adv:nth-child(3) .adv__vis{background:url(../assets/work/realestate-hero.jpg) center/cover;}
+  .adv{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:1.3rem;}
+  .adv__vis{aspect-ratio:1/1;border-radius:3px;overflow:hidden;margin-bottom:1rem;}
+  .adv__vis img{width:100%;height:100%;object-fit:cover;}
   .adv h3{font-size:1.05rem;}
-  .adv span{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);}
+  .adv span{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);}
   .adv p{font-size:.86rem;color:var(--ink-soft);margin-top:.6rem;}
 
   /* quotes */
-  .quotes{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;}
+  .quotes{display:grid;grid-template-columns:1fr 1fr;gap:1.3rem;}
   @media(max-width:820px){.quotes{grid-template-columns:1fr;}}
-  .quote{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--brass);border-radius:0 4px 4px 0;padding:1.6rem;}
-  .quote p{font-size:1rem;margin-bottom:.8rem;}
-  .quote cite{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-style:normal;}
+  .quote{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--brass);border-radius:0 4px 4px 0;padding:1.5rem;}
+  .quote p{font-size:1rem;margin-bottom:.7rem;}
+  .quote cite{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-style:normal;}
 
   /* cta */
   .cta{background:var(--ink);color:#fff;text-align:center;}
-  .cta h2{font-size:clamp(2rem,5vw,3.4rem);margin:.8rem auto 1rem;max-width:18ch;}
-  .cta p{color:rgba(255,255,255,.72);max-width:44ch;margin:0 auto 1.8rem;}
+  .cta h2{color:#fff;font-size:clamp(2rem,5vw,3.2rem);margin:.7rem auto 1rem;max-width:18ch;}
+  .cta p{color:rgba(255,255,255,.75);max-width:44ch;margin:0 auto 1.6rem;}
   .cta .btn{border-color:#fff;color:#fff;}
   .cta .btn:hover{background:#fff;color:var(--ink);}
 
   .foot{background:var(--ink);color:rgba(255,255,255,.7);padding:var(--sp) 0 2.4rem;}
-  .foot__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem;margin-bottom:3rem;}
+  .foot__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2.6rem;}
   @media(max-width:720px){.foot__grid{grid-template-columns:1fr 1fr;}}
   .foot h4{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;margin-bottom:1rem;}
   .foot a{display:block;padding:.25rem 0;font-size:.86rem;}
   .foot a:hover{color:#fff;}
   .foot__brand{font-family:var(--disp);font-weight:700;font-size:1.5rem;letter-spacing:.18em;color:#fff;margin-bottom:.6rem;}
-  .foot__bottom{border-top:1px solid rgba(255,255,255,.15);padding-top:1.6rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;}
+  .foot__bottom{border-top:1px solid rgba(255,255,255,.15);padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;}
+
+  /* AI assistant launcher + panel */
+  .ai-fab{position:fixed;right:1.3rem;bottom:1.3rem;z-index:70;display:flex;align-items:center;gap:.55rem;background:var(--ink);color:#fff;border:none;border-radius:100px;padding:.8rem 1.2rem;font-family:var(--body);font-weight:600;font-size:.82rem;cursor:pointer;box-shadow:0 16px 36px -12px rgba(27,31,29,.5);transition:transform .2s,background .2s;}
+  .ai-fab:hover{transform:translateY(-2px);background:var(--accent);}
+  .ai-fab__dot{width:.55rem;height:.55rem;border-radius:50%;background:#7CD69B;animation:aipulse 2.4s infinite;}
+  @keyframes aipulse{0%{box-shadow:0 0 0 0 rgba(124,214,155,.6)}70%{box-shadow:0 0 0 8px rgba(124,214,155,0)}100%{box-shadow:0 0 0 0 rgba(124,214,155,0)}}
+  .ai-panel{position:fixed;inset:0;z-index:80;display:none;}
+  .ai-panel.open{display:block;}
+  .ai-panel__scrim{position:absolute;inset:0;background:rgba(18,24,21,.45);backdrop-filter:blur(2px);}
+  .ai-panel__card{position:absolute;right:0;top:0;bottom:0;width:min(440px,100vw);background:var(--panel);display:flex;flex-direction:column;box-shadow:-20px 0 60px -20px rgba(27,31,29,.5);transform:translateX(100%);transition:transform .32s cubic-bezier(.2,.7,.2,1);}
+  .ai-panel.open .ai-panel__card{transform:none;}
+  .ai-panel__head{display:flex;align-items:flex-start;gap:.8rem;padding:1rem 1.1rem;border-bottom:1px solid var(--line);}
+  .ai-panel__head h3{font-size:.98rem;}
+  .ai-panel__head p{font-size:.76rem;color:var(--ink-soft);margin-top:.15rem;}
+  .ai-panel__close{margin-left:auto;background:none;border:none;font-size:1.3rem;line-height:1;cursor:pointer;color:var(--ink-soft);}
+  .ai-panel__body{flex:1;position:relative;}
+  .ai-panel__body iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  @media(prefers-reduced-motion:reduce){.ai-fab__dot{animation:none;}.ai-panel__card{transition:none;}}
 </style>
 </head>
 <body>
-<div class="demobar">Portfolio demo — fictional company by <a href="../index.html#work">MusfirahLoom</a>. No real listings.</div>
+<div class="demobar">Portfolio demo — fictional brokerage designed &amp; built by <a href="../index.html#work">Misbah Azib</a>. No real listings.</div>
 
 <header class="nav">
   <a href="#" class="nav__brand">MERIDIAN</a>
@@ -164,13 +182,14 @@
     <a href="#locations">Locations</a>
     <a href="#team">Advisors</a>
   </nav>
-  <a href="#cta" class="btn btn--solid">Book a viewing</a>
+  <button class="btn btn--solid" data-ai-open>Book a viewing</button>
 </header>
 
 <main>
   <section class="hero">
+    <img src="../assets/demos/meridian/hero.jpg" alt="Contemporary cliff-top residence with a pool at dusk" width="2000" height="1200" fetchpriority="high">
     <div class="wrap rv">
-      <span class="eyebrow" style="color:#C7B486">MERIDIAN Estates</span>
+      <span class="eyebrow" style="color:#D8C6A0">MERIDIAN Estates</span>
       <h1>Architecturally significant homes.</h1>
       <p>A small brokerage representing design-led residences across coast, city and country. Every listing is visited, measured and photographed by us.</p>
       <div class="hero__meta">
@@ -181,34 +200,27 @@
 
   <section class="search" id="search">
     <div class="wrap">
-      <form class="search__panel rv" onsubmit="event.preventDefault();this.querySelector('.search__out').textContent='Demo search — 12 residences would match.';">
+      <form class="search__panel rv" onsubmit="event.preventDefault();document.getElementById('searchOut').textContent='Demo search — 12 residences would match. Ask the assistant to shortlist them.';">
         <div class="field"><label for="s-loc">Location</label><select id="s-loc"><option>Any region</option><option>Coastal</option><option>City</option><option>Countryside</option></select></div>
         <div class="field"><label for="s-type">Type</label><select id="s-type"><option>Any type</option><option>House</option><option>Apartment</option><option>Estate</option></select></div>
         <div class="field"><label for="s-bed">Bedrooms</label><select id="s-bed"><option>Any</option><option>2+</option><option>3+</option><option>4+</option><option>5+</option></select></div>
         <div class="field"><label for="s-price">Max price</label><select id="s-price"><option>No max</option><option>£1M</option><option>£2.5M</option><option>£5M</option><option>£10M+</option></select></div>
         <button class="btn btn--solid" type="submit">Search</button>
       </form>
-      <p class="search__out" style="font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;color:var(--ink-soft);margin-top:1rem;">Demo interface — no live data.</p>
+      <p id="searchOut" style="font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;color:var(--ink-soft);margin-top:1rem;">Demo interface — no live data. The AI assistant does the real shortlisting.</p>
     </div>
   </section>
 
   <section class="sec" id="featured">
     <div class="wrap">
       <div class="sec__head rv"><h2>Featured residences</h2><p>A rotating selection from the current portfolio.</p></div>
-      <div class="props">
-        <article class="prop rv"><div class="prop__vis"><span class="prop__badge">New</span><span>01</span></div><div class="prop__body"><span class="prop__loc">Coastal · Pembrey</span><h3>The Dune House</h3><div class="prop__price">£3,250,000</div><div class="prop__specs"><span>4 bed</span><span>3 bath</span><span>310 m²</span></div></div></article>
-        <article class="prop rv" style="transition-delay:.05s"><div class="prop__vis"><span class="prop__badge">Exclusive</span><span>02</span></div><div class="prop__body"><span class="prop__loc">City · Marylebone</span><h3>Blackwood Mews</h3><div class="prop__price">£4,900,000</div><div class="prop__specs"><span>3 bed</span><span>3 bath</span><span>240 m²</span></div></div></article>
-        <article class="prop rv" style="transition-delay:.1s"><div class="prop__vis"><span class="prop__badge">Land</span><span>03</span></div><div class="prop__body"><span class="prop__loc">Country · Cotswold edge</span><h3>Long Meadow Barn</h3><div class="prop__price">£2,150,000</div><div class="prop__specs"><span>5 bed</span><span>4 bath</span><span>2.1 acre</span></div></div></article>
-        <article class="prop rv"><div class="prop__vis"><span class="prop__badge">New</span><span>04</span></div><div class="prop__body"><span class="prop__loc">City · Southbank</span><h3>Ferro Tower 21F</h3><div class="prop__price">£1,780,000</div><div class="prop__specs"><span>2 bed</span><span>2 bath</span><span>128 m²</span></div></div></article>
-        <article class="prop rv" style="transition-delay:.05s"><div class="prop__vis"><span class="prop__badge">Reduced</span><span>05</span></div><div class="prop__body"><span class="prop__loc">Coastal · St Agnes</span><h3>Cliff Studio</h3><div class="prop__price">£1,250,000</div><div class="prop__specs"><span>1 bed</span><span>1 bath</span><span>84 m²</span></div></div></article>
-        <article class="prop rv" style="transition-delay:.1s"><div class="prop__vis"><span class="prop__badge">Estate</span><span>06</span></div><div class="prop__body"><span class="prop__loc">Country · Mid Wales</span><h3>Hafod Estate</h3><div class="prop__price">£6,400,000</div><div class="prop__specs"><span>7 bed</span><span>5 bath</span><span>18 acre</span></div></div></article>
-      </div>
+      <div class="props" id="propGrid"></div>
     </div>
   </section>
 
   <section class="sec" id="detail">
     <div class="wrap pd">
-      <div class="pd__vis rv"><span>The Dune House · Pembrey · 8 images</span></div>
+      <div class="pd__vis rv"><img src="../assets/demos/meridian/detail-living.jpg" alt="Open-plan living room of The Dune House with estuary views" loading="lazy" width="1400" height="1000"><span>The Dune House · Pembrey · 8 images</span></div>
       <div class="pd__panel rv" style="transition-delay:.08s">
         <span class="eyebrow">Residence 01</span>
         <h2>The Dune House</h2>
@@ -220,7 +232,7 @@
           <div><b>310 m²</b><span>Internal</span></div>
           <div><b>0.4 acre</b><span>Plot</span></div>
         </div>
-        <a href="#cta" class="btn btn--solid">Arrange a private viewing</a>
+        <button class="btn btn--solid" data-ai-open>Arrange a private viewing</button>
       </div>
     </div>
   </section>
@@ -229,10 +241,10 @@
     <div class="wrap">
       <div class="sec__head rv"><h2>Where we work</h2><p>Three regions, chosen for their architecture rather than their postcodes.</p></div>
       <div class="locs__row">
-        <a class="loc rv" href="#featured"><span>Region 01</span>Coast</a>
-        <a class="loc rv" href="#featured" style="transition-delay:.05s"><span>Region 02</span>City</a>
-        <a class="loc rv" href="#featured" style="transition-delay:.1s"><span>Region 03</span>Country</a>
-        <a class="loc rv" href="#featured" style="transition-delay:.15s"><span>2027</span>Alpine</a>
+        <a class="loc rv" href="#featured"><img src="../assets/demos/meridian/loc-coast.jpg" alt="Coastal region — modern house in coastal greenery" loading="lazy" width="900" height="1200"><span class="loc__idx">Region 01</span><span class="loc__name">Coast</span></a>
+        <a class="loc rv" href="#featured" style="transition-delay:.05s"><img src="../assets/demos/meridian/loc-city.jpg" alt="City region — dense urban skyline" loading="lazy" width="900" height="1200"><span class="loc__idx">Region 02</span><span class="loc__name">City</span></a>
+        <a class="loc rv" href="#featured" style="transition-delay:.1s"><img src="../assets/demos/meridian/loc-country.jpg" alt="Countryside region — open farmland at sunset" loading="lazy" width="900" height="1200"><span class="loc__idx">Region 03</span><span class="loc__name">Country</span></a>
+        <a class="loc rv" href="#featured" style="transition-delay:.15s"><img src="../assets/demos/meridian/loc-alpine.jpg" alt="Alpine region — snow-capped mountains, opening 2027" loading="lazy" width="900" height="1200"><span class="loc__idx">2027</span><span class="loc__name">Alpine</span></a>
       </div>
     </div>
   </section>
@@ -252,9 +264,9 @@
     <div class="wrap">
       <div class="sec__head rv"><h2>Your advisors</h2><p>Small team, no call centre. You deal with the same person from viewing to keys.</p></div>
       <div class="team">
-        <article class="adv rv"><div class="adv__vis"></div><h3>Elena Fournier</h3><span>Principal · Coastal</span><p>Fifteen fictional years in design-led sales. Speaks fluently about roof pitches.</p></article>
-        <article class="adv rv" style="transition-delay:.06s"><div class="adv__vis"></div><h3>Marcus Idowu</h3><span>Director · City</span><p>Ex-architecture practice. Reads a floor plan faster than a brochure.</p></article>
-        <article class="adv rv" style="transition-delay:.12s"><div class="adv__vis"></div><h3>Priya Raman</h3><span>Advisor · Country &amp; Land</span><p>Handles estates, barns and anything with a paddock attached.</p></article>
+        <article class="adv rv"><div class="adv__vis"><img src="../assets/demos/meridian/adv-1.jpg" alt="Marcus Idowu, City director" loading="lazy" width="600" height="600"></div><h3>Marcus Idowu</h3><span>Director · City</span><p>Ex-architecture practice. Reads a floor plan faster than a brochure.</p></article>
+        <article class="adv rv" style="transition-delay:.06s"><div class="adv__vis"><img src="../assets/demos/meridian/adv-2.jpg" alt="Elena Fournier, Coastal principal" loading="lazy" width="600" height="600"></div><h3>Elena Fournier</h3><span>Principal · Coastal</span><p>Fifteen fictional years in design-led sales. Speaks fluently about roof pitches.</p></article>
+        <article class="adv rv" style="transition-delay:.12s"><div class="adv__vis"><img src="../assets/demos/meridian/adv-3.jpg" alt="Daniel Roche, Country &amp; Land advisor" loading="lazy" width="600" height="600"></div><h3>Daniel Roche</h3><span>Advisor · Country &amp; Land</span><p>Handles estates, barns and anything with a paddock attached.</p></article>
       </div>
     </div>
   </section>
@@ -271,10 +283,10 @@
 
   <section class="sec cta" id="cta">
     <div class="wrap">
-      <span class="eyebrow" style="color:#C7B486">Get started</span>
+      <span class="eyebrow" style="color:#D8C6A0">Get started</span>
       <h2>Tell us what "home" looks like.</h2>
-      <p>Send a brief and we'll come back within a day with residences worth your time — or an honest note that we don't have the right thing yet.</p>
-      <a href="../index.html#work" class="btn btn--ghost">Back to MusfirahLoom</a>
+      <p>Send a brief and the assistant will shortlist residences worth your time — or an honest note that we don't have the right thing yet.</p>
+      <button class="btn btn--ghost" data-ai-open>Talk to the assistant</button>
     </div>
   </section>
 </main>
@@ -284,27 +296,82 @@
     <div class="foot__grid">
       <div>
         <div class="foot__brand">MERIDIAN</div>
-        <p style="font-size:.86rem;max-width:32ch;">Architectural property, represented carefully. A fictional company built as a portfolio demonstration by MusfirahLoom.</p>
+        <p style="font-size:.86rem;max-width:32ch;">Architectural property, represented carefully. A fictional brokerage built as a portfolio demonstration by Misbah Azib.</p>
       </div>
       <div><h4>Portfolio</h4><a href="#featured">Featured</a><a href="#detail">Residences</a><a href="#locations">Locations</a><a href="#search">Search</a></div>
       <div><h4>Company</h4><a href="#team">Advisors</a><a href="#">Approach</a><a href="#">Press</a><a href="#">Careers</a></div>
-      <div><h4>Contact</h4><a href="#">Enquiries</a><a href="#">Valuations</a><a href="#cta">Book a viewing</a><a href="../index.html#work">MusfirahLoom</a></div>
+      <div><h4>Contact</h4><a href="#" data-ai-open>AI viewing assistant</a><a href="#">Valuations</a><a href="#cta">Book a viewing</a><a href="../index.html#work">Back to portfolio</a></div>
     </div>
     <div class="foot__bottom">
       <span>© 2026 MERIDIAN Estates (fictional). Portfolio demo.</span>
-      <span>Designed &amp; built by MusfirahLoom</span>
+      <span>Designed &amp; built by Misbah Azib</span>
     </div>
   </div>
 </footer>
 
+<button class="ai-fab" id="aiFab" aria-haspopup="dialog" aria-controls="aiPanel">
+  <span class="ai-fab__dot" aria-hidden="true"></span> Viewing assistant
+</button>
+<div class="ai-panel" id="aiPanel" role="dialog" aria-modal="true" aria-label="MERIDIAN viewing &amp; enquiry assistant">
+  <div class="ai-panel__scrim" data-ai-close></div>
+  <div class="ai-panel__card">
+    <div class="ai-panel__head">
+      <div>
+        <h3>MERIDIAN Viewing Assistant</h3>
+        <p>AI Lead Qualification + Booking agent — qualifies your brief on budget and timeline, shortlists residences, books a viewing. Demo, simulated.</p>
+      </div>
+      <button class="ai-panel__close" data-ai-close aria-label="Close assistant">×</button>
+    </div>
+    <div class="ai-panel__body">
+      <iframe id="aiFrame" title="MERIDIAN AI assistant" loading="lazy" data-src="../agent.html?id=lead&biz=meridian&embed=1"></iframe>
+    </div>
+  </div>
+</div>
+
 <script>
+  var MERIDIAN_PROPS = [
+    { id:'dune-house',     badge:'New',       loc:'Coastal · Pembrey',        name:'The Dune House',     price:'£3,250,000', beds:4, baths:3, size:'310 m²', img:'prop-dune-house.jpg' },
+    { id:'blackwood-mews', badge:'Exclusive', loc:'City · Marylebone',        name:'Blackwood Mews',     price:'£4,900,000', beds:3, baths:3, size:'240 m²', img:'prop-blackwood-mews.jpg' },
+    { id:'long-meadow',    badge:'Land',      loc:'Country · Cotswold edge',  name:'Long Meadow Barn',   price:'£2,150,000', beds:5, baths:4, size:'2.1 acre', img:'prop-long-meadow.jpg' },
+    { id:'ferro-tower',    badge:'New',       loc:'City · Southbank',         name:'Ferro Tower · 21F',  price:'£1,780,000', beds:2, baths:2, size:'128 m²', img:'prop-ferro-tower.jpg' },
+    { id:'cliff-studio',   badge:'Reduced',   loc:'Coastal · St Agnes',       name:'Cliff Studio',       price:'£1,250,000', beds:1, baths:1, size:'84 m²',  img:'prop-cliff-studio.jpg' },
+    { id:'hafod-estate',   badge:'Estate',    loc:'Country · Mid Wales',      name:'Hafod Estate',       price:'£6,400,000', beds:7, baths:5, size:'18 acre', img:'prop-hafod-estate.jpg' }
+  ];
+  var grid = document.getElementById('propGrid');
+  MERIDIAN_PROPS.forEach(function(p, i){
+    var el = document.createElement('article');
+    el.className = 'prop rv';
+    el.style.transitionDelay = (i % 3 * 0.05) + 's';
+    el.innerHTML =
+      '<div class="prop__vis"><span class="prop__badge">'+p.badge+'</span>' +
+        '<img src="../assets/demos/meridian/'+p.img+'" alt="'+p.name+' — '+p.loc+'" loading="lazy" width="1200" height="900"></div>' +
+      '<div class="prop__body"><span class="prop__loc">'+p.loc+'</span><h3>'+p.name+'</h3>' +
+      '<div class="prop__price">'+p.price+'</div>' +
+      '<div class="prop__specs"><span>'+p.beds+' bed</span><span>'+p.baths+' bath</span><span>'+p.size+'</span></div>' +
+      '<button class="prop__cta" data-ai-open>Enquire &amp; book a viewing</button></div>';
+    grid.appendChild(el);
+  });
+
   (function(){
-    var io = ('IntersectionObserver' in window) && new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-    }, { threshold:0.12, rootMargin:'0px 0px -8% 0px' });
     var els = document.querySelectorAll('.rv');
-    if(!io || matchMedia('(prefers-reduced-motion:reduce)').matches){ els.forEach(function(el){el.classList.add('in');}); return; }
+    if(!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion:reduce)').matches){
+      els.forEach(function(el){el.classList.add('in');}); return;
+    }
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    }, { threshold:0.1, rootMargin:'0px 0px -6% 0px' });
     els.forEach(function(el){ io.observe(el); });
+  })();
+
+  (function(){
+    var panel = document.getElementById('aiPanel');
+    var frame = document.getElementById('aiFrame');
+    var loaded = false;
+    function open(){ if(!loaded){ frame.src = frame.getAttribute('data-src'); loaded = true; } panel.classList.add('open'); document.body.style.overflow='hidden'; }
+    function close(){ panel.classList.remove('open'); document.body.style.overflow=''; }
+    document.getElementById('aiFab').addEventListener('click', open);
+    document.addEventListener('click', function(e){ var o = e.target.closest('[data-ai-open]'); if(o){ e.preventDefault(); open(); } var c = e.target.closest('[data-ai-close]'); if(c){ close(); } });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
   })();
 </script>
 </body>

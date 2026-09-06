@@ -6,7 +6,12 @@
    voice. Keyword lists drive kbRepo's lightweight matching —
    no vector database. Phase 2 can point kbRepo at a real KB.
 =========================================================== */
-export const FAQS = [
+import { getBusinessId } from '../js/services/scope.js';
+import { FAQS as AERA_FAQS } from './businesses/aera.js';
+import { FAQS as NOCTURNE_FAQS } from './businesses/nocturne.js';
+import { FAQS as MERIDIAN_FAQS } from './businesses/meridian.js';
+
+const GENERIC_FAQS = [
   /* ---------------- SHIPPING ---------------- */
   {
     id: 'ship-times',
@@ -185,5 +190,8 @@ export const FAQS = [
       'Yes — at checkout you can add gift wrap, include a handwritten note, and we always leave prices off the packing slip for gift orders.',
   },
 ];
+
+const BY_BIZ = { aera: AERA_FAQS, nocturne: NOCTURNE_FAQS, meridian: MERIDIAN_FAQS };
+export const FAQS = BY_BIZ[getBusinessId()] || GENERIC_FAQS;
 
 export default FAQS;

@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ATELIER NOCTURNE — Fashion House | MusfirahLoom portfolio</title>
-<meta name="description" content="ATELIER NOCTURNE is a fictional luxury fashion house — a cinematic portfolio demonstration site by MusfirahLoom. Concept design only.">
+<title>ATELIER NOCTURNE — Fashion House | Misbah Azib portfolio</title>
+<meta name="description" content="ATELIER NOCTURNE is a fictional luxury fashion house — a cinematic portfolio demonstration by Misbah Azib. Concept design and front-end build only.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#0C0C0E">
 <meta property="og:title" content="ATELIER NOCTURNE — Fashion House">
-<meta property="og:description" content="Fictional luxury fashion house — a cinematic MusfirahLoom portfolio demonstration.">
+<meta property="og:description" content="Fictional luxury fashion house — a cinematic portfolio demonstration by Misbah Azib.">
 <meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230C0C0E'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='%23C6A15B' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -17,135 +18,155 @@
   :root{
     --bg:#0C0C0E; --bg-2:#141317; --panel:#1A191E; --ink:#EDE9E1; --ink-soft:#9C978C;
     --line:rgba(237,233,225,0.14); --oxblood:#7A2532; --gold:#C6A15B;
-    --sp:clamp(4.5rem,11vw,9rem); --disp:'Bricolage Grotesque',Georgia,serif; --body:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',monospace;
+    --sp:clamp(4.5rem,10vw,8rem); --disp:'Bricolage Grotesque',Georgia,serif; --body:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',monospace;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
   img{max-width:100%;display:block;}
   a{color:inherit;text-decoration:none;}
-  h1,h2,h3{font-family:var(--disp);font-weight:700;letter-spacing:-0.02em;line-height:1.02;}
+  h1,h2,h3{font-family:var(--disp);font-weight:700;letter-spacing:-0.02em;line-height:1.02;color:var(--ink);}
   .wrap{max-width:1220px;margin:0 auto;padding:0 6vw;}
   .eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);}
-  .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.9rem;border-radius:0;font-weight:500;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--ink);transition:background .3s,color .3s,letter-spacing .3s;white-space:nowrap;}
+  .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.9rem;border-radius:0;font-weight:500;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;font-family:var(--body);transition:background .3s,color .3s,letter-spacing .3s;white-space:nowrap;}
   .btn--solid{background:var(--ink);color:var(--bg);}
   .btn--solid:hover{background:var(--gold);border-color:var(--gold);color:var(--bg);letter-spacing:.22em;}
   .btn--ghost:hover{background:var(--ink);color:var(--bg);letter-spacing:.22em;}
-  .rv{opacity:0;transform:translateY(30px);transition:opacity 1s cubic-bezier(.19,1,.22,1),transform 1s cubic-bezier(.19,1,.22,1);}
+  .rv{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.19,1,.22,1),transform 1s cubic-bezier(.19,1,.22,1);}
   .rv.in{opacity:1;transform:none;}
   @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
 
-  .demobar{background:#000;color:var(--ink-soft);font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:.55rem 1rem;}
+  .demobar{background:#000;color:var(--ink-soft);font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:.55rem 1rem;}
   .demobar a{color:var(--ink);border-bottom:1px solid var(--line);}
-  .nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:1.3rem 6vw;background:rgba(12,12,14,.7);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+  .nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 6vw;background:rgba(12,12,14,.78);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
   .nav__brand{font-family:var(--disp);font-weight:700;font-size:1.15rem;letter-spacing:.34em;}
-  .nav__links{display:flex;gap:2.4rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;}
+  .nav__links{display:flex;gap:2.2rem;font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;}
   .nav__links a:hover{color:var(--gold);}
   @media(max-width:960px){.nav__links{display:none;}}
 
   /* cinematic hero */
-  .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;
-     background:linear-gradient(90deg,rgba(12,12,14,.9) 0%,rgba(12,12,14,.62) 45%,rgba(12,12,14,.42) 100%),
-     url(../assets/work/fashion-editorial.jpg);background-size:cover;background-position:center right;}
-  .hero::before{content:'';position:absolute;inset:0;background-image:
-     linear-gradient(rgba(237,233,225,.04) 1px,transparent 1px),
-     linear-gradient(90deg,rgba(237,233,225,.04) 1px,transparent 1px);
-     background-size:72px 72px;mask-image:radial-gradient(120% 80% at 50% 40%,#000,transparent 75%);}
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center right;z-index:0;}
+  .hero::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(12,12,14,.92) 0%,rgba(12,12,14,.64) 46%,rgba(12,12,14,.4) 100%);}
   .hero__inner{position:relative;z-index:2;}
-  .hero h1{font-family:var(--disp);font-weight:800;font-size:clamp(3.4rem,13vw,10rem);line-height:.88;letter-spacing:-0.04em;margin:1.4rem 0;}
+  .hero h1{font-family:var(--disp);font-weight:800;font-size:clamp(3.2rem,12vw,9.5rem);line-height:.88;letter-spacing:-0.04em;margin:1.3rem 0;}
   .hero h1 em{font-style:normal;color:var(--oxblood);}
-  .hero p{max-width:40ch;color:var(--ink-soft);font-size:1.02rem;margin-bottom:2rem;}
-  .hero__scroll{position:absolute;bottom:2rem;left:6vw;font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);}
+  .hero p{max-width:40ch;color:var(--ink-soft);font-size:1.02rem;margin-bottom:1.8rem;}
+  .hero__scroll{position:absolute;bottom:2rem;left:6vw;z-index:2;font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);}
 
   .sec{padding:var(--sp) 0;}
-  .sec__head{margin-bottom:3rem;}
-  .sec__head h2{font-size:clamp(2rem,5vw,3.6rem);margin-top:.8rem;}
-  .sec__head p{color:var(--ink-soft);max-width:44ch;margin-top:.8rem;}
+  .sec__head{margin-bottom:2.8rem;}
+  .sec__head h2{font-size:clamp(2rem,5vw,3.6rem);margin-top:.7rem;}
+  .sec__head p{color:var(--ink-soft);max-width:44ch;margin-top:.7rem;}
 
   /* editorial split imagery */
-  .edi{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+  .edi{display:grid;grid-template-columns:1fr 1fr;gap:4px;}
   @media(max-width:820px){.edi{grid-template-columns:1fr;}}
-  .edi__cell{aspect-ratio:3/4;position:relative;display:flex;align-items:flex-end;padding:1.6rem;}
-  .edi__cell span{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,233,225,.8);}
-  .edi__cell:nth-child(1){background:linear-gradient(200deg,rgba(18,12,16,.35),rgba(18,12,16,.6)),url(../assets/work/fashion-editorial.jpg);background-size:cover;background-position:center;}
-  .edi__cell:nth-child(2){background:linear-gradient(200deg,rgba(15,14,20,.35),rgba(15,14,20,.6)),url(../assets/work/fashion-detail.jpg);background-size:cover;background-position:center;aspect-ratio:3/4;margin-top:3rem;}
+  .edi__cell{position:relative;aspect-ratio:3/4;overflow:hidden;display:flex;align-items:flex-end;padding:1.5rem;}
+  .edi__cell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+  .edi__cell::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,rgba(12,10,14,.25),rgba(12,10,14,.6));z-index:1;}
+  .edi__cell span{position:relative;z-index:2;font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,233,225,.82);}
+  .edi__cell:nth-child(2){margin-top:3rem;}
   @media(max-width:820px){.edi__cell:nth-child(2){margin-top:0;}}
 
   /* collection showcase — big rows */
   .coll{border-top:1px solid var(--line);}
-  .coll__row{display:grid;grid-template-columns:.5fr 1fr;gap:2rem;padding:2.4rem 0;align-items:center;}
+  .coll__row{display:grid;grid-template-columns:.42fr 1fr;gap:2rem;padding:2.2rem 0;align-items:center;border-bottom:1px solid var(--line);}
   @media(max-width:820px){.coll__row{grid-template-columns:1fr;}}
   .coll__row:hover .coll__name{color:var(--gold);}
-  .coll__idx{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;color:var(--ink-soft);}
-  .coll__name{font-family:var(--disp);font-weight:700;font-size:clamp(1.8rem,5vw,3.2rem);transition:color .3s;}
-  .coll__meta{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:.4rem;}
-  .coll__vis{aspect-ratio:16/7;border-radius:2px;}
-  .coll__row:nth-child(2) .coll__vis{background:linear-gradient(120deg,rgba(20,16,23,.3),rgba(20,16,23,.5)),url(../assets/work/fashion-campaign.jpg);background-size:cover;background-position:center;}
-  .coll__row:nth-child(3) .coll__vis{background:linear-gradient(120deg,rgba(15,18,22,.3),rgba(15,18,22,.5)),url(../assets/work/fashion-runway.jpg);background-size:cover;background-position:center;}
-  .coll__row:nth-child(4) .coll__vis{background:linear-gradient(120deg,rgba(19,18,16,.3),rgba(19,18,16,.5)),url(../assets/work/fashion-hero.jpg);background-size:cover;background-position:center;}
+  .coll__idx{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;color:var(--ink-soft);}
+  .coll__name{font-family:var(--disp);font-weight:700;font-size:clamp(1.8rem,5vw,3rem);transition:color .3s;}
+  .coll__meta{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:.4rem;}
+  .coll__vis{aspect-ratio:16/7;overflow:hidden;}
+  .coll__vis img{width:100%;height:100%;object-fit:cover;}
 
   /* lookbook strip (horizontal scroll) */
   .look{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:1rem;}
-  .look__track{display:flex;gap:1.2rem;width:max-content;}
-  .look__item{width:clamp(220px,32vw,340px);aspect-ratio:3/4;border-radius:2px;position:relative;display:flex;align-items:flex-end;padding:1.2rem;flex-shrink:0;}
-  .look__item span{font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;color:rgba(237,233,225,.75);}
-  .look__item:nth-child(odd){background:linear-gradient(200deg,rgba(18,13,17,.3),rgba(18,13,17,.5)),url(../assets/work/fashion-editorial.jpg);background-size:cover;background-position:center;}
-  .look__item:nth-child(even){background:linear-gradient(200deg,rgba(14,13,19,.3),rgba(14,13,19,.5)),url(../assets/work/fashion-detail.jpg);background-size:cover;background-position:center;}
+  .look__track{display:flex;gap:1rem;width:max-content;}
+  .look__item{position:relative;width:clamp(220px,30vw,320px);aspect-ratio:3/4;overflow:hidden;display:flex;align-items:flex-end;padding:1.1rem;flex-shrink:0;}
+  .look__item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+  .look__item::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,rgba(12,10,14,.15),rgba(12,10,14,.55));z-index:1;}
+  .look__item span{position:relative;z-index:2;font-family:var(--mono);font-size:.56rem;letter-spacing:.18em;color:rgba(237,233,225,.8);}
 
   /* featured pieces */
-  .pieces{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;}
+  .pieces{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
   @media(max-width:960px){.pieces{grid-template-columns:1fr 1fr;}}
-  .piece{background:var(--panel);border:1px solid var(--line);border-radius:2px;overflow:hidden;transition:transform .35s;}
+  .piece{background:var(--panel);border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column;transition:transform .35s;}
   .piece:hover{transform:translateY(-6px);}
-  .piece__vis{aspect-ratio:4/5;}
-  .piece:nth-child(1) .piece__vis{background:url(../assets/work/fashion-hero.jpg) center/cover;}
-  .piece:nth-child(2) .piece__vis{background:url(../assets/work/fashion-runway.jpg) center/cover;}
-  .piece:nth-child(3) .piece__vis{background:url(../assets/work/fashion-detail.jpg) center/cover;}
-  .piece:nth-child(4) .piece__vis{background:url(../assets/work/fashion-editorial.jpg) center/cover;}
-  .piece__body{padding:1rem 1.1rem 1.3rem;}
-  .piece__body h3{font-size:.98rem;}
-  .piece__body span{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);}
-  .piece__price{font-family:var(--disp);font-weight:700;margin-top:.5rem;}
+  .piece__vis{aspect-ratio:4/5;overflow:hidden;}
+  .piece__vis img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+  .piece:hover .piece__vis img{transform:scale(1.04);}
+  .piece__body{padding:1rem 1.05rem 1.2rem;}
+  .piece__body span{font-family:var(--mono);font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);}
+  .piece__body h3{font-size:.96rem;margin:.2rem 0;}
+  .piece__price{font-family:var(--disp);font-weight:700;margin-top:.4rem;}
+  .piece__enq{margin-top:.7rem;width:100%;font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line);background:transparent;color:var(--ink);padding:.5rem;cursor:pointer;transition:background .2s,color .2s;}
+  .piece__enq:hover{background:var(--gold);border-color:var(--gold);color:var(--bg);}
 
   /* campaign — full bleed */
-  .camp{position:relative;min-height:82vh;display:flex;align-items:center;background:linear-gradient(180deg,rgba(12,12,14,.35),rgba(12,12,14,.72)),url(../assets/work/fashion-runway.jpg);background-size:cover;background-position:center;}
-  .camp h2{font-size:clamp(2.4rem,7vw,5.2rem);max-width:16ch;margin:1rem 0;}
-  .camp p{max-width:42ch;color:rgba(237,233,225,.78);margin-bottom:1.6rem;}
+  .camp{position:relative;min-height:80vh;display:flex;align-items:center;overflow:hidden;}
+  .camp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+  .camp::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,12,14,.4),rgba(12,12,14,.76));z-index:1;}
+  .camp .wrap{position:relative;z-index:2;}
+  .camp h2{font-size:clamp(2.4rem,7vw,5rem);max-width:16ch;margin:1rem 0;}
+  .camp p{max-width:42ch;color:rgba(237,233,225,.8);margin-bottom:1.5rem;}
 
-  /* studio + philosophy */
+  /* studio */
   .studio{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,6vw,5rem);align-items:center;}
   @media(max-width:820px){.studio{grid-template-columns:1fr;}}
-  .studio__vis{aspect-ratio:4/5;border-radius:2px;background:linear-gradient(200deg,rgba(16,15,21,.28),rgba(16,15,21,.5)),url(../assets/work/fashion-detail.jpg);background-size:cover;background-position:center;}
-  .studio h2{font-size:clamp(2rem,5vw,3.4rem);margin:.8rem 0 1.2rem;}
+  .studio__vis{aspect-ratio:4/5;overflow:hidden;}
+  .studio__vis img{width:100%;height:100%;object-fit:cover;}
+  .studio h2{font-size:clamp(2rem,5vw,3.2rem);margin:.7rem 0 1.1rem;}
   .studio p{color:var(--ink-soft);margin-bottom:1rem;max-width:52ch;}
+
   .philo{border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center;}
-  .philo blockquote{font-family:var(--disp);font-weight:500;font-size:clamp(1.6rem,4.4vw,2.8rem);line-height:1.25;max-width:24ch;margin:0 auto;}
-  .philo cite{display:block;font-family:var(--mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-top:1.6rem;font-style:normal;}
+  .philo blockquote{font-family:var(--disp);font-weight:500;font-size:clamp(1.6rem,4.4vw,2.6rem);line-height:1.25;max-width:24ch;margin:0 auto;}
+  .philo cite{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-top:1.5rem;font-style:normal;}
 
   /* editorial feature */
-  .feat{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+  .feat{display:grid;grid-template-columns:1fr 1fr;gap:4px;}
   @media(max-width:820px){.feat{grid-template-columns:1fr;}}
   .feat__txt{background:var(--panel);padding:clamp(2rem,5vw,4rem);display:flex;flex-direction:column;justify-content:center;}
-  .feat__txt h3{font-size:clamp(1.6rem,3.6vw,2.4rem);margin:.8rem 0 1rem;}
-  .feat__txt p{color:var(--ink-soft);margin-bottom:1.4rem;}
-  .feat__vis{background:linear-gradient(160deg,rgba(18,13,17,.3),rgba(18,13,17,.5)),url(../assets/work/fashion-editorial.jpg);background-size:cover;background-position:center;min-height:340px;}
+  .feat__txt h3{font-size:clamp(1.6rem,3.6vw,2.3rem);margin:.7rem 0 1rem;}
+  .feat__txt p{color:var(--ink-soft);margin-bottom:1.3rem;}
+  .feat__vis{overflow:hidden;min-height:340px;}
+  .feat__vis img{width:100%;height:100%;object-fit:cover;}
 
   .cta{text-align:center;}
-  .cta h2{font-size:clamp(2.4rem,7vw,4.8rem);margin:1rem auto 1.2rem;max-width:16ch;}
-  .cta p{color:var(--ink-soft);max-width:42ch;margin:0 auto 2rem;}
+  .cta h2{font-size:clamp(2.4rem,7vw,4.6rem);margin:1rem auto 1.1rem;max-width:16ch;}
+  .cta p{color:var(--ink-soft);max-width:42ch;margin:0 auto 1.8rem;}
 
   .foot{border-top:1px solid var(--line);padding:var(--sp) 0 2.6rem;color:var(--ink-soft);}
-  .foot__grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2rem;margin-bottom:3.4rem;}
+  .foot__grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2rem;margin-bottom:3rem;}
   @media(max-width:720px){.foot__grid{grid-template-columns:1fr 1fr;}}
-  .foot h4{font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);margin-bottom:1rem;}
+  .foot h4{font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);margin-bottom:1rem;}
   .foot a{display:block;padding:.28rem 0;font-size:.84rem;}
   .foot a:hover{color:var(--gold);}
   .foot__brand{font-family:var(--disp);font-weight:700;font-size:1.4rem;letter-spacing:.32em;color:var(--ink);margin-bottom:.7rem;}
-  .foot__bottom{border-top:1px solid var(--line);padding-top:1.8rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;}
+  .foot__bottom{border-top:1px solid var(--line);padding-top:1.7rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;}
+
+  /* AI assistant launcher + panel */
+  .ai-fab{position:fixed;right:1.3rem;bottom:1.3rem;z-index:70;display:flex;align-items:center;gap:.55rem;background:var(--ink);color:var(--bg);border:none;border-radius:0;padding:.85rem 1.3rem;font-family:var(--mono);font-weight:500;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;box-shadow:0 16px 36px -12px rgba(0,0,0,.6);transition:transform .2s,background .2s;}
+  .ai-fab:hover{transform:translateY(-2px);background:var(--gold);}
+  .ai-fab__dot{width:.5rem;height:.5rem;border-radius:50%;background:#7CD69B;animation:aipulse 2.4s infinite;}
+  @keyframes aipulse{0%{box-shadow:0 0 0 0 rgba(124,214,155,.6)}70%{box-shadow:0 0 0 8px rgba(124,214,155,0)}100%{box-shadow:0 0 0 0 rgba(124,214,155,0)}}
+  .ai-panel{position:fixed;inset:0;z-index:80;display:none;}
+  .ai-panel.open{display:block;}
+  .ai-panel__scrim{position:absolute;inset:0;background:rgba(0,0,0,.55);}
+  .ai-panel__card{position:absolute;right:0;top:0;bottom:0;width:min(440px,100vw);background:#fff;display:flex;flex-direction:column;box-shadow:-20px 0 60px -20px rgba(0,0,0,.7);transform:translateX(100%);transition:transform .32s cubic-bezier(.2,.7,.2,1);}
+  .ai-panel.open .ai-panel__card{transform:none;}
+  .ai-panel__head{display:flex;align-items:flex-start;gap:.8rem;padding:1rem 1.1rem;border-bottom:1px solid rgba(12,12,14,.14);color:#151318;}
+  .ai-panel__head h3{font-size:.98rem;color:#151318;}
+  .ai-panel__head p{font-size:.76rem;color:#6b6760;margin-top:.15rem;}
+  .ai-panel__close{margin-left:auto;background:none;border:none;font-size:1.3rem;line-height:1;cursor:pointer;color:#6b6760;}
+  .ai-panel__body{flex:1;position:relative;}
+  .ai-panel__body iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  @media(prefers-reduced-motion:reduce){.ai-fab__dot{animation:none;}.ai-panel__card{transition:none;}}
 </style>
 </head>
 <body>
-<div class="demobar">Portfolio demo — fictional fashion house by <a href="../index.html#work">MusfirahLoom</a>.</div>
+<div class="demobar">Portfolio demo — fictional fashion house designed &amp; built by <a href="../index.html#work">Misbah Azib</a>.</div>
 
 <header class="nav">
   <a href="#" class="nav__brand">NOCTURNE</a>
@@ -156,16 +177,17 @@
     <a href="#campaign">Campaign</a>
     <a href="#studio">Studio</a>
   </nav>
-  <a href="#cta" class="btn btn--solid">Enquire</a>
+  <button class="btn btn--solid" data-ai-open>Enquire</button>
 </header>
 
 <main>
   <section class="hero">
+    <img src="../assets/demos/nocturne/hero.jpg" alt="Editorial fashion figure in a dim colonnade — ATELIER NOCTURNE AW campaign" width="2000" height="1300" fetchpriority="high">
     <div class="wrap hero__inner">
       <span class="eyebrow rv">Atelier Nocturne — Autumn / Winter</span>
       <h1 class="rv" style="transition-delay:.08s">AFTER<br><em>DARK</em></h1>
       <p class="rv" style="transition-delay:.16s">A fashion house working only after hours. Tailoring, drape and hardware, cut for the part of the evening that photographs badly and feels best.</p>
-      <a href="#collections" class="btn btn--ghost rv" style="transition-delay:.24s">View the collection</a>
+      <button class="btn btn--ghost rv" style="transition-delay:.24s;color:var(--ink);border-color:var(--ink);" onclick="document.getElementById('collections').scrollIntoView({behavior:'smooth'})">View the collection</button>
     </div>
     <span class="hero__scroll">Scroll — 09 chapters</span>
   </section>
@@ -174,8 +196,8 @@
     <div class="wrap">
       <div class="sec__head rv"><span class="eyebrow">Editorial 01</span><h2>Cut for the hours nobody documents.</h2><p>Shot on location between midnight and four. Grain intentional.</p></div>
       <div class="edi">
-        <div class="edi__cell rv"><span>NOCTURNE · AW · Figure 01</span></div>
-        <div class="edi__cell rv" style="transition-delay:.1s"><span>NOCTURNE · AW · Figure 02</span></div>
+        <div class="edi__cell rv"><img src="../assets/demos/nocturne/edi-1.jpg" alt="NOCTURNE AW editorial — figure in an oxblood coat" loading="lazy" width="900" height="1200"><span>NOCTURNE · AW · Figure 01</span></div>
+        <div class="edi__cell rv" style="transition-delay:.1s"><img src="../assets/demos/nocturne/edi-2.jpg" alt="NOCTURNE AW editorial — tailored menswear detail" loading="lazy" width="900" height="1200"><span>NOCTURNE · AW · Figure 02</span></div>
       </div>
     </div>
   </section>
@@ -185,60 +207,48 @@
       <div class="sec__head rv"><span class="eyebrow">Collections</span><h2>Three drops a year. Nothing carried over.</h2></div>
       <div class="coll__row rv">
         <div><div class="coll__idx">01 —</div><div class="coll__name">Nocturne</div><div class="coll__meta">AW · 34 looks · available</div></div>
-        <div class="coll__vis"></div>
+        <div class="coll__vis"><img src="../assets/demos/nocturne/coll-nocturne.jpg" alt="Nocturne AW collection rail" loading="lazy" width="1400" height="620"></div>
       </div>
       <div class="coll__row rv">
         <div><div class="coll__idx">02 —</div><div class="coll__name">Blue Hour</div><div class="coll__meta">SS · 28 looks · archive</div></div>
-        <div class="coll__vis"></div>
+        <div class="coll__vis"><img src="../assets/demos/nocturne/coll-blue-hour.jpg" alt="Blue Hour SS collection — dark tailoring detail" loading="lazy" width="1400" height="620"></div>
       </div>
       <div class="coll__row rv">
         <div><div class="coll__idx">03 —</div><div class="coll__name">Static</div><div class="coll__meta">Resort · 19 looks · archive</div></div>
-        <div class="coll__vis"></div>
+        <div class="coll__vis"><img src="../assets/demos/nocturne/coll-static.jpg" alt="Static resort collection — figure against architecture" loading="lazy" width="1400" height="620"></div>
       </div>
     </div>
   </section>
 
   <section class="sec" id="lookbook">
     <div class="wrap">
-      <div class="sec__head rv"><span class="eyebrow">Lookbook</span><h2>AW — full run.</h2><p>Drag to move through the run. Thirty-four looks, styled by the studio.</p></div>
+      <div class="sec__head rv"><span class="eyebrow">Lookbook</span><h2>AW — full run.</h2><p>Scroll to move through the run. Thirty-four looks, styled by the studio.</p></div>
     </div>
     <div class="wrap look">
-      <div class="look__track rv">
-        <div class="look__item"><span>Look 04</span></div>
-        <div class="look__item"><span>Look 08</span></div>
-        <div class="look__item"><span>Look 11</span></div>
-        <div class="look__item"><span>Look 17</span></div>
-        <div class="look__item"><span>Look 22</span></div>
-        <div class="look__item"><span>Look 29</span></div>
-        <div class="look__item"><span>Look 33</span></div>
-      </div>
+      <div class="look__track rv" id="lookTrack"></div>
     </div>
   </section>
 
   <section class="sec" id="pieces">
     <div class="wrap">
       <div class="sec__head rv"><span class="eyebrow">Featured pieces</span><h2>Four from the run.</h2></div>
-      <div class="pieces">
-        <article class="piece rv"><div class="piece__vis"></div><div class="piece__body"><span>Outerwear</span><h3>The Midnight Coat</h3><div class="piece__price">£1,850</div></div></article>
-        <article class="piece rv" style="transition-delay:.05s"><div class="piece__vis"></div><div class="piece__body"><span>Tailoring</span><h3>Column Trouser</h3><div class="piece__price">£520</div></div></article>
-        <article class="piece rv" style="transition-delay:.1s"><div class="piece__vis"></div><div class="piece__body"><span>Knitwear</span><h3>Static Roll-Neck</h3><div class="piece__price">£390</div></div></article>
-        <article class="piece rv" style="transition-delay:.15s"><div class="piece__vis"></div><div class="piece__body"><span>Hardware</span><h3>Hook Belt</h3><div class="piece__price">£240</div></div></article>
-      </div>
+      <div class="pieces" id="pieceGrid"></div>
     </div>
   </section>
 
   <section class="camp" id="campaign">
+    <img src="../assets/demos/nocturne/campaign.jpg" alt="ATELIER NOCTURNE AW campaign film still" loading="lazy" width="2000" height="1300">
     <div class="wrap rv">
       <span class="eyebrow" style="color:var(--gold)">Campaign · AW</span>
       <h2>Everyone left. The room stayed dressed.</h2>
       <p>The AW campaign, directed by a fictional photographer across one empty hotel floor. Film only, no retouching.</p>
-      <a href="#lookbook" class="btn btn--ghost" style="border-color:var(--ink);color:var(--ink);">Watch the film</a>
+      <button class="btn btn--ghost" style="border-color:var(--ink);color:var(--ink);" onclick="document.getElementById('lookbook').scrollIntoView({behavior:'smooth'})">Watch the film</button>
     </div>
   </section>
 
   <section class="sec" id="studio">
     <div class="wrap studio">
-      <div class="studio__vis rv"></div>
+      <div class="studio__vis rv"><img src="../assets/demos/nocturne/studio.jpg" alt="The Atelier Nocturne studio — patterning table" loading="lazy" width="1000" height="1250"></div>
       <div class="rv" style="transition-delay:.08s">
         <span class="eyebrow">The studio</span>
         <h2>A small room, a long table, one machine that matters.</h2>
@@ -261,9 +271,9 @@
         <span class="eyebrow">Featured editorial</span>
         <h3>In conversation: the case for the unlit runway</h3>
         <p>The studio's founder on showing a collection in near-darkness, why the front row got torches, and what a garment has to do to survive it.</p>
-        <a href="#" class="btn btn--ghost" style="align-self:flex-start;">Read the piece</a>
+        <button class="btn btn--ghost" style="align-self:flex-start;" data-ai-open>Ask the atelier</button>
       </div>
-      <div class="feat__vis rv" style="transition-delay:.08s"></div>
+      <div class="feat__vis rv" style="transition-delay:.08s"><img src="../assets/demos/nocturne/feature.jpg" alt="NOCTURNE editorial feature image" loading="lazy" width="1200" height="900"></div>
     </div>
   </section>
 
@@ -271,8 +281,8 @@
     <div class="wrap">
       <span class="eyebrow rv">Enquiries</span>
       <h2 class="rv" style="transition-delay:.06s">Dress the hours that count.</h2>
-      <p class="rv" style="transition-delay:.12s">Private appointments, press and stockist enquiries. This is a portfolio demonstration — nothing is sold here.</p>
-      <a href="../index.html#work" class="btn btn--solid rv" style="transition-delay:.18s">Back to MusfirahLoom</a>
+      <p class="rv" style="transition-delay:.12s">Private appointments, press and stockist enquiries — handled by the atelier assistant. This is a portfolio demonstration; nothing is sold here.</p>
+      <button class="btn btn--solid rv" style="transition-delay:.18s" data-ai-open>Talk to the atelier</button>
     </div>
   </section>
 </main>
@@ -282,27 +292,87 @@
     <div class="foot__grid">
       <div>
         <div class="foot__brand">NOCTURNE</div>
-        <p style="font-size:.84rem;max-width:34ch;">Atelier Nocturne — a fictional fashion house created as a cinematic portfolio demonstration by MusfirahLoom.</p>
+        <p style="font-size:.84rem;max-width:34ch;">Atelier Nocturne — a fictional fashion house created as a cinematic portfolio demonstration by Misbah Azib.</p>
       </div>
       <div><h4>House</h4><a href="#collections">Collections</a><a href="#lookbook">Lookbook</a><a href="#pieces">Pieces</a><a href="#campaign">Campaign</a></div>
       <div><h4>Studio</h4><a href="#studio">About</a><a href="#">Craft</a><a href="#">Stockists</a><a href="#">Press</a></div>
-      <div><h4>Contact</h4><a href="#cta">Enquire</a><a href="#">Appointments</a><a href="../index.html#work">MusfirahLoom</a></div>
+      <div><h4>Contact</h4><a href="#" data-ai-open>Atelier assistant</a><a href="#">Appointments</a><a href="../index.html#work">Back to portfolio</a></div>
     </div>
     <div class="foot__bottom">
       <span>© 2026 Atelier Nocturne (fictional). Portfolio demo.</span>
-      <span>Designed &amp; built by MusfirahLoom</span>
+      <span>Designed &amp; built by Misbah Azib</span>
     </div>
   </div>
 </footer>
 
+<button class="ai-fab" id="aiFab" aria-haspopup="dialog" aria-controls="aiPanel">
+  <span class="ai-fab__dot" aria-hidden="true"></span> Atelier assistant
+</button>
+<div class="ai-panel" id="aiPanel" role="dialog" aria-modal="true" aria-label="ATELIER NOCTURNE atelier assistant">
+  <div class="ai-panel__scrim" data-ai-close></div>
+  <div class="ai-panel__card">
+    <div class="ai-panel__head">
+      <div>
+        <h3>NOCTURNE Atelier Concierge</h3>
+        <p>AI Sales &amp; Recommendation agent — recommends pieces from the AW run, checks the short size range, books private appointments. Demo, simulated.</p>
+      </div>
+      <button class="ai-panel__close" data-ai-close aria-label="Close assistant">×</button>
+    </div>
+    <div class="ai-panel__body">
+      <iframe id="aiFrame" title="NOCTURNE AI assistant" loading="lazy" data-src="../agent.html?id=sales&biz=nocturne&embed=1"></iframe>
+    </div>
+  </div>
+</div>
+
 <script>
+  var LOOKS = ['Look 04','Look 08','Look 11','Look 17','Look 22','Look 26','Look 29','Look 33'];
+  var LOOK_IMGS = ['look-1.jpg','look-2.jpg','look-3.jpg','look-4.jpg','look-5.jpg','look-6.jpg','look-7.jpg','edi-1.jpg'];
+  var track = document.getElementById('lookTrack');
+  LOOKS.forEach(function(l, i){
+    var d = document.createElement('div');
+    d.className = 'look__item';
+    d.innerHTML = '<img src="../assets/demos/nocturne/'+LOOK_IMGS[i]+'" alt="NOCTURNE AW '+l+'" loading="lazy" width="700" height="933"><span>'+l+'</span>';
+    track.appendChild(d);
+  });
+
+  var PIECES = [
+    { cat:'Outerwear', name:'The Midnight Coat',  price:'£1,850', img:'piece-midnight-coat.jpg' },
+    { cat:'Tailoring', name:'Column Trouser',     price:'£520',   img:'piece-column-trouser.jpg' },
+    { cat:'Knitwear',  name:'Static Roll-Neck',   price:'£390',   img:'piece-roll-neck.jpg' },
+    { cat:'Tailoring', name:'Hook-Waist Trouser', price:'£560',   img:'piece-hook-belt.jpg' }
+  ];
+  var pg = document.getElementById('pieceGrid');
+  PIECES.forEach(function(p, i){
+    var a = document.createElement('article');
+    a.className = 'piece rv';
+    a.style.transitionDelay = (i * 0.05) + 's';
+    a.innerHTML =
+      '<div class="piece__vis"><img src="../assets/demos/nocturne/'+p.img+'" alt="'+p.name+' — '+p.cat+'" loading="lazy" width="900" height="1125"></div>' +
+      '<div class="piece__body"><span>'+p.cat+'</span><h3>'+p.name+'</h3><div class="piece__price">'+p.price+'</div>' +
+      '<button class="piece__enq" data-ai-open>Enquire · check size</button></div>';
+    pg.appendChild(a);
+  });
+
   (function(){
-    var io = ('IntersectionObserver' in window) && new IntersectionObserver(function(es){
+    var els = document.querySelectorAll('.rv');
+    if(!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion:reduce)').matches){
+      els.forEach(function(el){el.classList.add('in');}); return;
+    }
+    var io = new IntersectionObserver(function(es){
       es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
     }, { threshold:0.1, rootMargin:'0px 0px -6% 0px' });
-    var els = document.querySelectorAll('.rv');
-    if(!io || matchMedia('(prefers-reduced-motion:reduce)').matches){ els.forEach(function(el){el.classList.add('in');}); return; }
     els.forEach(function(el){ io.observe(el); });
+  })();
+
+  (function(){
+    var panel = document.getElementById('aiPanel');
+    var frame = document.getElementById('aiFrame');
+    var loaded = false;
+    function open(){ if(!loaded){ frame.src = frame.getAttribute('data-src'); loaded = true; } panel.classList.add('open'); document.body.style.overflow='hidden'; }
+    function close(){ panel.classList.remove('open'); document.body.style.overflow=''; }
+    document.getElementById('aiFab').addEventListener('click', open);
+    document.addEventListener('click', function(e){ var o = e.target.closest('[data-ai-open]'); if(o){ e.preventDefault(); open(); } var c = e.target.closest('[data-ai-close]'); if(c){ close(); } });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
   })();
 </script>
 </body>

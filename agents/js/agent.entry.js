@@ -9,6 +9,8 @@
 =========================================================== */
 import { RUNTIME } from './config/runtime.config.js';
 import { resolveAgentOrRedirect, goToAgent } from './core/router.js';
+import { isEmbed, getBusiness } from './services/scope.js';
+import { el } from './core/dom.js';
 import { bus } from './core/events.js';
 import { renderAgentHeader, updateCartReadout } from './components/AgentHeader.js';
 import { mountChatWindow } from './components/ChatWindow.js';
@@ -54,10 +56,54 @@ function freshContext() {
 }
 
 function init(agent) {
-  document.title = `${agent.name} — Demo — MusfirahLoom`;
+  const biz = getBusiness();
+  const embedded = isEmbed();
+
+  /* when scoped to a demo business, present the agent in that
+     business's voice (name, one-liner, sample prompts) */
+  const bizMeta = biz && biz.agents ? biz.agents[agent.id] : null;
+  if (bizMeta) {
+    agent = {
+      ...agent,
+      name: bizMeta.label || agent.name,
+      benefit: bizMeta.purpose || agent.benefit,
+      sampleQuestions: bizMeta.samples || agent.sampleQuestions,
+    };
+  }
+
+  document.title = biz
+    ? `${biz.agents?.[agent.id]?.label || agent.name} — ${biz.name} demo`
+    : `${agent.name} — Demo — Misbah Azib`;
   setAnalyticsAgent(agent.id);
 
+  if (embedded) document.body.classList.add('is-embed');
+
   const headerMount = document.getElementById('agentHeader');
+
+  /* business-context strip: "this agent, for this demo business" */
+  if (biz) {
+    const meta = biz.agents?.[agent.id] || {};
+    headerMount.append(el('div', {
+      class: 'ml-biz-context',
+      style: { '--biz-accent': biz.accent || 'var(--wine)' },
+    },
+      el('strong', {}, biz.name),
+      el('span', { class: 'ml-biz-context__sep' }, '·'),
+      el('span', {}, biz.kind),
+      el('span', { class: 'ml-biz-context__sep' }, '·'),
+      el('span', {}, meta.label || agent.name),
+      biz.site
+        ? el('a', {
+            href: `../${biz.site}`,
+            target: embedded ? '_top' : '_self',
+          }, 'See the business site →')
+        : null,
+      meta.purpose
+        ? el('span', { class: 'ml-biz-context__purpose' }, meta.purpose)
+        : null,
+    ));
+  }
+
   headerMount.append(renderAgentHeader(agent));
 
   const history = [];

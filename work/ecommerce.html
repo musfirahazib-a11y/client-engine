@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AÉRA — Skincare, Considered | MusfirahLoom portfolio</title>
-<meta name="description" content="AÉRA is a fictional premium skincare brand — a portfolio demonstration site by MusfirahLoom. Concept design only; no products are for sale.">
+<title>AÉRA — Skincare, Considered | Misbah Azib portfolio</title>
+<meta name="description" content="AÉRA is a fictional premium skincare brand — a portfolio demonstration by Misbah Azib. Concept design and front-end build only; no products are for sale.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#B4623D">
 <meta property="og:title" content="AÉRA — Skincare, Considered">
-<meta property="og:description" content="Fictional premium skincare brand — a MusfirahLoom portfolio demonstration.">
+<meta property="og:description" content="Fictional premium skincare brand — a portfolio demonstration by Misbah Azib.">
 <meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23B4623D'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='%23fff' text-anchor='middle'%3EÆ%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -17,139 +18,165 @@
   :root{
     --bg:#F4EFE8; --bg-2:#EBE3D7; --panel:#FFFFFF; --ink:#221D17; --ink-soft:#6A6157;
     --line:rgba(34,29,23,0.14); --accent:#B4623D; --accent-deep:#8F4A2C; --sage:#77876B;
-    --sp:clamp(4rem,9vw,7.5rem); --disp:'Bricolage Grotesque',Georgia,serif; --body:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',monospace;
+    --sp:clamp(4rem,9vw,7rem); --disp:'Bricolage Grotesque',Georgia,serif; --body:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',monospace;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
   img{max-width:100%;display:block;}
   a{color:inherit;text-decoration:none;}
-  h1,h2,h3{font-family:var(--disp);font-weight:700;letter-spacing:-0.02em;line-height:1.04;}
+  h1,h2,h3{font-family:var(--disp);font-weight:700;letter-spacing:-0.02em;line-height:1.05;color:var(--ink);}
   .wrap{max-width:1180px;margin:0 auto;padding:0 6vw;}
   .eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);}
-  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem;border-radius:2px;font-weight:600;font-size:.82rem;border:1px solid var(--ink);transition:background .25s,color .25s,transform .25s;white-space:nowrap;}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem;border-radius:2px;font-weight:600;font-size:.82rem;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:background .25s,color .25s,transform .25s;white-space:nowrap;font-family:var(--body);}
   .btn--solid{background:var(--ink);color:#fff;}
   .btn--solid:hover{background:var(--accent-deep);border-color:var(--accent-deep);transform:translateY(-2px);}
   .btn--ghost:hover{background:var(--ink);color:#fff;transform:translateY(-2px);}
-  .rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);}
+  .rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);}
   .rv.in{opacity:1;transform:none;}
   @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
 
   /* demo ribbon + nav */
-  .demobar{background:var(--ink);color:#fff;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;text-align:center;padding:.5rem 1rem;}
+  .demobar{background:var(--ink);color:#fff;font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:.5rem 1rem;}
   .demobar a{color:#fff;border-bottom:1px solid rgba(255,255,255,.5);}
-  .nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 6vw;background:rgba(244,239,232,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
-  .nav__brand{font-family:var(--disp);font-weight:700;font-size:1.25rem;letter-spacing:.16em;}
+  .nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.05rem 6vw;background:rgba(244,239,232,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .nav__brand{font-family:var(--disp);font-weight:700;font-size:1.3rem;letter-spacing:.16em;}
   .nav__links{display:flex;gap:2rem;font-size:.8rem;font-weight:500;}
   .nav__links a:hover{color:var(--accent);}
-  .nav__cart{font-family:var(--mono);font-size:.72rem;}
+  .nav__cart{font-family:var(--mono);font-size:.72rem;border:1px solid var(--line);padding:.45rem .8rem;border-radius:2px;background:var(--panel);}
   @media(max-width:820px){.nav__links{display:none;}}
 
   /* hero */
-  .hero{position:relative;padding:var(--sp) 0 calc(var(--sp) * .7);overflow:hidden;}
-  .hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;}
-  .hero h1{font-size:clamp(2.9rem,7vw,5.6rem);margin:1.2rem 0;}
-  .hero p{font-size:1.05rem;color:var(--ink-soft);max-width:44ch;margin-bottom:1.8rem;}
-  .hero__actions{display:flex;gap:1rem;flex-wrap:wrap;}
-  .hero__vis{position:relative;aspect-ratio:4/5;border-radius:3px;background:
-     linear-gradient(180deg,rgba(52,32,20,.06),rgba(52,32,20,.28)),
-     url(../assets/work/ecommerce-hero.jpg);background-size:cover;background-position:center;
-     box-shadow:0 40px 80px -30px rgba(94,47,28,.4);}
-  .hero__vis::after{content:'AÉRA · 01';position:absolute;left:1.2rem;bottom:1rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;color:rgba(255,255,255,.85);}
-  .hero__tag{position:absolute;right:-.5rem;top:12%;background:var(--panel);border:1px solid var(--line);padding:.7rem 1rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;}
-  @media(max-width:820px){.hero__grid{grid-template-columns:1fr;}}
+  .hero{position:relative;padding:calc(var(--sp) * .8) 0;}
+  .hero__grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(2rem,5vw,4rem);align-items:center;}
+  .hero h1{font-size:clamp(2.7rem,6.4vw,4.8rem);margin:1rem 0 1.1rem;}
+  .hero p{font-size:1.05rem;color:var(--ink-soft);max-width:42ch;margin-bottom:1.6rem;}
+  .hero__actions{display:flex;gap:.9rem;flex-wrap:wrap;}
+  .hero__figure{position:relative;}
+  .hero__figure img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:3px;box-shadow:0 40px 80px -34px rgba(94,47,28,.42);}
+  .hero__tag{position:absolute;right:-.6rem;top:9%;background:var(--panel);border:1px solid var(--line);padding:.6rem .9rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 12px 30px -14px rgba(34,29,23,.4);}
+  @media(max-width:820px){.hero__grid{grid-template-columns:1fr;}.hero__figure{order:-1;}}
+
+  /* trust bar */
+  .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--panel);}
+  .trust__row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding:1.4rem 0;text-align:center;}
+  .trust__row div{font-size:.78rem;color:var(--ink-soft);}
+  .trust__row b{display:block;font-family:var(--disp);font-size:.98rem;color:var(--ink);margin-bottom:.15rem;}
+  @media(max-width:720px){.trust__row{grid-template-columns:1fr 1fr;gap:1.1rem;}}
 
   /* section shell */
   .sec{padding:var(--sp) 0;}
-  .sec__head{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-bottom:2.6rem;}
+  .sec__head{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-bottom:2.4rem;}
   .sec__head h2{font-size:clamp(1.9rem,4.4vw,3rem);}
-  .sec__head p{color:var(--ink-soft);max-width:40ch;}
+  .sec__head p{color:var(--ink-soft);max-width:38ch;}
 
   /* product grid */
-  .prods{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2.5vw,2rem);}
-  @media(max-width:820px){.prods{grid-template-columns:1fr 1fr;}}
-  @media(max-width:520px){.prods{grid-template-columns:1fr;}}
-  .prod{background:var(--panel);border:1px solid var(--line);border-radius:3px;overflow:hidden;transition:transform .3s,box-shadow .3s;}
+  .prods{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1rem,2.2vw,1.6rem);}
+  @media(max-width:900px){.prods{grid-template-columns:1fr 1fr;}}
+  @media(max-width:520px){.prods{grid-template-columns:1fr 1fr;}}
+  .prod{background:var(--panel);border:1px solid var(--line);border-radius:3px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s;}
   .prod:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(34,29,23,.3);}
-  .prod__vis{aspect-ratio:1/1;display:flex;align-items:flex-end;padding:1rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;color:rgba(255,255,255,.9);}
-  .prod:nth-child(1) .prod__vis{background:url(../assets/work/ecommerce-product.jpg) center/cover;}
-  .prod:nth-child(2) .prod__vis{background:url(../assets/work/ecommerce-flatlay.jpg) center/cover;}
-  .prod:nth-child(3) .prod__vis{background:url(../assets/work/ecommerce-detail.jpg) center/cover;}
-  .prod:nth-child(4) .prod__vis{background:url(../assets/work/ecommerce-hero.jpg) center/cover;}
-  .prod:nth-child(5) .prod__vis{background:url(../assets/work/ecommerce-product.jpg) center/cover;}
-  .prod:nth-child(6) .prod__vis{background:url(../assets/work/ecommerce-flatlay.jpg) center/cover;}
-  .prod__body{padding:1.1rem 1.2rem 1.4rem;}
-  .prod__body h3{font-size:1.05rem;margin-bottom:.2rem;}
-  .prod__cat{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);}
-  .prod__foot{display:flex;align-items:center;justify-content:space-between;margin-top:.9rem;}
-  .prod__price{font-family:var(--disp);font-weight:700;}
-  .prod__add{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:2px;}
+  .prod__vis{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--bg-2);}
+  .prod__vis img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+  .prod:hover .prod__vis img{transform:scale(1.04);}
+  .prod__flag{position:absolute;left:.7rem;top:.7rem;background:var(--accent);color:#fff;font-family:var(--mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .5rem;border-radius:2px;}
+  .prod__body{padding:1rem 1.05rem 1.2rem;display:flex;flex-direction:column;flex:1;}
+  .prod__cat{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);}
+  .prod__body h3{font-size:1rem;margin:.2rem 0 .1rem;}
+  .prod__note{font-size:.8rem;color:var(--ink-soft);margin-bottom:.7rem;}
+  .prod__foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;gap:.5rem;}
+  .prod__price{font-family:var(--disp);font-weight:700;font-size:1rem;}
+  .prod__add{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--ink);padding:.4rem .7rem;border-radius:2px;background:transparent;cursor:pointer;color:var(--ink);transition:background .2s,color .2s;}
+  .prod__add:hover{background:var(--ink);color:#fff;}
 
   /* collections strip */
   .colls{background:var(--bg-2);}
   .colls__row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
   @media(max-width:720px){.colls__row{grid-template-columns:1fr;}}
-  .coll{position:relative;aspect-ratio:3/2;border-radius:3px;overflow:hidden;display:flex;align-items:flex-end;padding:1.4rem;color:#fff;font-family:var(--disp);font-weight:700;font-size:1.3rem;}
-  .coll:nth-child(1){background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url(../assets/work/ecommerce-hero.jpg);background-size:cover;background-position:center;}
-  .coll:nth-child(2){background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url(../assets/work/ecommerce-flatlay.jpg);background-size:cover;background-position:center;}
-  .coll:nth-child(3){background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url(../assets/work/ecommerce-detail.jpg);background-size:cover;background-position:center;}
-  .coll span{position:absolute;top:1.2rem;left:1.4rem;font-family:var(--mono);font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;opacity:.85;}
+  .coll{position:relative;aspect-ratio:3/2;border-radius:3px;overflow:hidden;display:flex;align-items:flex-end;padding:1.3rem;color:#fff;}
+  .coll img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+  .coll::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,12,6,.12),rgba(20,12,6,.62));z-index:1;}
+  .coll__label{position:relative;z-index:2;font-family:var(--disp);font-weight:700;font-size:1.3rem;}
+  .coll__idx{position:absolute;top:1.1rem;left:1.3rem;z-index:2;font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;opacity:.9;}
 
   /* product detail */
   .pd{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center;}
   @media(max-width:820px){.pd{grid-template-columns:1fr;}}
-  .pd__vis{aspect-ratio:1/1;border-radius:3px;background:linear-gradient(180deg,rgba(52,32,20,.04),rgba(52,32,20,.16)),url(../assets/work/ecommerce-product.jpg);background-size:cover;background-position:center;box-shadow:0 40px 70px -30px rgba(94,47,28,.4);}
-  .pd h2{font-size:clamp(2rem,4.5vw,3.2rem);margin:.6rem 0 1rem;}
-  .pd__price{font-family:var(--disp);font-weight:700;font-size:1.4rem;margin-bottom:1rem;}
-  .pd__desc{color:var(--ink-soft);margin-bottom:1.4rem;max-width:46ch;}
-  .pd__list{list-style:none;font-size:.9rem;margin-bottom:1.6rem;}
+  .pd__vis img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:3px;box-shadow:0 40px 70px -30px rgba(94,47,28,.4);}
+  .pd h2{font-size:clamp(2rem,4.5vw,3.1rem);margin:.5rem 0 .8rem;}
+  .pd__price{font-family:var(--disp);font-weight:700;font-size:1.3rem;margin-bottom:1rem;}
+  .pd__desc{color:var(--ink-soft);margin-bottom:1.2rem;max-width:46ch;}
+  .pd__list{list-style:none;font-size:.9rem;margin-bottom:1.5rem;}
   .pd__list li{padding:.5rem 0;border-top:1px solid var(--line);display:flex;gap:.8rem;}
   .pd__list li::before{content:'—';color:var(--accent);}
 
   /* promo */
-  .promo{background:var(--ink);color:#fff;text-align:center;}
-  .promo h2{font-size:clamp(1.8rem,4.5vw,3rem);margin:.8rem auto 1rem;max-width:20ch;}
-  .promo p{color:rgba(255,255,255,.72);max-width:44ch;margin:0 auto 1.6rem;}
+  .promo{position:relative;color:#fff;text-align:center;overflow:hidden;}
+  .promo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+  .promo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,12,6,.55),rgba(20,12,6,.78));z-index:1;}
+  .promo .wrap{position:relative;z-index:2;padding:var(--sp) 6vw;}
+  .promo h2{color:#fff;font-size:clamp(1.8rem,4.5vw,3rem);margin:.7rem auto 1rem;max-width:20ch;}
+  .promo p{color:rgba(255,255,255,.82);max-width:44ch;margin:0 auto 1.5rem;}
   .promo .btn{border-color:#fff;color:#fff;}
   .promo .btn:hover{background:#fff;color:var(--ink);}
 
-  /* testimonials */
-  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;}
+  /* reviews */
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;}
   @media(max-width:820px){.quotes{grid-template-columns:1fr;}}
-  .quote{background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:1.6rem;}
-  .quote p{font-size:.98rem;margin-bottom:1rem;}
-  .quote cite{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-style:normal;}
-  .quote__stars{color:var(--accent);letter-spacing:.15em;margin-bottom:.8rem;font-size:.8rem;}
+  .quote{background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:1.5rem;}
+  .quote__stars{color:var(--accent);letter-spacing:.15em;margin-bottom:.7rem;font-size:.8rem;}
+  .quote p{font-size:.95rem;margin-bottom:1rem;}
+  .quote__by{display:flex;align-items:center;gap:.6rem;}
+  .quote__av{width:2rem;height:2rem;border-radius:50%;background:var(--bg-2);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.7rem;color:var(--ink-soft);}
+  .quote cite{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-style:normal;}
 
   /* story */
   .story{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,5vw,4rem);align-items:center;}
   @media(max-width:820px){.story{grid-template-columns:1fr;}}
-  .story__vis{aspect-ratio:4/5;border-radius:3px;background:linear-gradient(200deg,rgba(52,32,20,.05),rgba(52,32,20,.25)),url(../assets/work/ecommerce-flatlay.jpg);background-size:cover;background-position:center;}
-  .story h2{font-size:clamp(2rem,4.5vw,3.2rem);margin:.6rem 0 1rem;}
+  .story__vis img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:3px;}
+  .story h2{font-size:clamp(2rem,4.5vw,3rem);margin:.5rem 0 1rem;}
   .story p{color:var(--ink-soft);margin-bottom:1rem;max-width:48ch;}
 
   /* newsletter */
   .news{background:var(--bg-2);text-align:center;}
-  .news h2{font-size:clamp(1.8rem,4.5vw,2.8rem);margin:.6rem auto .8rem;max-width:18ch;}
-  .news p{color:var(--ink-soft);margin:0 auto 1.6rem;max-width:40ch;}
+  .news h2{font-size:clamp(1.8rem,4.5vw,2.6rem);margin:.5rem auto .7rem;max-width:18ch;}
+  .news p{color:var(--ink-soft);margin:0 auto 1.5rem;max-width:40ch;}
   .news__form{display:flex;gap:.6rem;max-width:420px;margin:0 auto;}
   .news__form input{flex:1;padding:.85rem 1rem;border:1px solid var(--ink);border-radius:2px;background:var(--panel);font:inherit;font-size:.9rem;}
-  .news__form input:focus{outline:2px solid var(--accent);outline-offset:1px;}
   .news__note{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;color:var(--ink-soft);margin-top:1rem;}
 
   /* footer */
   .foot{background:var(--ink);color:rgba(255,255,255,.7);padding:var(--sp) 0 2.4rem;}
-  .foot__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem;margin-bottom:3rem;}
+  .foot__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2.6rem;}
   @media(max-width:720px){.foot__grid{grid-template-columns:1fr 1fr;}}
   .foot h4{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;margin-bottom:1rem;}
   .foot a{display:block;padding:.25rem 0;font-size:.86rem;}
   .foot a:hover{color:#fff;}
   .foot__brand{font-family:var(--disp);font-weight:700;font-size:1.6rem;letter-spacing:.16em;color:#fff;margin-bottom:.6rem;}
-  .foot__bottom{border-top:1px solid rgba(255,255,255,.15);padding-top:1.6rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;}
+  .foot__bottom{border-top:1px solid rgba(255,255,255,.15);padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;}
+
+  /* AI assistant launcher + panel */
+  .ai-fab{position:fixed;right:1.3rem;bottom:1.3rem;z-index:70;display:flex;align-items:center;gap:.55rem;background:var(--ink);color:#fff;border:none;border-radius:100px;padding:.8rem 1.2rem;font-family:var(--body);font-weight:600;font-size:.82rem;cursor:pointer;box-shadow:0 16px 36px -12px rgba(34,29,23,.5);transition:transform .2s,background .2s;}
+  .ai-fab:hover{transform:translateY(-2px);background:var(--accent-deep);}
+  .ai-fab__dot{width:.55rem;height:.55rem;border-radius:50%;background:#7CD69B;box-shadow:0 0 0 0 rgba(124,214,155,.7);animation:aipulse 2.4s infinite;}
+  @keyframes aipulse{0%{box-shadow:0 0 0 0 rgba(124,214,155,.6)}70%{box-shadow:0 0 0 8px rgba(124,214,155,0)}100%{box-shadow:0 0 0 0 rgba(124,214,155,0)}}
+  .ai-panel{position:fixed;inset:0;z-index:80;display:none;}
+  .ai-panel.open{display:block;}
+  .ai-panel__scrim{position:absolute;inset:0;background:rgba(20,12,6,.45);backdrop-filter:blur(2px);}
+  .ai-panel__card{position:absolute;right:0;top:0;bottom:0;width:min(440px,100vw);background:var(--panel);display:flex;flex-direction:column;box-shadow:-20px 0 60px -20px rgba(34,29,23,.5);transform:translateX(100%);transition:transform .32s cubic-bezier(.2,.7,.2,1);}
+  .ai-panel.open .ai-panel__card{transform:none;}
+  .ai-panel__head{display:flex;align-items:flex-start;gap:.8rem;padding:1rem 1.1rem;border-bottom:1px solid var(--line);}
+  .ai-panel__head h3{font-size:.98rem;}
+  .ai-panel__head p{font-size:.76rem;color:var(--ink-soft);margin-top:.15rem;}
+  .ai-panel__close{margin-left:auto;background:none;border:none;font-size:1.3rem;line-height:1;cursor:pointer;color:var(--ink-soft);}
+  .ai-panel__body{flex:1;position:relative;}
+  .ai-panel__body iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  @media(prefers-reduced-motion:reduce){.ai-fab__dot{animation:none;}.ai-panel__card{transition:none;}}
 </style>
 </head>
 <body>
-<div class="demobar">Portfolio demo — fictional brand by <a href="../index.html#work">MusfirahLoom</a>. Not a real store.</div>
+<div class="demobar">Portfolio demo — fictional brand designed &amp; built by <a href="../index.html#work">Misbah Azib</a>. Not a real store.</div>
 
 <header class="nav">
   <a href="#" class="nav__brand">AÉRA</a>
@@ -158,9 +185,9 @@
     <a href="#collections">Collections</a>
     <a href="#detail">The Serum</a>
     <a href="#story">Our Story</a>
-    <a href="#journal">Journal</a>
+    <a href="#reviews">Reviews</a>
   </nav>
-  <span class="nav__cart">Bag (0)</span>
+  <span class="nav__cart" id="cartReadout">Bag (0)</span>
 </header>
 
 <main>
@@ -169,32 +196,35 @@
       <div class="rv">
         <span class="eyebrow">Skincare, considered</span>
         <h1>Fewer things.<br>Made better.</h1>
-        <p>A short ritual of high-grade actives, formulated in small batches and pressed into recyclable glass. Nothing performative — just skin that behaves.</p>
+        <p>A short ritual of high-grade actives, blended in small batches and pressed into refillable glass. Nothing performative — just skin that behaves.</p>
         <div class="hero__actions">
           <a href="#shop" class="btn btn--solid">Shop the range</a>
           <a href="#story" class="btn btn--ghost">Our approach</a>
         </div>
       </div>
-      <div class="hero__vis rv" style="transition-delay:.1s">
-        <span class="hero__tag">Batch 24 · in stock</span>
-      </div>
+      <figure class="hero__figure rv" style="transition-delay:.08s">
+        <img src="../assets/demos/aera/hero.jpg" alt="AÉRA Barrier Serum bottle on a pale linen surface" width="1500" height="1850" fetchpriority="high">
+        <figcaption class="hero__tag">Batch 24 · in stock</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="trust">
+    <div class="wrap trust__row">
+      <div><b>Fragrance-free</b>Every formula, no exceptions</div>
+      <div><b>Refillable glass</b>Pods ship flat, plastic-light</div>
+      <div><b>30-day returns</b>Opened or not</div>
+      <div><b>Dermatologist-tested</b>Independent panel</div>
     </div>
   </section>
 
   <section class="sec" id="shop">
     <div class="wrap">
       <div class="sec__head rv">
-        <h2>Featured</h2>
-        <p>Six formulas that cover a complete routine — cleanse, treat, protect.</p>
+        <h2>The range</h2>
+        <p>Eight formulas that cover a complete routine — cleanse, treat, protect.</p>
       </div>
-      <div class="prods">
-        <article class="prod rv"><div class="prod__vis">01</div><div class="prod__body"><span class="prod__cat">Treatment</span><h3>Barrier Serum</h3><div class="prod__foot"><span class="prod__price">£68</span><span class="prod__add">Add</span></div></div></article>
-        <article class="prod rv" style="transition-delay:.05s"><div class="prod__vis">02</div><div class="prod__body"><span class="prod__cat">Cleanse</span><h3>Milk Cleanser</h3><div class="prod__foot"><span class="prod__price">£34</span><span class="prod__add">Add</span></div></div></article>
-        <article class="prod rv" style="transition-delay:.1s"><div class="prod__vis">03</div><div class="prod__body"><span class="prod__cat">Hydrate</span><h3>Weightless Cream</h3><div class="prod__foot"><span class="prod__price">£52</span><span class="prod__add">Add</span></div></div></article>
-        <article class="prod rv"><div class="prod__vis">04</div><div class="prod__body"><span class="prod__cat">Night</span><h3>Retinal 0.1%</h3><div class="prod__foot"><span class="prod__price">£74</span><span class="prod__add">Add</span></div></div></article>
-        <article class="prod rv" style="transition-delay:.05s"><div class="prod__vis">05</div><div class="prod__body"><span class="prod__cat">Protect</span><h3>Mineral SPF 30</h3><div class="prod__foot"><span class="prod__price">£40</span><span class="prod__add">Add</span></div></div></article>
-        <article class="prod rv" style="transition-delay:.1s"><div class="prod__vis">06</div><div class="prod__body"><span class="prod__cat">Ritual</span><h3>The Full Set</h3><div class="prod__foot"><span class="prod__price">£240</span><span class="prod__add">Add</span></div></div></article>
-      </div>
+      <div class="prods" id="prodGrid"></div>
     </div>
   </section>
 
@@ -202,16 +232,16 @@
     <div class="wrap">
       <div class="sec__head rv"><h2>Collections</h2><p>Grouped by intent, not by marketing.</p></div>
       <div class="colls__row">
-        <a class="coll rv" href="#shop"><span>01 · Reset</span>The Barrier Edit</a>
-        <a class="coll rv" href="#shop" style="transition-delay:.06s"><span>02 · Calm</span>Sensitive Skin</a>
-        <a class="coll rv" href="#shop" style="transition-delay:.12s"><span>03 · Glow</span>Evening Ritual</a>
+        <a class="coll rv" href="#shop"><img src="../assets/demos/aera/coll-reset.jpg" alt="Flatlay of AÉRA barrier-repair products" loading="lazy" width="1000" height="667"><span class="coll__idx">01 · Reset</span><span class="coll__label">The Barrier Edit</span></a>
+        <a class="coll rv" href="#shop" style="transition-delay:.06s"><img src="../assets/demos/aera/coll-calm.jpg" alt="Soft neutral skincare bottles for sensitive skin" loading="lazy" width="1000" height="667"><span class="coll__idx">02 · Calm</span><span class="coll__label">Sensitive Skin</span></a>
+        <a class="coll rv" href="#shop" style="transition-delay:.12s"><img src="../assets/demos/aera/coll-glow.jpg" alt="Evening skincare ritual flatlay" loading="lazy" width="1000" height="667"><span class="coll__idx">03 · Glow</span><span class="coll__label">Evening Ritual</span></a>
       </div>
     </div>
   </section>
 
   <section class="sec" id="detail">
     <div class="wrap pd">
-      <div class="pd__vis rv"></div>
+      <div class="pd__vis rv"><img src="../assets/demos/aera/detail-serum.jpg" alt="AÉRA Barrier Serum, 30ml apothecary glass bottle" loading="lazy" width="1200" height="1200"></div>
       <div class="rv" style="transition-delay:.08s">
         <span class="eyebrow">The hero product</span>
         <h2>Barrier Serum</h2>
@@ -223,34 +253,35 @@
           <li>Fragrance-free · pH 5.5 · patch-tested</li>
           <li>Refillable 30ml apothecary glass</li>
         </ul>
-        <a href="#" class="btn btn--solid">Add to bag — £68</a>
+        <button class="btn btn--solid" data-add="barrier-serum">Add to bag — £68</button>
       </div>
     </div>
   </section>
 
-  <section class="sec promo">
+  <section class="promo">
+    <img src="../assets/demos/aera/promo.jpg" alt="AÉRA gift set arranged on stone" loading="lazy" width="1500" height="850">
     <div class="wrap">
       <span class="eyebrow" style="color:#E8B79B">Limited release</span>
-      <h2>The Full Set, at 20% off through Sunday</h2>
+      <h2>The Full Set, 20% off through Sunday</h2>
       <p>Cleanser, serum, cream and SPF in one box — the complete AÉRA routine, sized for eight weeks.</p>
-      <a href="#shop" class="btn btn--ghost">Shop the set</a>
+      <button class="btn btn--ghost" data-add="full-set">Add the set — £192</button>
     </div>
   </section>
 
-  <section class="sec" id="journal">
+  <section class="sec" id="reviews">
     <div class="wrap">
       <div class="sec__head rv"><h2>What people say</h2><p>Reviews from a fictional but very satisfied customer base.</p></div>
       <div class="quotes">
-        <figure class="quote rv"><div class="quote__stars">★★★★★</div><p>"Three weeks in and my skin finally stopped arguing with me. The serum does exactly one thing and does it well."</p><cite>— R. Okafor, verified</cite></figure>
-        <figure class="quote rv" style="transition-delay:.06s"><div class="quote__stars">★★★★★</div><p>"Packaging you don't want to hide in a drawer. The refill system actually works."</p><cite>— T. Lindqvist, verified</cite></figure>
-        <figure class="quote rv" style="transition-delay:.12s"><div class="quote__stars">★★★★★</div><p>"I have replaced a shelf of products with four. That is the whole pitch and it delivered."</p><cite>— M. Haddad, verified</cite></figure>
+        <figure class="quote rv"><div class="quote__stars">★★★★★</div><p>"Three weeks in and my skin finally stopped arguing with me. The serum does exactly one thing and does it well."</p><div class="quote__by"><span class="quote__av">RO</span><cite>R. Okafor · verified</cite></div></figure>
+        <figure class="quote rv" style="transition-delay:.06s"><div class="quote__stars">★★★★★</div><p>"Packaging you don't want to hide in a drawer, and the refill system actually works. Reordered twice."</p><div class="quote__by"><span class="quote__av">TL</span><cite>T. Lindqvist · verified</cite></div></figure>
+        <figure class="quote rv" style="transition-delay:.12s"><div class="quote__stars">★★★★★</div><p>"I replaced a shelf of products with four. That is the whole pitch and it delivered."</p><div class="quote__by"><span class="quote__av">MH</span><cite>M. Haddad · verified</cite></div></figure>
       </div>
     </div>
   </section>
 
   <section class="sec" id="story">
     <div class="wrap story">
-      <div class="story__vis rv"></div>
+      <div class="story__vis rv"><img src="../assets/demos/aera/story.jpg" alt="Small-batch skincare being blended by hand" loading="lazy" width="1000" height="1250"></div>
       <div class="rv" style="transition-delay:.08s">
         <span class="eyebrow">Our story</span>
         <h2>Started in a kitchen. Still small on purpose.</h2>
@@ -265,11 +296,11 @@
       <span class="eyebrow">Newsletter</span>
       <h2>One email a month. Mostly skin science.</h2>
       <p>New batches, restock alerts, and the occasional myth we'd like to retire.</p>
-      <form class="news__form" onsubmit="event.preventDefault();this.querySelector('input').value='';this.nextElementSibling.textContent='Thanks — this is a demo, nothing was sent.';">
+      <form class="news__form" onsubmit="event.preventDefault();this.querySelector('input').value='';document.getElementById('newsNote').textContent='Thanks — this is a demo, nothing was sent.';">
         <input type="email" placeholder="you@example.com" aria-label="Email address" required>
         <button class="btn btn--solid" type="submit">Subscribe</button>
       </form>
-      <p class="news__note">Demo form — no data is collected or sent.</p>
+      <p class="news__note" id="newsNote">Demo form — no data is collected or sent.</p>
     </div>
   </section>
 </main>
@@ -279,27 +310,112 @@
     <div class="foot__grid">
       <div>
         <div class="foot__brand">AÉRA</div>
-        <p style="font-size:.86rem;max-width:32ch;">Small-batch skincare. A fictional brand built as a portfolio demonstration by MusfirahLoom.</p>
+        <p style="font-size:.86rem;max-width:32ch;">Small-batch skincare. A fictional brand built as a portfolio demonstration by Misbah Azib.</p>
       </div>
-      <div><h4>Shop</h4><a href="#shop">All products</a><a href="#collections">Collections</a><a href="#detail">The Serum</a><a href="#shop">Gift sets</a></div>
-      <div><h4>About</h4><a href="#story">Our story</a><a href="#journal">Journal</a><a href="#">Ingredients</a><a href="#">Sustainability</a></div>
-      <div><h4>Help</h4><a href="#">Shipping</a><a href="#">Returns</a><a href="#">Contact</a><a href="../index.html#work">Back to MusfirahLoom</a></div>
+      <div><h4>Shop</h4><a href="#shop">All products</a><a href="#collections">Collections</a><a href="#detail">The Serum</a><a href="#promo">Gift sets</a></div>
+      <div><h4>About</h4><a href="#story">Our story</a><a href="#reviews">Reviews</a><a href="#">Ingredients</a><a href="#">Sustainability</a></div>
+      <div><h4>Help</h4><a href="#" data-ai-open>AI assistant</a><a href="#">Shipping</a><a href="#">Returns</a><a href="../index.html#work">Back to portfolio</a></div>
     </div>
     <div class="foot__bottom">
       <span>© 2026 AÉRA (fictional). Portfolio demo.</span>
-      <span>Designed &amp; built by MusfirahLoom</span>
+      <span>Designed &amp; built by Misbah Azib</span>
     </div>
   </div>
 </footer>
 
+<!-- AI assistant -->
+<button class="ai-fab" id="aiFab" aria-haspopup="dialog" aria-controls="aiPanel">
+  <span class="ai-fab__dot" aria-hidden="true"></span> Ask AÉRA
+</button>
+<div class="ai-panel" id="aiPanel" role="dialog" aria-modal="true" aria-label="AÉRA AI shopping assistant">
+  <div class="ai-panel__scrim" data-ai-close></div>
+  <div class="ai-panel__card">
+    <div class="ai-panel__head">
+      <div>
+        <h3>AÉRA Product Advisor</h3>
+        <p>AI Sales &amp; Recommendation agent — recommends from the real AÉRA range, compares formulas, builds a routine. Demo, simulated.</p>
+      </div>
+      <button class="ai-panel__close" data-ai-close aria-label="Close assistant">×</button>
+    </div>
+    <div class="ai-panel__body">
+      <iframe id="aiFrame" title="AÉRA AI assistant" loading="lazy" data-src="../agent.html?id=sales&biz=aera&embed=1"></iframe>
+    </div>
+  </div>
+</div>
+
 <script>
+  /* ---------- product catalogue (centralised demo data) ---------- */
+  var AERA_PRODUCTS = [
+    { id:'barrier-serum',    cat:'Treatment', name:'Barrier Serum',      note:'Ceramides + panthenol',        price:68,  img:'prod-barrier-serum.jpg',   flag:'Bestseller' },
+    { id:'milk-cleanser',    cat:'Cleanse',   name:'Milk Cleanser',      note:'Non-stripping, AM/PM',         price:34,  img:'prod-milk-cleanser.jpg',   flag:'' },
+    { id:'weightless-cream', cat:'Hydrate',   name:'Weightless Cream',   note:'Oil-free gel-cream',           price:52,  img:'prod-weightless-cream.jpg',flag:'' },
+    { id:'retinal',          cat:'Night',     name:'Retinal 0.1%',       note:'Encapsulated, low-irritation', price:74,  img:'prod-retinal.jpg',         flag:'' },
+    { id:'mineral-spf',      cat:'Protect',   name:'Mineral SPF 30',     note:'No white cast, reef-safe',     price:40,  img:'prod-mineral-spf.jpg',     flag:'' },
+    { id:'eye-serum',        cat:'Treatment', name:'Eye Recovery Serum', note:'Caffeine + peptide',           price:46,  img:'prod-eye-serum.jpg',       flag:'New' },
+    { id:'exfoliant',        cat:'Weekly',    name:'PHA Exfoliant',      note:'Gentle, no sting',             price:38,  img:'prod-exfoliant.jpg',       flag:'' },
+    { id:'face-oil',         cat:'Night',     name:'Facial Oil No.3',    note:'Squalane + rosehip',           price:56,  img:'prod-face-oil.jpg',        flag:'' },
+    { id:'toner',            cat:'Prep',      name:'Hydrating Essence',   note:'Layer under serum',            price:32,  img:'prod-toner.jpg',           flag:'' },
+    { id:'mask',             cat:'Weekly',    name:'Recovery Mask',       note:'10-minute barrier soak',       price:44,  img:'prod-mask.jpg',            flag:'' },
+    { id:'lip',              cat:'Treatment', name:'Overnight Lip Mask',  note:'Fragrance-free',               price:22,  img:'prod-lip.jpg',             flag:'' },
+    { id:'full-set',         cat:'Ritual',    name:'The Full Set',       note:'Complete 4-step routine',      price:192, img:'prod-full-set.jpg',        flag:'Save 20%' }
+  ];
+
+  var cartCount = 0;
+  var readout = document.getElementById('cartReadout');
+  function addToBag(id){
+    var p = AERA_PRODUCTS.find(function(x){return x.id===id;});
+    if(!p) return;
+    cartCount += 1;
+    readout.textContent = 'Bag (' + cartCount + ')';
+    readout.animate([{transform:'scale(1)'},{transform:'scale(1.12)'},{transform:'scale(1)'}], {duration:220});
+  }
+
+  var grid = document.getElementById('prodGrid');
+  AERA_PRODUCTS.slice(0, 12).forEach(function(p, i){
+    var a = document.createElement('article');
+    a.className = 'prod rv';
+    a.style.transitionDelay = (i % 4 * 0.05) + 's';
+    a.innerHTML =
+      '<div class="prod__vis">' + (p.flag ? '<span class="prod__flag">'+p.flag+'</span>' : '') +
+        '<img src="../assets/demos/aera/'+p.img+'" alt="'+p.name+' — AÉRA" loading="lazy" width="1000" height="1000"></div>' +
+      '<div class="prod__body"><span class="prod__cat">'+p.cat+'</span><h3>'+p.name+'</h3>' +
+      '<p class="prod__note">'+p.note+'</p>' +
+      '<div class="prod__foot"><span class="prod__price">£'+p.price+'</span>' +
+      '<button class="prod__add" data-add="'+p.id+'">Add</button></div></div>';
+    grid.appendChild(a);
+  });
+
+  document.addEventListener('click', function(e){
+    var add = e.target.closest('[data-add]');
+    if(add){ addToBag(add.getAttribute('data-add')); }
+  });
+
+  /* ---------- reveal ---------- */
   (function(){
-    var io = ('IntersectionObserver' in window) && new IntersectionObserver(function(es){
+    var els = document.querySelectorAll('.rv');
+    if(!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion:reduce)').matches){
+      els.forEach(function(el){el.classList.add('in');}); return;
+    }
+    var io = new IntersectionObserver(function(es){
       es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
     }, { threshold:0.12, rootMargin:'0px 0px -8% 0px' });
-    var els = document.querySelectorAll('.rv');
-    if(!io || matchMedia('(prefers-reduced-motion:reduce)').matches){ els.forEach(function(el){el.classList.add('in');}); return; }
     els.forEach(function(el){ io.observe(el); });
+  })();
+
+  /* ---------- AI assistant panel ---------- */
+  (function(){
+    var panel = document.getElementById('aiPanel');
+    var frame = document.getElementById('aiFrame');
+    var loaded = false;
+    function open(){
+      if(!loaded){ frame.src = frame.getAttribute('data-src'); loaded = true; }
+      panel.classList.add('open'); document.body.style.overflow = 'hidden';
+    }
+    function close(){ panel.classList.remove('open'); document.body.style.overflow = ''; }
+    document.getElementById('aiFab').addEventListener('click', open);
+    document.querySelectorAll('[data-ai-open]').forEach(function(b){ b.addEventListener('click', function(e){ e.preventDefault(); open(); }); });
+    document.querySelectorAll('[data-ai-close]').forEach(function(b){ b.addEventListener('click', close); });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
   })();
 </script>
 </body>

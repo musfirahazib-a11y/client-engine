@@ -17,7 +17,11 @@ const D = (n) => {
   return d.toISOString().slice(0, 10);
 };
 
-export const ORDERS = [
+import { getBusinessId } from '../js/services/scope.js';
+import { ORDERS as AERA_ORDERS } from './businesses/aera.js';
+import { ORDERS as NOCTURNE_ORDERS } from './businesses/nocturne.js';
+
+const GENERIC_ORDERS = [
   {
     orderId: 'ML-10482',
     customerName: 'Jordan Avery',
@@ -238,5 +242,8 @@ export const ORDERS = [
     fulfillmentStatus: 'Unfulfilled',
   },
 ];
+
+const BY_BIZ = { aera: AERA_ORDERS, nocturne: NOCTURNE_ORDERS };
+export const ORDERS = BY_BIZ[getBusinessId()] || GENERIC_ORDERS;
 
 export default ORDERS;

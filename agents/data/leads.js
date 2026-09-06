@@ -13,7 +13,10 @@
              | '1-3 months' | '3-6 months' | 'researching'
    needStrength: 'clear' | 'good' | 'vague' | 'researching'
 =========================================================== */
-export const LEADS = [
+import { getBusinessId } from '../js/services/scope.js';
+import { LEADS as MERIDIAN_LEADS } from './businesses/meridian.js';
+
+const GENERIC_LEADS = [
   {
     leadId: 'LEAD-10482',
     name: 'Sarah Ahmed',
@@ -262,5 +265,8 @@ export const LEADS = [
     appointmentStatus: 'none',
   },
 ];
+
+const BY_BIZ = { meridian: MERIDIAN_LEADS };
+export const LEADS = BY_BIZ[getBusinessId()] || GENERIC_LEADS;
 
 export default LEADS;

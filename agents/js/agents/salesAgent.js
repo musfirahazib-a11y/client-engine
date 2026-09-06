@@ -16,6 +16,9 @@
 =========================================================== */
 import { createAgent } from './baseAgent.js';
 import * as productRepo from '../repositories/productRepo.js';
+import { getCurrency } from '../services/scope.js';
+
+const CUR = getCurrency();
 
 /* ---------- parsing helpers ---------- */
 
@@ -116,7 +119,7 @@ function reasonFor(product, ctx) {
     bits.push(`works for ${ctx.occasion}`);
   }
   if (ctx.maxPrice != null && product.price <= ctx.maxPrice) {
-    bits.push(`under your $${ctx.maxPrice} budget at $${product.price}`);
+    bits.push(`under your ${CUR}${ctx.maxPrice} budget at ${CUR}${product.price}`);
   }
   const styleHit = (ctx.styles || []).find((s) => (product.style || []).includes(s));
   if (styleHit) bits.push(`matches the ${styleHit} look you mentioned`);
@@ -130,9 +133,9 @@ function contextLine(ctx) {
   if (ctx.recipient && ctx.recipient !== 'myself') parts.push(`for your ${ctx.recipient}`);
   if (ctx.recipient === 'myself') parts.push('for yourself');
   if (ctx.occasion) parts.push(ctx.occasion);
-  if (ctx.minPrice != null && ctx.maxPrice != null) parts.push(`$${ctx.minPrice}–$${ctx.maxPrice}`);
-  else if (ctx.maxPrice != null) parts.push(`under $${ctx.maxPrice}`);
-  else if (ctx.minPrice != null) parts.push(`over $${ctx.minPrice}`);
+  if (ctx.minPrice != null && ctx.maxPrice != null) parts.push(`${CUR}${ctx.minPrice}–${CUR}${ctx.maxPrice}`);
+  else if (ctx.maxPrice != null) parts.push(`under ${CUR}${ctx.maxPrice}`);
+  else if (ctx.minPrice != null) parts.push(`over ${CUR}${ctx.minPrice}`);
   if (ctx.styles && ctx.styles.length) parts.push(ctx.styles.join(' / '));
   return parts.join(', ');
 }
@@ -363,14 +366,14 @@ const intents = [
 
       if (!results.length) {
         return {
-          text: `The demo catalog does not go much below $${Math.round(ceiling)} for this kind of thing. ` +
+          text: `The demo catalog does not go much below ${CUR}${Math.round(ceiling)} for this kind of thing. ` +
                 `Happy to show a different category if that helps.`,
           quickReplies: ['Show me candles / home', 'Show me accessories', 'That is fine'],
         };
       }
       ctx.lastShown = results.map((p) => p.id);
       return {
-        text: `Here are more budget-friendly picks, all under $${Math.round(ceiling)}:`,
+        text: `Here are more budget-friendly picks, all under ${CUR}${Math.round(ceiling)}:`,
         cards: results.map((p) => ({ product: p, reason: reasonFor(p, ctx) })),
         quickReplies: ['Compare these', 'Add the first one', 'Back to the pricier ones'],
       };
@@ -438,8 +441,8 @@ const intents = [
       const o = detectOccasion(text); if (o) ctx.occasion = o;
       const s = detectStyles(text); if (s.length) ctx.styles = [...new Set([...ctx.styles, ...s])];
       const ack = ctx.minPrice != null && ctx.maxPrice != null
-        ? `$${ctx.minPrice}–$${ctx.maxPrice}, noted.`
-        : ctx.maxPrice != null ? `Under $${ctx.maxPrice}, noted.` : `Over $${ctx.minPrice}, noted.`;
+        ? `${CUR}${ctx.minPrice}–${CUR}${ctx.maxPrice}, noted.`
+        : ctx.maxPrice != null ? `Under ${CUR}${ctx.maxPrice}, noted.` : `Over ${CUR}${ctx.minPrice}, noted.`;
       return progress(text, ctx, ack);
     },
   },

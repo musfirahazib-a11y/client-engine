@@ -12,7 +12,11 @@
 /* hours ago -> ISO timestamp */
 const H = (hours) => new Date(Date.now() - hours * 3600000).toISOString();
 
-export const ABANDONED_CARTS = [
+import { getBusinessId } from '../js/services/scope.js';
+import { ABANDONED_CARTS as AERA_CARTS } from './businesses/aera.js';
+import { ABANDONED_CARTS as NOCTURNE_CARTS } from './businesses/nocturne.js';
+
+const GENERIC_CARTS = [
   {
     cartId: 'CART-10482',
     customerId: 'CUS-3201',
@@ -223,5 +227,8 @@ export const ABANDONED_CARTS = [
     recommendedAction: 'no incentive',
   },
 ];
+
+const BY_BIZ = { aera: AERA_CARTS, nocturne: NOCTURNE_CARTS };
+export const ABANDONED_CARTS = BY_BIZ[getBusinessId()] || GENERIC_CARTS;
 
 export default ABANDONED_CARTS;
