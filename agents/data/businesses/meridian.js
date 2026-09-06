@@ -70,6 +70,7 @@ export const LEADS = [
 export const SLOT_CONFIG = {
   services: ['Private Viewing', 'Second Viewing', 'Valuation Appointment', 'Buyer Consultation'],
   staff: ['Marcus Idowu', 'Elena Fournier', 'Daniel Roche'],
+  timezone: 'GMT (London)',
 };
 
 export const FAQS = [

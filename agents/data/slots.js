@@ -30,6 +30,7 @@ const SERVICES = _cfg?.services || [
 ];
 
 const STAFF = _cfg?.staff || ['Misbah Azib', 'Alina Raza', 'Omar Sheikh'];
+const TZ = _cfg?.timezone || 'PKT (GMT+5)';
 
 function build() {
   const out = [];
@@ -54,7 +55,7 @@ function build() {
         service: SERVICES[(n + i) % SERVICES.length],
         staffMember: STAFF[n % STAFF.length],
         available: true,
-        timezone: 'PKT (GMT+5)',
+        timezone: TZ,
       });
       n += 1;
     });

@@ -9,9 +9,11 @@
    never hard-code a score. No network calls.
 =========================================================== */
 import { LEADS } from '../../data/leads.js';
+import { getCurrency } from '../services/scope.js';
 import { bus } from '../core/events.js';
 
 const KEY = 'ml.agents.leads';
+const CUR = getCurrency();
 
 /* service -> typical starting budget used for the Budget factor */
 const SERVICE_MIN = {
@@ -82,16 +84,18 @@ export function serviceKey(service) {
 
 export function normalizeBudget(raw) {
   if (raw == null) return { amount: null, label: 'not stated' };
-  if (typeof raw === 'number') return { amount: raw, label: `$${raw.toLocaleString()}` };
+  if (typeof raw === 'number') return { amount: raw, label: `${CUR}${raw.toLocaleString()}` };
   const s = String(raw).toLowerCase().trim();
   if (/flex|open|whatever|no limit|not fixed/.test(s)) return { amount: null, label: 'flexible' };
   if (/don'?t know|not sure|no idea|unsure|tbd|not decided/.test(s)) return { amount: null, label: 'not stated' };
+  const mil = s.match(/(\d+(?:\.\d+)?)\s*(?:m\b|mn\b|million)/);
+  if (mil) { const a = Math.round(parseFloat(mil[1]) * 1e6); return { amount: a, label: `${CUR}${a.toLocaleString()}` }; }
   const k = s.match(/(\d+(?:\.\d+)?)\s*k\b/);
-  if (k) { const a = Math.round(parseFloat(k[1]) * 1000); return { amount: a, label: `$${a.toLocaleString()}` }; }
+  if (k) { const a = Math.round(parseFloat(k[1]) * 1000); return { amount: a, label: `${CUR}${a.toLocaleString()}` }; }
   const range = s.replace(/,/g, '').match(/\$?\s*(\d{2,6})\s*(?:-|–|to)\s*\$?\s*(\d{2,6})/);
-  if (range) { const a = Math.round((+range[1] + +range[2]) / 2); return { amount: a, label: `$${(+range[1]).toLocaleString()}–$${(+range[2]).toLocaleString()}` }; }
+  if (range) { const a = Math.round((+range[1] + +range[2]) / 2); return { amount: a, label: `${CUR}${(+range[1]).toLocaleString()}–${CUR}${(+range[2]).toLocaleString()}` }; }
   const n = s.replace(/,/g, '').match(/\$?\s*(\d{2,6})/);
-  if (n) { const a = +n[1]; return { amount: a, label: `$${a.toLocaleString()}` }; }
+  if (n) { const a = +n[1]; return { amount: a, label: `${CUR}${a.toLocaleString()}` }; }
   return { amount: null, label: 'not stated' };
 }
 

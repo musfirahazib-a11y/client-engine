@@ -7,7 +7,7 @@
    OrderCard / RecoveryCard. Every button calls onAction(phrase),
    fed back into the chat by agent.entry.
 =========================================================== */
-import { el, money } from '../core/dom.js';
+import { el, money, money0 } from '../core/dom.js';
 import { fmtTime, fmtDate } from '../repositories/slotRepo.js';
 
 const TEMP = {
@@ -32,7 +32,7 @@ function thumb(glyph, accent) {
 }
 
 function budgetLabel(lead) {
-  if (typeof lead.budget === 'number') return money(lead.budget);
+  if (typeof lead.budget === 'number') return money0(lead.budget);
   if (typeof lead.budget === 'string') return lead.budget;
   return 'not stated';
 }
@@ -209,7 +209,7 @@ export function renderBookingCard(booking, slot, opts = {}) {
 /** renderLeadMetrics(m) */
 export function renderLeadMetrics(m) {
   if (!m) return el('p', { class: 'ml-cmp__empty' }, 'No metrics available.');
-  const usd0 = (n) => `$${Math.round(Number(n) || 0).toLocaleString()}`;
+  const usd0 = (n) => money0(n);
   const tiles = [
     ['Total leads', String(m.totalLeads)],
     ['Hot', String(m.hot)],

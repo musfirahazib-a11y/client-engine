@@ -73,3 +73,9 @@ export function money(amount) {
   const n = Number(amount) || 0;
   return `${CURRENCY}${n.toFixed(2)}`;
 }
+
+/** Whole-number currency with thousands separators, e.g. 3500000 -> "£3,500,000" */
+export function money0(amount) {
+  const n = Math.round(Number(amount) || 0);
+  return `${CURRENCY}${n.toLocaleString()}`;
+}
